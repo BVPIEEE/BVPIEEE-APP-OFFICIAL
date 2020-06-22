@@ -1,6 +1,5 @@
 package com.bvpieee;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,16 +8,14 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.ArrayList;
 
 public class CoverFlowAdapter extends BaseAdapter {
 
     private ArrayList<Chapter> data;
-    private AppCompatActivity activity;
+    private Context activity;
 
-    public CoverFlowAdapter(AppCompatActivity context, ArrayList<Chapter> objects) {
+    public CoverFlowAdapter(Context context, ArrayList<Chapter> objects) {
         this.activity = context;
         this.data = objects;
     }
