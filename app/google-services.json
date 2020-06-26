@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "992504611586",
+    "firebase_url": "https://bvpieee-app-official.firebaseio.com",
+    "project_id": "bvpieee-app-official",
+    "storage_bucket": "bvpieee-app-official.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:992504611586:android:1648c5fc6d78960235781b",
+        "android_client_info": {
+          "package_name": "com.bvpieee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "992504611586-eu34jmqg0pa2sgi1gvkr51jfd04pt9a3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_VOpLgXkhRW8cD7h2LN-HcmParcF5Wrs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "992504611586-eu34jmqg0pa2sgi1gvkr51jfd04pt9a3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
