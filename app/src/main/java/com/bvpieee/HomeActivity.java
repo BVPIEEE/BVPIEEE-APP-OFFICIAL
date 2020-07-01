@@ -3,11 +3,13 @@ package com.bvpieee;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.bvpieee.ui.events.EventsFragment;
 import com.bvpieee.ui.home.HomeFragment;
 import com.bvpieee.ui.teams.TeamsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +24,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
     Fragment homefrag = new HomeFragment(this);
     Fragment eventfrag = new EventsFragment();
     Fragment teamsfrag = new TeamsFragment();
+    FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,13 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(this);
+        fab = findViewById(R.id.fab_home);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadFragments(homefrag);
+            }
+        });
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
 //        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
@@ -39,6 +49,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
 //        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 //        NavigationUI.setupWithNavController(navView, navController);
 
+
         loadFragments(homefrag);
     }
 
@@ -47,9 +58,6 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         Fragment fragment = null;
 
         switch (menuItem.getItemId()){
-            case R.id.navigation_home:
-                fragment = homefrag;
-                break;
             case R.id.navigation_events:
                 fragment = eventfrag;
                 break;
