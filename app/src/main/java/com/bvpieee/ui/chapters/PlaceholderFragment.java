@@ -20,28 +20,12 @@ import com.bvpieee.R;
  */
 public class PlaceholderFragment extends Fragment {
 
-    private static final String ARG_SECTION_NUMBER = "section_number";
+    private int position;
     private ImageView imageView;
+    private int[] imageResource = {R.drawable.raspp, R.drawable.iaspp, R.drawable.cspp, R.drawable.wiepp, R.drawable.hknpp};
 
-    private PageViewModel pageViewModel;
-
-    public static PlaceholderFragment newInstance(int index) {
-        PlaceholderFragment fragment = new PlaceholderFragment();
-        Bundle bundle = new Bundle();
-        bundle.putInt(ARG_SECTION_NUMBER, index);
-        fragment.setArguments(bundle);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        pageViewModel = new ViewModelProvider(this).get(PageViewModel.class);
-        int index = 1;
-        if (getArguments() != null) {
-            index = getArguments().getInt(ARG_SECTION_NUMBER);
-        }
-        pageViewModel.setIndex(index);
+    public PlaceholderFragment(int position) {
+        this.position = position;
     }
 
     @Override
@@ -51,14 +35,8 @@ public class PlaceholderFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_chapter, container, false);
 
         imageView = root.findViewById(R.id.chapterBanner);
-        imageView.setImageResource(pageViewModel.setImage());
-//        final TextView textView = root.findViewById(R.id.section_label);
-//        pageViewModel.getText().observe(this, new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }
-//        });
+        imageView.setImageResource(imageResource[position]);
+
         return root;
     }
 }
