@@ -1,7 +1,6 @@
-package com.bvpieee;
+package com.bvpieee.adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,12 +8,15 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bvpieee.Chapter;
+import com.bvpieee.R;
+
 import java.util.ArrayList;
 
 public class CoverFlowAdapter extends BaseAdapter {
 
     private ArrayList<Chapter> data;
-    public Context activity;
+    private Context activity;
 
     public CoverFlowAdapter(Context context, ArrayList<Chapter> objects) {
         this.activity = context;
@@ -54,21 +56,30 @@ public class CoverFlowAdapter extends BaseAdapter {
         viewHolder.gameImage.setImageResource(data.get(position).getImageSource());
         viewHolder.gameName.setText(data.get(position).getName());
 
-        convertView.setOnClickListener(onClickListener(position));
+//        convertView.setOnClickListener(onClickListener(position));
 
         return convertView;
     }
 
-    private View.OnClickListener onClickListener(final int position) {
-        return new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                activity.startActivity(new Intent(activity,ChapterActivity.class));
-            }
-        };
-    }
+//    private View.OnClickListener onClickListener(final int position) {
+//        return new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                final Dialog dialog = new Dialog(activity);
+//                dialog.setContentView(R.layout.dialog_game_info);
+//                dialog.setCancelable(true); // dimiss when touching outside
+//                dialog.setTitle("Game Details");
+//
+//                TextView text = (TextView) dialog.findViewById(R.id.name);
+//                text.setText(getItem(position).getName());
+//                ImageView image = (ImageView) dialog.findViewById(R.id.image);
+//                image.setImageResource(getItem(position).getImageSource());
+//
+//                dialog.show();
+//            }
+//        };
+//    }
 
 
     private static class ViewHolder {
