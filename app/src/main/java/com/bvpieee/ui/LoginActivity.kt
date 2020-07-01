@@ -2,6 +2,7 @@ package com.bvpieee.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.bvpieee.HomeActivity
 import com.bvpieee.R
@@ -44,11 +45,12 @@ class LoginActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode == RC_SIGN_IN){
             val task =GoogleSignIn.getSignedInAccountFromIntent(data)
+            progressBar.visibility = View.VISIBLE
             try {
                 val account = task.getResult(ApiException::class.java)
                 firebaseAuthWithGoogle(account!!)
             }catch (e:Exception){
-                toast("Google SignIn Failed")
+                progressBar.visibility = View.INVISIBLE
             }
         }
     }
@@ -57,12 +59,13 @@ class LoginActivity : AppCompatActivity() {
         firebaseAuth.signInWithCredential(credential)
             .addOnCompleteListener { task ->
                 if(task.isSuccessful){
+                    progressBar.visibility = View.VISIBLE
                     SavedPreference.setEmail(this, account.email.toString())
                     SavedPreference.setUsername(this, account.displayName.toString())
                     startActivity(Intent(this, HomeActivity::class.java))
                     finish()
                 }
-                else snackbar(findViewById(R.id.googleSign),"Authentication Failed")
+                else snackbar(findViewById(R.id.googleSign),"Authentication Failed"); progressBar.visibility = View.INVISIBLE
             }
     }
 
