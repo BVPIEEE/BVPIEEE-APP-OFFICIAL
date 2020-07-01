@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "992504611586-vitvuhj98ungrtfr4povp0ct1q4oj9hs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bvpieee",
+            "certificate_hash": "922a4222d1790cd2aae5e3685fae6cecc43d9e7b"
+          }
+        },
+        {
           "client_id": "992504611586-eu34jmqg0pa2sgi1gvkr51jfd04pt9a3.apps.googleusercontent.com",
           "client_type": 3
         }

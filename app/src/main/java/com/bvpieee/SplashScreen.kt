@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import com.bvpieee.ui.LoginActivity
 import kotlinx.android.synthetic.main.activity_splash_screen.*
 
 class SplashScreen : AppCompatActivity() {
@@ -17,7 +18,7 @@ class SplashScreen : AppCompatActivity() {
         avi.show()
         Handler().postDelayed(
             {
-               val intent=Intent(this,HomeActivity::class.java)
+               val intent=Intent(this,LoginActivity::class.java)
                 startActivity(intent)
                 finish()
             }, TimeSplash
