@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     xmlns:coverflow="http://schemas.android.com/apk/res-auto"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
-    tools:context=".MainActivity">
+    tools:context=".HomeActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -23,8 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="2dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="5dp"
             android:text="Chapters"
             android:textAllCaps="true"
             android:textColor="#000000"
@@ -32,6 +31,7 @@
 
         <it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow
             android:id="@+id/chapterCoverflow"
+            android:nestedScrollingEnabled="true"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_below="@id/divider"
@@ -67,10 +67,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SIGs"
-            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="5dp"
             android:textAllCaps="true"
             android:textColor="#000000"
-            android:layout_marginTop="40dp"
             android:textSize="24sp" />
 
         <View
@@ -109,7 +110,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="UPCOMING EVENT"
-            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="5dp"
             android:textAllCaps="true"
             android:textColor="#000000"
             android:layout_marginTop="40dp"

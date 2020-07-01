@@ -14,7 +14,7 @@
             android:label="@string/title_activity_chapter"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".HomeActivity" />
-        <activity android:name=".ui.LoginActivity"/>
+        <activity android:name=".LoginActivity"/>
         <activity android:name=".SplashScreen"
             android:theme="@style/SplashTheme">
             <intent-filter>

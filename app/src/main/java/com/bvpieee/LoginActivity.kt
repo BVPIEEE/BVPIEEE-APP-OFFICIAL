@@ -1,14 +1,11 @@
-package com.bvpieee.ui
+package com.bvpieee
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.bvpieee.HomeActivity
-import com.bvpieee.R
 import com.bvpieee.models.SavedPreference
 import com.bvpieee.utils.snackbar
-import com.bvpieee.utils.toast
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient

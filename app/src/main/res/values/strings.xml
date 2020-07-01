@@ -5,6 +5,9 @@
     <string name="title_events">Events</string>
     <string name="title_team">Team</string>
     <string name="title_activity_chapter">ChapterActivity</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_1">RAS</string>
+    <string name="tab_text_2">IAS</string>
+    <string name="tab_text_3">CS</string>
+    <string name="tab_text_4">WIE</string>
+    <string name="tab_text_5">HKN</string>
 </resources>

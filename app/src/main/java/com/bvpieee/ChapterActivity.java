@@ -1,21 +1,19 @@
 package com.bvpieee;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-
-import com.bvpieee.ui.main.SectionsPagerAdapter;
+import com.bvpieee.ui.chapters.SectionsPagerAdapter;
 
 public class ChapterActivity extends AppCompatActivity {
+
+    public static final String CHAPTER = "ChapterNumber";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,5 +26,10 @@ public class ChapterActivity extends AppCompatActivity {
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
+
+        Intent intent = getIntent();
+        int chapno = intent.getIntExtra(CHAPTER,0);
+        Toast.makeText(this, chapno+"", Toast.LENGTH_SHORT).show();
+        viewPager.setCurrentItem(chapno);
     }
 }

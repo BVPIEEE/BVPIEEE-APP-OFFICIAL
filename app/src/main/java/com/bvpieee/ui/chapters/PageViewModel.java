@@ -1,10 +1,12 @@
-package com.bvpieee.ui.main;
+package com.bvpieee.ui.chapters;
 
 import androidx.arch.core.util.Function;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Transformations;
 import androidx.lifecycle.ViewModel;
+
+import com.bvpieee.R;
 
 public class PageViewModel extends ViewModel {
 
@@ -22,5 +24,15 @@ public class PageViewModel extends ViewModel {
 
     public LiveData<String> getText() {
         return mText;
+    }
+
+    public int setImage(){
+        if (mIndex.equals(0)){
+            return R.drawable.raspp;
+        }
+        else if (mIndex.equals(1)){
+            return R.drawable.cspp;
+        }
+        return R.drawable.raspp;
     }
 }
