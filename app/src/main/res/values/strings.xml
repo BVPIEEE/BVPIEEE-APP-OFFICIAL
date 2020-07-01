@@ -10,4 +10,12 @@
     <string name="tab_text_3">CS</string>
     <string name="tab_text_4">WIE</string>
     <string name="tab_text_5">HKN</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="team_tab_core">CORE TEAMS</string>
+    <string name="team_tab_chaps">CHAPTER TEAMS</string>
+    <string name="team_tab_sig">SIG TEAM</string>
+    <string name="team_tab_auxi">AUXILLARY TEAM</string>
+
+
+
 </resources>
