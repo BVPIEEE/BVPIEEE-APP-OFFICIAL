@@ -8,7 +8,7 @@ import kotlinx.android.synthetic.main.activity_splash_screen.*
 
 class SplashScreen : AppCompatActivity() {
 
-    private val TimeSplash:Long=5000
+    private val TimeSplash:Long=2000
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

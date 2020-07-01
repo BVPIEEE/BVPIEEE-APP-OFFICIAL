@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,14 +10,22 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/chaptersLayout">
+
         <TextView
             android:id="@+id/chaptersHeading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
             android:text="Chapters"
-            android:layout_margin="10dp"
             android:textAllCaps="true"
             android:textColor="#000000"
             android:textSize="24sp" />
@@ -38,10 +46,11 @@
 
         <View
             android:id="@+id/divider"
-            android:layout_width="match_parent"
+            android:layout_width="200dp"
+            android:layout_alignStart="@id/chaptersHeading"
             android:layout_height="1dp"
             android:layout_below="@id/chaptersHeading"
-            android:layout_marginTop="5dp"
+            android:layout_marginEnd="-281dp"
             android:layout_marginBottom="5dp"
             android:background="?android:attr/listDivider" />
 
@@ -66,10 +75,10 @@
 
         <View
             android:id="@+id/divider2"
-            android:layout_width="match_parent"
+            android:layout_width="200dp"
+            android:layout_alignStart="@id/sigsHeading"
             android:layout_height="1dp"
             android:layout_below="@id/sigsHeading"
-            android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:background="?android:attr/listDivider" />
 
@@ -89,4 +98,56 @@
 
     </RelativeLayout>
 
-</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sigsLayout"
+        android:id="@+id/upcomingEventLayout">
+
+        <TextView
+            android:id="@+id/upcomingHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UPCOMING EVENT"
+            android:layout_margin="10dp"
+            android:textAllCaps="true"
+            android:textColor="#000000"
+            android:layout_marginTop="40dp"
+            android:textSize="24sp" />
+
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="200dp"
+            android:layout_alignStart="@id/upcomingHeading"
+            android:layout_height="1dp"
+            android:layout_below="@id/upcomingHeading"
+            android:layout_marginBottom="5dp"
+            android:background="?android:attr/listDivider" />
+
+        <com.wajahatkarim3.easyflipview.EasyFlipView
+            android:id="@+id/easyflip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider3"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="5dp"
+            android:isScrollContainer="true"
+            app:flipDuration="400"
+            app:flipEnabled="true"
+            app:flipFrom="front"
+            app:flipOnTouch="true"
+            app:flipType="vertical">
+
+            <!-- Back Layout Goes Here -->
+            <include layout="@layout/flash_card_layout_back" />
+
+            <!-- Front Layout Goes Here -->
+            <include layout="@layout/flash_card_layout_front" />
+
+        </com.wajahatkarim3.easyflipview.EasyFlipView>
+
+    </RelativeLayout>
+
+    </RelativeLayout>
+
+</ScrollView>
