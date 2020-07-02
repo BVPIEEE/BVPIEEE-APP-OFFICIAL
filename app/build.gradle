@@ -70,4 +70,6 @@ dependencies {
     implementation 'com.github.saeed-younus:finite-cover-flow:1.0.1'
     //ViewPager2
     implementation 'androidx.viewpager2:viewpager2:1.0.0-beta04'
+    //MaterialShadows
+    implementation 'com.sdsmdg.harjot:materialshadows:1.2.5'
 }

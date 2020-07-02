@@ -4,12 +4,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -24,7 +26,8 @@ public class PlaceholderFragment extends Fragment {
     private int position;
     private ImageView imageView;
     private TextView title;
-    private RelativeLayout social, white, socialExpanded;
+    private CardView social, socialExpanded;
+    private Button close;
     private int[] imageResource = {R.drawable.raspp, R.drawable.iaspp, R.drawable.cspp, R.drawable.wiepp, R.drawable.hknpp};
     private String[] titles = {"RAS", "IAS", "CS", "WIE", "HKN"};
 
@@ -42,6 +45,7 @@ public class PlaceholderFragment extends Fragment {
         title = root.findViewById(R.id.textView2);
         social = root.findViewById(R.id.socialLayout);
         socialExpanded = root.findViewById(R.id.socialLayoutExpanded);
+        close = root.findViewById(R.id.close);
 //        white = root.findViewById(R.id.whiteBack);
 
         title.setText(titles[position]);
@@ -51,6 +55,12 @@ public class PlaceholderFragment extends Fragment {
             public void onClick(View v) {
 //                white.setVisibility(View.VISIBLE);
                 socialExpanded.setVisibility(View.VISIBLE);
+                close.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        socialExpanded.setVisibility(View.GONE);
+                    }
+                });
             }
         });
 
