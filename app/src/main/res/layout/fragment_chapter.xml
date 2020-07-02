@@ -14,12 +14,75 @@
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/cspp" />
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/chapterDeatilsLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/chapterBanner"
         android:layout_marginTop="-40dp"
         android:background="@drawable/ic_curved_rect"
-        android:orientation="vertical"></LinearLayout>
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="25dp"
+            android:text="CHAPTER TITLE"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/aboutLayout"
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            android:background="@drawable/ic_green_rect"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_below="@id/textView2"
+            android:layout_marginEnd="20dp"/>
+
+        <RelativeLayout
+            android:id="@+id/eventsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            android:background="@drawable/ic_blue_rect"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_below="@id/aboutLayout"
+            android:layout_marginEnd="20dp"/>
+        <RelativeLayout
+            android:id="@+id/teamLayout"
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            android:background="@drawable/ic_peach_rect"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_below="@id/eventsLayout"
+            android:layout_marginEnd="20dp"/>
+        <RelativeLayout
+            android:id="@+id/socialLayout"
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            android:background="@drawable/ic_red_rect"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_below="@id/teamLayout"
+            android:layout_marginEnd="20dp"/>
+
+        <RelativeLayout
+            android:id="@+id/socialLayoutExpanded"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/ic_red_rect_expanded"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_alignBottom="@id/socialLayout"
+            android:layout_marginEnd="20dp"
+            android:visibility="gone"/>
+
+
+    </RelativeLayout>
 </RelativeLayout>

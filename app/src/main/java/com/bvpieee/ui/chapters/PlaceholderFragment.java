@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -22,7 +23,10 @@ public class PlaceholderFragment extends Fragment {
 
     private int position;
     private ImageView imageView;
+    private TextView title;
+    private RelativeLayout social, white, socialExpanded;
     private int[] imageResource = {R.drawable.raspp, R.drawable.iaspp, R.drawable.cspp, R.drawable.wiepp, R.drawable.hknpp};
+    private String[] titles = {"RAS", "IAS", "CS", "WIE", "HKN"};
 
     public PlaceholderFragment(int position) {
         this.position = position;
@@ -35,7 +39,20 @@ public class PlaceholderFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_chapter, container, false);
 
         imageView = root.findViewById(R.id.chapterBanner);
+        title = root.findViewById(R.id.textView2);
+        social = root.findViewById(R.id.socialLayout);
+        socialExpanded = root.findViewById(R.id.socialLayoutExpanded);
+//        white = root.findViewById(R.id.whiteBack);
+
+        title.setText(titles[position]);
         imageView.setImageResource(imageResource[position]);
+        social.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                white.setVisibility(View.VISIBLE);
+                socialExpanded.setVisibility(View.VISIBLE);
+            }
+        });
 
         return root;
     }
