@@ -15,6 +15,9 @@
     <string name="team_tab_chaps">CHAPTER TEAMS</string>
     <string name="team_tab_sig">SIG TEAM</string>
     <string name="team_tab_auxi">AUXILLARY TEAM</string>
+    <string name="bvpieee_image">Bvpieee image</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lottieanimation">LottieAnimation</string>
 
 
 </resources>

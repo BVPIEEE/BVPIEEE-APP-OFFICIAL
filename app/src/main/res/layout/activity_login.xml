@@ -10,7 +10,7 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:contentDescription="Bvpieee image"
+        android:contentDescription="@string/bvpieee_image"
         android:src="@drawable/bvpieee" />
 
     <com.google.android.material.card.MaterialCardView
