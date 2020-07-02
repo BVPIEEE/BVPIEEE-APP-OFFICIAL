@@ -1,6 +1,8 @@
 package com.bvpieee;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,6 +27,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
     Fragment eventfrag = new EventsFragment();
     Fragment teamsfrag = new TeamsFragment();
     FloatingActionButton fab;
+    private static int SPLASH_SCREEN_TIME_OUT=3000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +65,20 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
                 fragment = eventfrag;
                 break;
             case R.id.navigation_teams:
+//                new Handler().postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        Intent i=new Intent(HomeActivity.this,
+//                                LotteSplashActivity.class);
+//                        //Intent is used to switch from one activity to another.
+//                        startActivity(i);
+//                        //invoke the SecondActivity.
+//                        finish();
+//                        //the current activity will get finished.
+//                    }
+//                }, SPLASH_SCREEN_TIME_OUT);
+                Intent intent=new Intent(HomeActivity.this,LotteSplashActivity.class);
+                startActivity(intent);
                 fragment = teamsfrag;
                 break;
         }
