@@ -11,6 +11,11 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/Logo_HeightFor_Teams_Tab"
+            android:src="@drawable/bvpieee"/>
+
 <!--        <TextView-->
 <!--            android:layout_margin="20dp"-->
 <!--            android:id="@+id/text_notifications"-->
