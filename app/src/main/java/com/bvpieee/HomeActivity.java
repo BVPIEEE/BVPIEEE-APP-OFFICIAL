@@ -25,7 +25,7 @@ import androidx.navigation.ui.NavigationUI;
 
 public class HomeActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
-    Fragment homefrag = new HomeFragment(this);
+    Fragment homefrag = new HomeFragment();
     Fragment eventfrag = new EventsFragment();
     Fragment teamsfrag = new TeamsFragment();
     Fragment lottiefrag = new LottieFragment();

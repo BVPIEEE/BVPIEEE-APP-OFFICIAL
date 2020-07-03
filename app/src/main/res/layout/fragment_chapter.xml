@@ -12,7 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="220dp"
         android:scaleType="centerCrop"
-        app:srcCompat="@drawable/cspp" />
+        app:srcCompat="@drawable/cspp"
+        android:contentDescription="@string/background" />
 
     <RelativeLayout
         android:id="@+id/chapterDeatilsLayout"
@@ -95,7 +96,7 @@
             android:layout_height="70dp"
             android:layout_marginTop="30dp"
             android:layout_marginStart="25dp"
-            app:cardCornerRadius="12dp"
+            app:cardCornerRadius="15dp"
             app:cardElevation="10dp"
             android:padding="10dp"
             app:cardBackgroundColor="@android:color/transparent"
@@ -111,10 +112,11 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="15dp"
-                    android:text="Social Media Handles"
+                    android:text="@string/social_media_handles"
                     android:textColor="@color/white"
                     android:textSize="24sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="RelativeOverlap" />
 
                 <com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper
                     android:layout_width="wrap_content"

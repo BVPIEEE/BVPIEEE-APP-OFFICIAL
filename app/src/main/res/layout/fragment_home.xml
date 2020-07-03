@@ -31,8 +31,8 @@
 
         <it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow
             android:id="@+id/chapterCoverflow"
-            android:nestedScrollingEnabled="true"
             android:layout_width="match_parent"
+            android:nestedScrollingEnabled="true"
             android:layout_height="200dp"
             android:layout_below="@id/divider"
             android:visibility="visible"
@@ -88,6 +88,7 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_below="@id/divider2"
+            android:nestedScrollingEnabled="true"
             android:visibility="visible"
             coverflow:coverHeight="100dp"
             coverflow:coverWidth="150dp"

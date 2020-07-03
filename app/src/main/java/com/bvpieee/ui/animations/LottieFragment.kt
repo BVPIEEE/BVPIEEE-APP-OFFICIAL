@@ -1,5 +1,6 @@
 package com.bvpieee.ui.animations
 
+import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import androidx.fragment.app.Fragment
@@ -13,6 +14,7 @@ import com.bvpieee.ui.teams.TeamsFragment
 class LottieFragment : Fragment() {
 
     val teamFrag = TeamsFragment()
+    lateinit var mCtx:Context
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,15 +28,19 @@ class LottieFragment : Fragment() {
 
         val handler = Handler()
         val x = Runnable {
-            requireActivity().supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.fragmentContainer,teamFrag)
-                .addToBackStack(null)
-                .commit()
+            activity?.supportFragmentManager
+                ?.beginTransaction()
+                ?.replace(R.id.fragmentContainer,teamFrag)
+                ?.commit()
         }
         handler.postDelayed(x, 2000)
 
         return view
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        mCtx = context
     }
 
 }

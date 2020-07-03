@@ -18,6 +18,8 @@
     <string name="bvpieee_image">Bvpieee image</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="lottieanimation">LottieAnimation</string>
+    <string name="social_media_handles">Social Media Handles</string>
+    <string name="background">Background</string>
 
 
 </resources>

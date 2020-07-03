@@ -24,9 +24,14 @@ class ChapterPagerAdapter : RecyclerView.Adapter<ChapterPagerAdapter.RecyclerVie
 
     override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
         holder.bind(position)
+        holder.image.setOnClickListener {
+            TODO("Sajal Yha pe implement krdio click")
+        }
     }
 
     inner class RecyclerViewHolder(val item: View) : RecyclerView.ViewHolder(item) {
+
+        val image: ImageView = item.findViewById(R.id.image)
 
         fun bind(position: Int) {
             val image = item.findViewById<ImageView>(R.id.image)

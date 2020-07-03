@@ -1,5 +1,8 @@
 package com.bvpieee.ui.home;
 
+import android.app.Activity;
+import android.app.Application;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -25,12 +28,8 @@ public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
     private CoverFlowAdapter adapter, sigsAdapter;
     private ArrayList chapters, sigs;
-    private HomeActivity activity;
+    private Context context;
     BottomNavigationView bottomNavigationView;
-
-    public HomeFragment(HomeActivity homeActivity) {
-        this.activity = homeActivity;
-    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -47,7 +46,7 @@ public class HomeFragment extends Fragment {
         FeatureCoverFlow coverFlow = null;
         coverFlow = root.findViewById(R.id.chapterCoverflow);
         initalizeCoverFlow();
-        adapter = new CoverFlowAdapter(activity, chapters);
+        adapter = new CoverFlowAdapter(context, chapters);
         coverFlow.setAdapter(adapter);
         coverFlow.setOnScrollPositionListener(this.onScrollListener());
 
@@ -55,7 +54,7 @@ public class HomeFragment extends Fragment {
         FeatureCoverFlow coverFlow2 = null;
         coverFlow2 = root.findViewById(R.id.sigsCoverflow);
         initalizeCoverFlow2();
-        sigsAdapter = new CoverFlowAdapter(activity, sigs);
+        sigsAdapter = new CoverFlowAdapter(context, sigs);
         coverFlow2.setAdapter(sigsAdapter);
         coverFlow2.setOnScrollPositionListener(this.onScrollListener());
 
@@ -106,5 +105,11 @@ public class HomeFragment extends Fragment {
     public void onResume() {
         super.onResume();
         bottomNavigationView.getMenu().findItem(R.id.navigation_home).setChecked(true);
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        this.context= context;
     }
 }
