@@ -104,9 +104,9 @@ public class TeamsFragment extends Fragment {
 
         SectionPageAdapterTeams adapterTeams= new SectionPageAdapterTeams(getChildFragmentManager());
         adapterTeams.addFragment(new CoreTemFragment(),"CORE TEAM");
-        adapterTeams.addFragment(new ChapterTeamFragment(),"CHAPTER TEAM");
-        adapterTeams.addFragment(new SigsTeamFragment(),"SIG TEAM");
-        adapterTeams.addFragment(new AuxillaryTeamFragment(),"AUXILLARY TEAM");
+        adapterTeams.addFragment(new ChapterTeamFragment(),"CHAPTERS");
+        adapterTeams.addFragment(new SigsTeamFragment(),"SIGs");
+        adapterTeams.addFragment(new AuxillaryTeamFragment(),"AUXILLARY");
 
         viewPager.setAdapter(adapterTeams);
     }
