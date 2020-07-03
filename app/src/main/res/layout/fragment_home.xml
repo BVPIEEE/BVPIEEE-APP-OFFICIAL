@@ -17,27 +17,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/chaptersLayout">
 
-        <TextView
-            android:id="@+id/chaptersHeading"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:layout_marginBottom="5dp"
-            android:text="Chapters"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:background="@drawable/gradient"
-            android:textAllCaps="true"
-            android:textColor="@color/white"
-            android:textSize="24sp" />
-
         <it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow
             android:id="@+id/chapterCoverflow"
             android:layout_width="match_parent"
             android:nestedScrollingEnabled="true"
             android:layout_height="200dp"
-            android:layout_below="@id/divider"
             android:visibility="visible"
             coverflow:coverHeight="100dp"
             coverflow:coverWidth="150dp"
@@ -47,17 +31,32 @@
             coverflow:scalingThreshold="0.5"
             coverflow:spacing="0.6" />
 
-        <View
-            android:id="@+id/divider"
+
+<!--        <View-->
+<!--            android:id="@+id/divider"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_alignStart="@id/chaptersHeading"-->
+<!--            android:layout_height="1dp"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            android:layout_marginRight="10dp"-->
+<!--            android:elevation="100dp"-->
+<!--            android:layout_below="@id/chaptersHeading"-->
+<!--            android:layout_marginBottom="5dp"-->
+<!--            android:background="?android:attr/listDivider" />-->
+        <TextView
+            android:id="@+id/chaptersHeading"
             android:layout_width="match_parent"
-            android:layout_alignStart="@id/chaptersHeading"
-            android:layout_height="1dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:elevation="100dp"
-            android:layout_below="@id/chaptersHeading"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
             android:layout_marginBottom="5dp"
-            android:background="?android:attr/listDivider" />
+            android:text="Chapters"
+            android:layout_margin="0.5dp"
+            android:layout_below="@id/chapterCoverflow"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/gradient"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
 
     </RelativeLayout>
 
@@ -67,38 +66,37 @@
         android:layout_below="@id/chaptersLayout"
         android:id="@+id/sigsLayout">
 
-        <TextView
-            android:id="@+id/sigsHeading"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="SIGs"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:background="@drawable/gradient"
-            android:textAlignment="center"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="5dp"
-            android:textAllCaps="true"
-            android:textColor="@color/white"
-            android:textSize="24sp" />
+<!--        <TextView-->
+<!--            android:id="@+id/sigsHeading"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="SIGs"-->
+<!--            android:layout_marginLeft="5dp"-->
+<!--            android:layout_marginRight="5dp"-->
+<!--            android:background="@drawable/gradient"-->
+<!--            android:textAlignment="center"-->
+<!--            android:layout_marginTop="30dp"-->
+<!--            android:layout_marginBottom="5dp"-->
+<!--            android:textAllCaps="true"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="24sp" />-->
 
-        <View
-            android:id="@+id/divider2"
-            android:layout_width="match_parent"
-            android:layout_alignStart="@id/sigsHeading"
-            android:layout_height="1dp"
-            android:elevation="20dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_below="@id/sigsHeading"
-            android:layout_marginBottom="5dp"
-            android:background="?android:attr/listDivider" />
+<!--        <View-->
+<!--            android:id="@+id/divider2"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_alignStart="@id/sigsHeading"-->
+<!--            android:layout_height="1dp"-->
+<!--            android:elevation="20dp"-->
+<!--            android:layout_marginRight="5dp"-->
+<!--            android:layout_marginLeft="5dp"-->
+<!--            android:layout_below="@id/sigsHeading"-->
+<!--            android:layout_marginBottom="5dp"-->
+<!--            android:background="?android:attr/listDivider" />-->
 
         <it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow
             android:id="@+id/sigsCoverflow"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_below="@id/divider2"
             android:nestedScrollingEnabled="true"
             android:visibility="visible"
             coverflow:coverHeight="100dp"
@@ -109,13 +107,28 @@
             coverflow:scalingThreshold="0.5"
             coverflow:spacing="0.6" />
 
+        <TextView
+            android:id="@+id/sigsHeading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SIGs"
+            android:layout_below="@id/sigsCoverflow"
+            android:background="@drawable/gradient"
+            android:textAlignment="center"
+            android:layout_margin="0.5dp"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/sigsLayout"
-        android:id="@+id/upcomingEventLayout">
+        android:id="@+id/upcomingEventLayout"
+        android:padding="10dp">
 
 
 
@@ -123,7 +136,9 @@
             android:id="@+id/upcomingHeading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="UPCOMING EVENT"
+            android:text="UPCOMING EVENTS"
+            android:textAlignment="center"
+            android:background="@drawable/grad3"
             android:layout_marginStart="10dp"
             android:elevation="100dp"
             android:layout_marginBottom="5dp"
@@ -135,11 +150,8 @@
         <View
             android:id="@+id/divider3"
             android:layout_width="match_parent"
-            android:layout_alignStart="@id/upcomingHeading"
             android:layout_height="1dp"
             android:elevation="200dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
             android:layout_below="@id/upcomingHeading"
             android:layout_marginBottom="5dp"
             android:background="?android:attr/listDivider" />

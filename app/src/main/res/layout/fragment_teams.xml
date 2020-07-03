@@ -69,13 +69,14 @@
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/black">
+            android:background="@color/black">
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabLayoutTeams"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:accessibilityHeading="true"
                 app:tabTextColor="@color/white"
+                android:padding="5dp"
                 app:tabSelectedTextColor="@android:color/holo_orange_light"
                 android:background="@color/black">
 
