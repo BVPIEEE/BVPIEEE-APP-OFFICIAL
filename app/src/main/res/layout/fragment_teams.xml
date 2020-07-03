@@ -47,7 +47,8 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="@dimen/Logo_HeightFor_Teams_Tab"
-            android:src="@drawable/bvpieee"/>
+            android:src="@drawable/bvpieee"
+            android:background="@color/black"/>
 
 <!--        <TextView-->
 <!--            android:layout_margin="20dp"-->
@@ -74,8 +75,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:accessibilityHeading="true"
-                app:tabSelectedTextColor="@color/colorPrimary"
-                android:background="@android:color/white">
+                app:tabTextColor="@color/white"
+                app:tabSelectedTextColor="@android:color/holo_orange_light"
+                android:background="@color/black">
 
             </com.google.android.material.tabs.TabLayout>
 

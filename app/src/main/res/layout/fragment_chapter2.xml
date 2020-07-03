@@ -3,14 +3,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.teams.ChapterTeamFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/tex"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="MEET THE CHAPTER TEAM"
         android:layout_gravity="center"
         android:textSize="24sp"/>
+
+    <com.wajahatkarim3.easyflipview.EasyFlipView
+        android:id="@+id/easyflip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="5dp"
+        android:isScrollContainer="true"
+        android:background="@color/cardview_dark_background"
+        app:flipDuration="400"
+        android:elevation="200dp"
+        app:flipEnabled="true"
+        app:flipFrom="front"
+        app:flipOnTouch="true"
+        app:flipType="vertical">
+
+        <!-- Back Layout Goes Here -->
+        <include layout="@layout/flash_card_layout_back" />
+
+        <!-- Front Layout Goes Here -->
+        <include layout="@layout/flash_card_layout_front" />
+
+    </com.wajahatkarim3.easyflipview.EasyFlipView>
+
 
 </RelativeLayout>

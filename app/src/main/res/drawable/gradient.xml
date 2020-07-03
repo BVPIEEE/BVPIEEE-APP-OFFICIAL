@@ -4,7 +4,7 @@
 
     <corners android:topLeftRadius="50dp"
         android:topRightRadius="50dp"
-        android:bottomLeftRadius="0dp"
+        android:bottomLeftRadius="50dp"
         android:bottomRightRadius="50dp" />
 
     <!--    <gradient-->
@@ -21,10 +21,9 @@
     <!--        />-->
 
     <gradient
-        android:angle="45"
-        android:endColor="#bce9ff"
-        android:startColor="#bce9ff"
-        android:centerColor="#bce9ff"
+        android:endColor="@color/black"
+        android:startColor="@color/black"
+        android:centerColor="@color/black"
         android:type="linear"
         />
 

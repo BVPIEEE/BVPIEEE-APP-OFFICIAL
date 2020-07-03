@@ -1,5 +1,7 @@
 package com.bvpieee;
 
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -51,7 +53,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
 //        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
 //        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 //        NavigationUI.setupWithNavController(navView, navController);
-
+        fab.setRippleColor(Color.parseColor("#623EEE"));
 
         loadFragments(homefrag);
     }

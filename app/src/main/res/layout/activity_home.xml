@@ -10,6 +10,7 @@
         android:id="@+id/coordinator"
         android:layout_width="match_parent"
         android:layout_height="90dp"
+        android:elevation="100dp"
         android:fitsSystemWindows="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,7 +22,7 @@
             android:id="@+id/fab_home"
             android:backgroundTint="@color/black"
             android:src="@drawable/ic_home_black_24dp"
-            app:tint="@color/white"
+            app:tint="@android:color/holo_orange_light"
             app:layout_anchor="@id/bottom_bar"/>
 
         <com.google.android.material.bottomappbar.BottomAppBar
@@ -43,7 +44,6 @@
                 android:layout_height="wrap_content"
                 app:itemTextColor="@drawable/bottom_nav_selector"
                 app:itemIconTint="@drawable/bottom_nav_selector"
-                android:background="@android:color/transparent"
                 android:outlineAmbientShadowColor="@android:color/transparent"
                 android:outlineSpotShadowColor="@android:color/transparent"
                 app:menu="@menu/bottom_nav_menu" />
