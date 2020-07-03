@@ -70,7 +70,7 @@ public class CoverFlowAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(activity, position+"cover", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(activity, position+"cover", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(activity, ChapterActivity.class);
                 intent.putExtra(ChapterActivity.CHAPTER,position);
                 activity.startActivity(intent);

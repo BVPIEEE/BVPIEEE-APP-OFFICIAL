@@ -75,7 +75,7 @@
                 android:layout_height="wrap_content"
                 android:accessibilityHeading="true"
                 app:tabSelectedTextColor="@color/colorPrimary"
-                android:background="@android:color/holo_orange_light">
+                android:background="@android:color/white">
 
             </com.google.android.material.tabs.TabLayout>
 

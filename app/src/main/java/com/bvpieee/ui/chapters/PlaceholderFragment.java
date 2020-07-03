@@ -8,15 +8,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-
 import com.bvpieee.R;
+import static com.bvpieee.ui.chapters.SectionsPagerAdapter.TAB_TITLES;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -27,9 +23,10 @@ public class PlaceholderFragment extends Fragment {
     private ImageView imageView;
     private TextView title;
     private CardView social, socialExpanded;
+    private RelativeLayout white;
     private Button close;
-    private int[] imageResource = {R.drawable.raspp, R.drawable.iaspp, R.drawable.cspp, R.drawable.wiepp, R.drawable.hknpp};
-    private String[] titles = {"RAS", "IAS", "CS", "WIE", "HKN"};
+    private int[] imageResource = {R.drawable.raspp, R.drawable.cspp, R.drawable.iaspp, R.drawable.wiepp, R.drawable.hknpp};
+//    private String[] titles = {"RAS", "IAS", "CS", "WIE", "HKN"};
 
     public PlaceholderFragment(int position) {
         this.position = position;
@@ -48,7 +45,7 @@ public class PlaceholderFragment extends Fragment {
         close = root.findViewById(R.id.close);
 //        white = root.findViewById(R.id.whiteBack);
 
-        title.setText(titles[position]);
+        title.setText(TAB_TITLES[position]);
         imageView.setImageResource(imageResource[position]);
         social.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +56,7 @@ public class PlaceholderFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         socialExpanded.setVisibility(View.GONE);
+//                        white.setVisibility(View.INVISIBLE);
                     }
                 });
             }

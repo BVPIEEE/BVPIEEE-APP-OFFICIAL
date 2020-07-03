@@ -23,9 +23,10 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
 
     Fragment homefrag = new HomeFragment();
     Fragment eventfrag = new EventsFragment();
-    Fragment teamsfrag = new TeamsFragment();
+//    Fragment teamsfrag = new TeamsFragment();
     FloatingActionButton fab;
     Fragment home2 = new Home2Fragment();
+    BottomNavigationView navView;
     private static int SPLASH_SCREEN_TIME_OUT=3000;
 
     @Override
@@ -33,7 +34,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        BottomNavigationView navView = findViewById(R.id.nav_view);
+        navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(this);
         fab = findViewById(R.id.fab_home);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -61,9 +62,16 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
 
         switch (menuItem.getItemId()){
             case R.id.navigation_events:
-                fragment = eventfrag;
+                if (navView.getSelectedItemId() != R.id.navigation_events)
+                    fragment = eventfrag;
+                else
+                    navView.setEnabled(false);
                 break;
             case R.id.navigation_teams:
+                if (navView.getSelectedItemId() != R.id.navigation_teams)
+                    fragment = new TeamsFragment();
+                else
+                    navView.setEnabled(false);
 //                new Handler().postDelayed(new Runnable() {
 //                    @Override
 //                    public void run() {
@@ -78,7 +86,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
 //                }, SPLASH_SCREEN_TIME_OUT);
 //                Intent intent=new Intent(HomeActivity.this,LotteSplashActivity.class);
 //                startActivity(intent);
-                fragment = teamsfrag;
+//                fragment = teamsfrag;
                 break;
         }
         return loadFragments(fragment);
