@@ -1,13 +1,9 @@
 package com.bvpieee;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-
-import com.bvpieee.ui.animations.LottieFragment;
 import com.bvpieee.ui.events.EventsFragment;
 import com.bvpieee.ui.home.Home2Fragment;
 import com.bvpieee.ui.home.HomeFragment;
@@ -28,7 +24,6 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
     Fragment homefrag = new HomeFragment();
     Fragment eventfrag = new EventsFragment();
     Fragment teamsfrag = new TeamsFragment();
-    Fragment lottiefrag = new LottieFragment();
     FloatingActionButton fab;
     Fragment home2 = new Home2Fragment();
     private static int SPLASH_SCREEN_TIME_OUT=3000;
@@ -83,7 +78,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
 //                }, SPLASH_SCREEN_TIME_OUT);
 //                Intent intent=new Intent(HomeActivity.this,LotteSplashActivity.class);
 //                startActivity(intent);
-                fragment = lottiefrag;
+                fragment = teamsfrag;
                 break;
         }
         return loadFragments(fragment);

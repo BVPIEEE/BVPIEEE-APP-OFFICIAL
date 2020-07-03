@@ -1,5 +1,7 @@
 package com.bvpieee.ui.teams;
 
+import android.animation.Animator;
+import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,15 +16,18 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.bvpieee.R;
 import com.google.android.material.tabs.TabLayout;
 
 public class TeamsFragment extends Fragment {
 
 //    private TeamsViewModel notificationsViewModel;
-    View teamFragment;
+    View view;
     ViewPager viewPager;
     TabLayout tabLayout;
+    View layout, teams;
+    LottieAnimationView animationView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -37,10 +42,38 @@ public class TeamsFragment extends Fragment {
 //            }
 //        });
 //        return root;
-        teamFragment=inflater.inflate(R.layout.fragment_teams,container,false);
-        viewPager=teamFragment.findViewById(R.id.teamPager);
-        tabLayout=teamFragment.findViewById(R.id.tabLayoutTeams);
-        return teamFragment;
+        view=inflater.inflate(R.layout.fragment_teams,container,false);
+        viewPager=view.findViewById(R.id.teamPager);
+        tabLayout=view.findViewById(R.id.tabLayoutTeams);
+        layout = view.findViewById(R.id.lottie_layer);
+        teams = view.findViewById(R.id.teams_linear);
+        teams.setVisibility(View.INVISIBLE);
+        animationView = view.findViewById(R.id.team);
+        animationView.setSpeed(2.0F);
+        animationView.addAnimatorListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                teams.setVisibility(View.VISIBLE);
+                layout.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
+
+        return view;
     }
 
     @Override
