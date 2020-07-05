@@ -106,7 +106,7 @@ public class TeamsFragment extends Fragment {
         adapterTeams.addFragment(new CoreTemFragment(),"CORE TEAM");
         adapterTeams.addFragment(new ChapterTeamFragment(),"CHAPTERS");
         adapterTeams.addFragment(new SigsTeamFragment(),"SIGs");
-        adapterTeams.addFragment(new AuxillaryTeamFragment(),"AUXILLARY");
+        adapterTeams.addFragment(new AuxillaryTeamFragment(),"AUXILLARY TEAM");
 
         viewPager.setAdapter(adapterTeams);
     }
