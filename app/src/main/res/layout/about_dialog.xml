@@ -4,7 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_alignParentStart="true"
+    app:cardUseCompatPadding="true"
     android:layout_alignParentTop="true"
+    app:cardElevation="0dp"
     android:backgroundTint="#76bcb0"
     android:gravity="center"
     app:cardCornerRadius="40dp">
@@ -28,11 +30,12 @@
             android:textStyle="bold" />
 
         <TextView
+
             android:id="@+id/placeHolder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:text="No Internet Connection"
             android:textAlignment="center"
@@ -42,15 +45,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="10dp"
-            android:paddingBottom="10dp">
+            android:layout_marginTop="20dp"
+            >
 
             <android.widget.Button
                 android:id="@+id/close_dialog_button"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/close_dialog_button"
-                android:elevation="10dp"
+                android:elevation="20dp"
+                android:layout_marginBottom="10dp"
                 android:text="Close"
                 android:textColor="@color/white" />
         </com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper>

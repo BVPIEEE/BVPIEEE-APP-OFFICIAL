@@ -1,6 +1,8 @@
 package com.bvpieee.ui.chapters;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -84,6 +86,7 @@ public class PlaceholderFragment extends Fragment {
                 placeholder.setText(arrayList[position]);
                 final AlertDialog dialog = builder.create();
                 dialog.show();
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
                 close.setOnClickListener(new View.OnClickListener() {
                     @Override
