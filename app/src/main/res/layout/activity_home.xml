@@ -47,7 +47,7 @@
                 android:backgroundTint="@color/black"
                 android:layout_height="wrap_content"
                 app:itemTextColor="@drawable/bottom_nav_selector"
-                app:itemIconTint="@drawable/bottom_nav_selector"
+                app:itemIconTint="@android:color/holo_blue_bright"
                 android:background="@android:color/transparent"
                 app:labelVisibilityMode="selected"
                 android:outlineAmbientShadowColor="@android:color/transparent"

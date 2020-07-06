@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/flipCardFront"
-        android:padding="5dp">
+        android:padding="10dp">
 
     <TextView
         android:id="@+id/topic"
@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:text="WORKSHOP TITLE"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textSize="18sp" />
@@ -31,7 +31,7 @@
         android:layout_below="@+id/topic"
         android:text="Day, Time"
         android:layout_marginTop="5dp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textAppearance="@style/TextAppearance.AppCompat"
         android:textSize="15sp" />
 
@@ -75,7 +75,7 @@
             android:text="Venue"
             android:textAlignment="textEnd"
             android:textAppearance="@style/TextAppearance.AppCompat"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="15sp" />
 
         <TextView
@@ -83,6 +83,7 @@
             android:layout_height="wrap_content"
             android:text="Tap for more details"
             android:layout_below="@id/dateandtime"
+            android:textColor="@color/white"
             android:layout_centerHorizontal="true"/>
 
     </RelativeLayout>

@@ -13,6 +13,9 @@ public class SectionPageAdapterTeams extends FragmentPagerAdapter {
 
     private List<Fragment> teamFraglist=new ArrayList<>();
     private List<String> teamFragTitle= new ArrayList<>();
+    private final List<Fragment> coreTeam=new ArrayList<>();
+
+
 
     public SectionPageAdapterTeams(@NonNull FragmentManager fm) {
         super(fm);
