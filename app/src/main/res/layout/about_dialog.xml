@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentTop="true"
+    android:backgroundTint="#76bcb0"
+    android:gravity="center"
+    app:cardCornerRadius="40dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical"
+        android:paddingBottom="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableStart="@drawable/ic_baseline_info_24"
+            android:text="About"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/placeHolder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="20dp"
+            android:text="No Internet Connection"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+        <com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:paddingBottom="10dp">
+
+            <android.widget.Button
+                android:id="@+id/close_dialog_button"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/close_dialog_button"
+                android:elevation="10dp"
+                android:text="Close"
+                android:textColor="@color/white" />
+        </com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper>
+
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
