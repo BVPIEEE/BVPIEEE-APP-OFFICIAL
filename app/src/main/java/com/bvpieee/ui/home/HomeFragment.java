@@ -1,13 +1,14 @@
 package com.bvpieee.ui.home;
 
-import android.app.Activity;
-import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -15,7 +16,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.bvpieee.Chapter;
 import com.bvpieee.adapters.CoverFlowAdapter;
-import com.bvpieee.HomeActivity;
 import com.bvpieee.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -29,6 +29,8 @@ public class HomeFragment extends Fragment {
     private CoverFlowAdapter adapter, sigsAdapter;
     private ArrayList chapters, sigs;
     private Context context;
+    private ScrollView scrollView;
+    private Boolean isBLocked = true;
     BottomNavigationView bottomNavigationView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -49,6 +51,12 @@ public class HomeFragment extends Fragment {
         adapter = new CoverFlowAdapter(context, chapters);
         coverFlow.setAdapter(adapter);
         coverFlow.setOnScrollPositionListener(this.onScrollListener());
+        coverFlow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                isBLocked = false;
+            }
+        });
 
         //Sigs Coverflow
         FeatureCoverFlow coverFlow2 = null;
@@ -57,6 +65,14 @@ public class HomeFragment extends Fragment {
         sigsAdapter = new CoverFlowAdapter(context, sigs);
         coverFlow2.setAdapter(sigsAdapter);
         coverFlow2.setOnScrollPositionListener(this.onScrollListener());
+
+        scrollView = root.findViewById(R.id.homeScrollView);
+        scrollView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return isBLocked;
+            }
+        });
 
         return root;
     }
@@ -86,15 +102,18 @@ public class HomeFragment extends Fragment {
         return new FeatureCoverFlow.OnScrollPositionListener() {
             @Override
             public void onScrolledToPosition(int position) {
+                isBLocked =false;
                 Log.v("MainActiivty", "position: " + position);
             }
 
             @Override
             public void onScrolling() {
+                isBLocked =false;
                 Log.i("MainActivity", "scrolling");
             }
         };
     }
+
 
     @Override
     public void onStart() {

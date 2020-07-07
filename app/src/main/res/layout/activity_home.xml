@@ -20,11 +20,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/fab_home"
-            app:borderWidth="2dp"
+            app:elevation="20dp"
             app:fabCustomSize="70dp"
-            android:backgroundTint="@color/black"
+            android:backgroundTint="@color/colorPrimary"
             android:src="@drawable/ic_home_black_24dp"
-            app:tint="@android:color/holo_orange_light"
+            app:tint="@color/white"
             app:layout_anchor="@id/bottom_bar"/>
 
         <com.google.android.material.bottomappbar.BottomAppBar
@@ -36,15 +36,16 @@
             app:fabCradleRoundedCornerRadius="30dp"
             android:background="@android:color/transparent"
             android:clickable="false"
+            app:elevation="20dp"
             android:backgroundTint="@color/white"
             app:fabAlignmentMode="center"
             app:contentInsetStart="0dp"
             app:contentInsetStartWithNavigation="0dp">
 
+
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/nav_view"
                 android:layout_width="match_parent"
-                android:backgroundTint="@color/black"
                 android:layout_height="wrap_content"
                 app:itemTextColor="@drawable/bottom_nav_selector"
                 app:itemIconTint="@drawable/bottom_nav_selector"

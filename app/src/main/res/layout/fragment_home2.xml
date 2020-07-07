@@ -1,24 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="210dp"
+    android:padding="10dp"
     tools:context=".ui.home.Home2Fragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TextView
+    android:id="@+id/title_text_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+        android:layout_alignParentTop="true"
+    android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:text="Chapter"
+    android:textSize="18sp" />
 
     <!-- TODO: Update blank fragment layout -->
     <com.saeed.infiniteflow.lib.FinitePagerContainer
         android:id="@+id/pager_container"
         android:layout_width="match_parent"
-        android:layout_margin="10dp"
+        android:layout_below="@id/title_text_view"
         android:layout_height="wrap_content">
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/view_pager"
-            android:layout_width="150dp"
+            android:layout_width="200dp"
             android:layout_height="150dp"
             android:layout_gravity="center"
             android:orientation="horizontal" />
 
     </com.saeed.infiniteflow.lib.FinitePagerContainer>
 
-</RelativeLayout>
+    </RelativeLayout>
+
+</ScrollView>

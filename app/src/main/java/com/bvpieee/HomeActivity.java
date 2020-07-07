@@ -33,7 +33,7 @@ import java.util.ArrayList;
 public class HomeActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     Fragment homefrag = new HomeFragment();
-    Fragment eventfrag = new EventsFragment();
+    Fragment eventfrag = new Home2Fragment();
 //    Fragment teamsfrag = new TeamsFragment();
     FloatingActionButton fab;
     Fragment home2 = new Home2Fragment();

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/homeScrollView"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -19,27 +20,30 @@
 
         <TextView
             android:id="@+id/chaptersHeading"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
             android:layout_marginBottom="5dp"
+            android:fontFamily="monospace"
+            android:shadowColor="#10000000"
+            android:shadowDx="5"
+            android:shadowDy="5"
+            android:shadowRadius="5"
             android:text="Chapters"
-            android:fontFamily="sans-serif"
-            android:layout_margin="0.5dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/grad3"
+            android:textAlignment="center"
             android:textAllCaps="true"
-            android:textColor="@color/black"
+            android:textColor="@color/colorPrimary"
             android:textSize="24sp" />
 
         <View
             android:id="@+id/divider"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_alignStart="@id/chaptersHeading"
             android:layout_height="1dp"
             android:layout_marginLeft="0.5dp"
             android:layout_marginRight="0.5dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="2dp"
             android:elevation="100dp"
             android:layout_below="@id/chaptersHeading"
             android:layout_marginBottom="5dp"
@@ -52,7 +56,7 @@
             android:layout_height="200dp"
             android:visibility="visible"
             coverflow:coverHeight="100dp"
-            android:layout_marginTop="30dp"
+            android:layout_below="@id/divider"
             coverflow:coverWidth="150dp"
             app:circlePathRadius="0.6"
             coverflow:maxScaleFactor="1.5"
@@ -74,23 +78,23 @@
 
         <TextView
             android:id="@+id/sigsHeading"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SIGs"
-            android:fontFamily="sans-serif"
-            android:layout_marginLeft="0.5dp"
-            android:layout_marginRight="0.5dp"
-            android:background="@drawable/grad3"
-            android:textAlignment="center"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="30dp"
+            android:layout_marginRight="0.5dp"
             android:layout_marginBottom="5dp"
+            android:fontFamily="monospace"
+            android:text="SIGs"
+            android:textAlignment="center"
             android:textAllCaps="true"
-            android:textColor="@color/black"
+            android:textColor="@color/colorPrimary"
             android:textSize="24sp" />
 
         <View
             android:id="@+id/divider2"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
+            android:layout_alignStart="@id/sigsHeading"
             android:layout_height="1dp"
             android:elevation="20dp"
             android:layout_marginRight="0.5dp"
@@ -107,7 +111,7 @@
             android:visibility="visible"
             coverflow:coverHeight="100dp"
             app:circlePathRadius="0.6"
-            android:layout_marginTop="60dp"
+            android:layout_below="@id/divider2"
             android:splitMotionEvents="true"
             coverflow:coverWidth="150dp"
             coverflow:maxScaleFactor="1.5"
@@ -140,26 +144,25 @@
         android:id="@+id/upcomingEventLayout">
 
 
-
         <TextView
             android:id="@+id/upcomingHeading"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:elevation="100dp"
+            android:fontFamily="monospace"
             android:text="UPCOMING EVENTS"
             android:textAlignment="center"
-            android:background="@drawable/gradient2"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:elevation="100dp"
-            android:layout_marginBottom="5dp"
             android:textAllCaps="true"
-            android:textColor="@color/white"
-            android:layout_marginTop="40dp"
+            android:textColor="@color/colorPrimary"
             android:textSize="24sp" />
 
         <View
             android:id="@+id/divider3"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="1dp"
             android:elevation="200dp"
             android:layout_marginLeft="10dp"
@@ -168,17 +171,19 @@
             android:layout_marginBottom="5dp"
             android:background="?android:attr/listDivider" />
 
+        <com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider3"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="2dp">
+
         <com.wajahatkarim3.easyflipview.EasyFlipView
             android:id="@+id/easyflip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/divider3"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="5dp"
             android:isScrollContainer="true"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:background="@color/cardview_dark_background"
             app:flipDuration="400"
             android:elevation="200dp"
             app:flipEnabled="true"
@@ -194,6 +199,8 @@
             <include layout="@layout/flash_card_layout_front" />
 
         </com.wajahatkarim3.easyflipview.EasyFlipView>
+
+        </com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper>
 
     </RelativeLayout>
 
