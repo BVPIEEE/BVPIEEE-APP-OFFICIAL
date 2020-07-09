@@ -21,6 +21,9 @@
     <string name="social_media_handles">Social Media Handles</string>
     <string name="background">Background</string>
     <string name="about">About</string>
+    <string name="eventworkshop">Events and Workshops</string>
+    <string name="team">Team</string>
+    <string name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel eros nulla. Pellentesque id turpis a turpis molestie hendrerit eu non libero. Morbi eget sodales est. Ut ultrices, tortor sed commodo aliquam, lorem nisi consectetur turpis, euismod venenatis elit nisl ac mauris. Nam ut imperdiet lorem. Nulla id fringilla tellus, eu tincidunt sapien</string>
     <string-array name="placeHolder_text">
         <item>RAS Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel eros nulla. Pellentesque id turpis a turpis molestie hendrerit eu non libero. Morbi eget sodales est. Ut ultrices, tortor sed commodo aliquam, lorem nisi consectetur turpis, euismod venenatis elit nisl ac mauris. Nam ut imperdiet lorem. Nulla id fringilla tellus, eu tincidunt sapien</item>
         <item>CS Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel eros nulla. Pellentesque id turpis a turpis molestie hendrerit eu non libero. Morbi eget sodales est. Ut ultrices, tortor sed commodo aliquam, lorem nisi consectetur turpis, euismod venenatis elit nisl ac mauris. Nam ut imperdiet lorem. Nulla id fringilla tellus, eu tincidunt sapien</item>
