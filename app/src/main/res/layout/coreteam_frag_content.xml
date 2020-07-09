@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="5dp"
+        android:elevation="5000dp"
+        android:outlineSpotShadowColor="@color/black"
+        android:padding="10dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="20dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NAME"
+                android:padding="5dp"
+                android:id="@+id/tvnameCore"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/black"
+                android:textSize="24sp"/>
+
+            <TextView
+                android:id="@+id/corePost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="POST"
+                android:padding="5dp"
+                android:textColor="@color/black"
+                android:layout_below="@+id/tvnameCore"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|end"
+            android:layout_marginBottom="10dp">
+
+            <ImageView
+                android:id="@+id/imgCore"
+                android:layout_width="180dp"
+                android:layout_height="200dp"
+                android:layout_gravity="end"
+                android:padding="5dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/bvpieee" />
+
+
+        </RelativeLayout>
+
+<!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="bottom">-->
+
+<!--           -->
+
+<!--        </RelativeLayout>-->
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

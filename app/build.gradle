@@ -72,5 +72,7 @@ dependencies {
     implementation 'androidx.viewpager2:viewpager2:1.1.0-alpha01'
     //MaterialShadows
     implementation 'com.sdsmdg.harjot:materialshadows:1.2.5'
+    //recyclerview dependency
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
 
 }
