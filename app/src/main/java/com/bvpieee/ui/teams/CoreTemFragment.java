@@ -49,25 +49,16 @@ public class CoreTemFragment extends Fragment {
         return fragment;
     }
 
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        if (getArguments() != null) {
-//            mParam1 = getArguments().getString(ARG_PARAM1);
-//            mParam2 = getArguments().getString(ARG_PARAM2);
-//        }
-//    }
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         memberCore= new ArrayList<>();
-        memberCore.add(new CoreTeamModel("Kshitij Sidana","ChairpersonB, BVPIEEE",R.drawable.kshitijsidana));
-        memberCore.add(new CoreTeamModel("Himani Negi","Vice Chairperson, BVPIEEE", R.drawable.bvpieee));
+        memberCore.add(new CoreTeamModel("Kshitij Sidana","Chairperson, BVPIEEE",R.drawable.kshitijsidana));
+        memberCore.add(new CoreTeamModel("Himani Negi","Vice Chairperson, BVPIEEE", R.drawable.himaninegi));
         memberCore.add(new CoreTeamModel("Chetanya Vaid","General Secretary, BVPIEEE",R.drawable.bvpieee));
-        memberCore.add(new CoreTeamModel("Sanjana Deswal","Chief Coordinator, BVPIEEE\nand IAS Chairperson",R.drawable.sanjanadeswal));
-        memberCore.add(new CoreTeamModel("Aaktiti Jain","Joint Secretary, BVPIEEE\nand WIE Vice Chairperon",R.drawable.aakritijain));
+        memberCore.add(new CoreTeamModel("Sanjana Deswal","Chief Coordinator, BVPIEEE and IAS Chairperson",R.drawable.sanjanadeswal));
+        memberCore.add(new CoreTeamModel("Aaktiti Jain","Joint Secretary, BVPIEEE and WIE Vice Chairperon",R.drawable.aakritijain));
 
 
     }
