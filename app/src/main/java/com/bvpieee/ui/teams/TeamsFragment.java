@@ -14,11 +14,16 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.bvpieee.R;
 import com.google.android.material.tabs.TabLayout;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TeamsFragment extends Fragment {
 
@@ -28,22 +33,17 @@ public class TeamsFragment extends Fragment {
     TabLayout tabLayout;
     View layout, teams;
     LottieAnimationView animationView;
+//    private RecyclerView myRecyclerView;
+//    private List<CoreTeamModel> memberCore;
+
+    public TeamsFragment(){
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-//        notificationsViewModel =
-//                new ViewModelProvider(this).get(TeamsViewModel.class);
-//        View root = inflater.inflate(R.layout.fragment_teams, container, false);
-//        final TextView textView = root.findViewById(R.id.text_notifications);
-//        notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }
-//        });
-//        return root;
+
         view=inflater.inflate(R.layout.fragment_teams,container,false);
-        viewPager=view.findViewById(R.id.teamPager);
+        viewPager= view.findViewById(R.id.teamPager);
         tabLayout=view.findViewById(R.id.tabLayoutTeams);
         layout = view.findViewById(R.id.lottie_layer);
         teams = view.findViewById(R.id.teams_linear);
@@ -72,7 +72,6 @@ public class TeamsFragment extends Fragment {
 
             }
         });
-
         return view;
     }
 
@@ -85,17 +84,14 @@ public class TeamsFragment extends Fragment {
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
             }
         });
     }
@@ -106,10 +102,8 @@ public class TeamsFragment extends Fragment {
         adapterTeams.addFragment(new CoreTemFragment(),"CORE TEAM");
         adapterTeams.addFragment(new ChapterTeamFragment(),"CHAPTERS");
         adapterTeams.addFragment(new SigsTeamFragment(),"SIGs");
-        adapterTeams.addFragment(new AuxillaryTeamFragment(),"AUXILLARY TEAM");
+        adapterTeams.addFragment(new AuxillaryTeamFragment(),"AXILLARY TEAM");
 
         viewPager.setAdapter(adapterTeams);
     }
-
-
 }
