@@ -1,11 +1,15 @@
 package com.bvpieee.adapters
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.bvpieee.HomeActivity
 import com.bvpieee.R
 
 class ChapterPagerAdapter : RecyclerView.Adapter<ChapterPagerAdapter.RecyclerViewHolder>() {
@@ -25,7 +29,8 @@ class ChapterPagerAdapter : RecyclerView.Adapter<ChapterPagerAdapter.RecyclerVie
     override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
         holder.bind(position)
         holder.image.setOnClickListener {
-            TODO("Sajal Yha pe implement krdio click")
+            //call activity
+//            startActivity(Intent(this, HomeActivity::class.java))
         }
     }
 

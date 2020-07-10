@@ -4,36 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SplashScreen"
-    android:background="@android:color/black">
+    tools:context=".SplashScreen">
 
 
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="@dimen/bvpieeelogowidth"
+        android:layout_height="@dimen/bvpieeelogoheight"
+        android:src="@drawable/bvpieee"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2" />
 
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="@dimen/bvpieeelogowidth"
-            android:layout_height="@dimen/bvpieeelogoheight"
-            android:src="@drawable/bvpieee"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.2" />
 
-
-<!--    <com.wang.avi.AVLoadingIndicatorView-->
-<!--        android:id="@+id/avi"-->
-<!--        style="@style/AVLoadingIndicatorView"-->
-<!--        android:layout_width="@dimen/indicatorwidth"-->
-<!--        android:layout_height="@dimen/indicatorwidth"-->
-<!--        android:visibility="visible"-->
-<!--        app:indicatorColor="@android:color/white"-->
-<!--        app:indicatorName="BallClipRotatePulseIndicator"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.8" />-->
+    <!--    <com.wang.avi.AVLoadingIndicatorView-->
+    <!--        android:id="@+id/avi"-->
+    <!--        style="@style/AVLoadingIndicatorView"-->
+    <!--        android:layout_width="@dimen/indicatorwidth"-->
+    <!--        android:layout_height="@dimen/indicatorwidth"-->
+    <!--        android:visibility="visible"-->
+    <!--        app:indicatorColor="@android:color/white"-->
+    <!--        app:indicatorName="BallClipRotatePulseIndicator"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:layout_constraintVertical_bias="0.8" />-->
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottieSplash"

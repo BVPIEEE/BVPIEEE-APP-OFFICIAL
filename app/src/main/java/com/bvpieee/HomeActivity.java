@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+
+import com.bvpieee.ui.events.EventDetailFragment;
 import com.bvpieee.ui.events.EventsFragment;
 import com.bvpieee.ui.home.Home2Fragment;
 import com.bvpieee.ui.home.HomeFragment;
@@ -37,6 +39,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
 //    Fragment teamsfrag = new TeamsFragment();
     FloatingActionButton fab;
     Fragment home2 = new Home2Fragment();
+    Fragment eventDetail = new EventDetailFragment();
     BottomNavigationView navView;
 
     private static int SPLASH_SCREEN_TIME_OUT=3000;
@@ -82,7 +85,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         switch (menuItem.getItemId()){
             case R.id.navigation_events:
                 if (navView.getSelectedItemId() != R.id.navigation_events)
-                    fragment = eventfrag;
+                    fragment = eventDetail;
                 else
                     navView.setEnabled(false);
                 break;
