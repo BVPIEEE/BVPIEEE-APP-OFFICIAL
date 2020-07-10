@@ -99,10 +99,10 @@ public class TeamsFragment extends Fragment {
     private void ViewPagerSetup(ViewPager viewPager) {
 
         SectionPageAdapterTeams adapterTeams= new SectionPageAdapterTeams(getChildFragmentManager());
-        adapterTeams.addFragment(new CoreTemFragment(),"CORE TEAM");
-        adapterTeams.addFragment(new ChapterTeamFragment(),"CHAPTERS");
+        adapterTeams.addFragment(new CoreTemFragment(),"Core Team");
+        adapterTeams.addFragment(new ChapterTeamFragment(),"Chapters");
         adapterTeams.addFragment(new SigsTeamFragment(),"SIGs");
-        adapterTeams.addFragment(new AuxillaryTeamFragment(),"AXILLARY TEAM");
+        adapterTeams.addFragment(new AuxillaryTeamFragment(),"Auxillary Team");
 
         viewPager.setAdapter(adapterTeams);
     }

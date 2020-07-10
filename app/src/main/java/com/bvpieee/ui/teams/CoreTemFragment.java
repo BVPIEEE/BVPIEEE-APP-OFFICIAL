@@ -56,7 +56,7 @@ public class CoreTemFragment extends Fragment {
         memberCore= new ArrayList<>();
         memberCore.add(new CoreTeamModel("Kshitij Sidana","Chairperson, BVPIEEE",R.drawable.kshitijsidana));
         memberCore.add(new CoreTeamModel("Himani Negi","Vice Chairperson, BVPIEEE", R.drawable.himaninegi));
-        memberCore.add(new CoreTeamModel("Chetanya Vaid","General Secretary, BVPIEEE",R.drawable.bvpieee));
+        memberCore.add(new CoreTeamModel("Chetanya","General Secretary, BVPIEEE",R.drawable.chetanya));
         memberCore.add(new CoreTeamModel("Sanjana Deswal","Chief Coordinator, BVPIEEE and IAS Chairperson",R.drawable.sanjanadeswal));
         memberCore.add(new CoreTeamModel("Aaktiti Jain","Joint Secretary, BVPIEEE and WIE Vice Chairperon",R.drawable.aakritijain));
 
