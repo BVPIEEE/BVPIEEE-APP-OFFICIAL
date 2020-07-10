@@ -26,7 +26,6 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="5dp"
-            android:fontFamily="monospace"
             android:shadowColor="#10000000"
             android:shadowDx="5"
             android:shadowDy="5"
@@ -178,17 +177,18 @@
             android:layout_marginBottom="5dp"
             android:background="?android:attr/listDivider" />
 
-        <com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/divider3"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="2dp">
+<!--        <com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/divider3"-->
+<!--            android:layout_marginRight="10dp"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            android:layout_marginTop="2dp">-->
 
         <com.wajahatkarim3.easyflipview.EasyFlipView
             android:id="@+id/easyflip"
             android:layout_width="match_parent"
+            android:layout_below="@id/divider3"
             android:layout_height="wrap_content"
             android:isScrollContainer="true"
             app:flipDuration="400"
@@ -208,7 +208,7 @@
 
         </com.wajahatkarim3.easyflipview.EasyFlipView>
 
-        </com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper>
+<!--        </com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper>-->
 
     </RelativeLayout>
 

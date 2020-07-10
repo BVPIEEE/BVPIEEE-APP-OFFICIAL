@@ -22,9 +22,9 @@
             android:id="@+id/fab_home"
             app:elevation="20dp"
             app:fabCustomSize="70dp"
-            android:backgroundTint="@color/tab_bg_color"
+            android:backgroundTint="@color/white"
             android:src="@drawable/ic_home_black_24dp"
-            app:tint="@color/white"
+            app:tint="@color/tab_bg_color"
             app:layout_anchor="@id/bottom_bar"/>
 
         <com.google.android.material.bottomappbar.BottomAppBar
@@ -36,7 +36,7 @@
             app:fabCradleRoundedCornerRadius="30dp"
             android:clickable="false"
             app:elevation="20dp"
-            android:backgroundTint="@color/subtitle_color"
+            android:backgroundTint="@color/tab_bg_color"
             app:fabAlignmentMode="center"
             app:contentInsetStart="0dp"
             app:contentInsetStartWithNavigation="0dp">

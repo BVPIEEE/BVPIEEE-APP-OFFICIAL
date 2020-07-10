@@ -17,6 +17,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.bvpieee.Chapter;
 import com.bvpieee.adapters.CoverFlowAdapter;
 import com.bvpieee.R;
+import com.bvpieee.adapters.SigAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
@@ -26,7 +27,8 @@ import it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow;
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
-    private CoverFlowAdapter adapter, sigsAdapter;
+    private CoverFlowAdapter adapter;
+    private SigAdapter sigsAdapter;
     private ArrayList chapters, sigs;
     private Context context;
     private ScrollView scrollView;
@@ -62,7 +64,7 @@ public class HomeFragment extends Fragment {
         FeatureCoverFlow coverFlow2 = null;
         coverFlow2 = root.findViewById(R.id.sigsCoverflow);
         initalizeCoverFlow2();
-        sigsAdapter = new CoverFlowAdapter(context, sigs);
+        sigsAdapter = new SigAdapter(context, sigs);
         coverFlow2.setAdapter(sigsAdapter);
         coverFlow2.setOnScrollPositionListener(this.onScrollListener());
 

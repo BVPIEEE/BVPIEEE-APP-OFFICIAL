@@ -19,6 +19,7 @@ import java.util.ArrayList;
 public class ChapterActivity extends AppCompatActivity {
 
     public static final String CHAPTER = "ChapterNumber";
+    public static final String Coverflow = "CoverFlow";
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     DatabaseReference mDatabaseReference;
     ArrayList<String> list = null;
@@ -29,15 +30,21 @@ public class ChapterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chapter);
 
         //Setup viewpager and tablayout
+        SectionsPagerAdapter sectionsPagerAdapter;
+        Intent intent = getIntent();
+        int chapno = intent.getIntExtra(CHAPTER,0);
+        String coverflow = intent.getStringExtra(Coverflow);
+        if (coverflow == null)
 
-        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
+            sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager(), "chapter");
+        else
+            sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager(), "sig");
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
 
-        Intent intent = getIntent();
-        int chapno = intent.getIntExtra(CHAPTER,0);
+
 //        Toast.makeText(this, chapno+"", Toast.LENGTH_SHORT).show();
         viewPager.setCurrentItem(chapno);
     }

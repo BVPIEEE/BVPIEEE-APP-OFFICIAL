@@ -10,6 +10,12 @@
     <string name="tab_text_3">CS</string>
     <string name="tab_text_4">WIE</string>
     <string name="tab_text_5">HKN</string>
+    <string name="tab_text_6">CODE-X</string>
+    <string name="tab_text_7">DRISHTI</string>
+    <string name="tab_text_8">ROBOTICS &amp; AUTOMATION UNITED</string>
+    <string name="tab_text_9">BVCOE QUIZ CLUB</string>
+    <string name="tab_text_10">ENTREPRENEURSHIP CELL</string>
+    <string name="tab_text_11">GAMMA</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="team_tab_core">CORE TEAMS</string>
     <string name="team_tab_chaps">CHAPTER TEAMS</string>
