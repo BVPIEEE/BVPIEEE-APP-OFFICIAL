@@ -19,6 +19,7 @@ import androidx.fragment.app.Fragment;
 import com.bvpieee.R;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
+import static com.bvpieee.ui.chapters.SectionsPagerAdapter.SIG_TAB_TITLES;
 import static com.bvpieee.ui.chapters.SectionsPagerAdapter.TAB_TITLES;
 
 /**
@@ -27,25 +28,32 @@ import static com.bvpieee.ui.chapters.SectionsPagerAdapter.TAB_TITLES;
 public class PlaceholderFragment extends Fragment {
 
     private int position;
+    private String chapter;
     private ImageView imageView;
     private TextView title, placeholder;
     private CardView social, socialExpanded, aboutLayout;
     private RelativeLayout white;
     private Button close;
     private int[] imageResource = {R.drawable.raspp, R.drawable.cspp, R.drawable.iaspp, R.drawable.wiepp, R.drawable.hknpp};
+    private int[] sigImageResource = {R.drawable.codex, R.drawable.drishti, R.drawable.robotics, R.drawable.quiz, R.drawable.entrepr, R.drawable.gamma};
     Context context;
    String[] arrayList;
 //    private String[] titles = {"RAS", "IAS", "CS", "WIE", "HKN"};
 
-    public PlaceholderFragment(int position) {
+    public PlaceholderFragment(int position, String chapter) {
         this.position = position;
+        this.chapter = chapter;
     }
 
     @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        final View root = inflater.inflate(R.layout.fragment_chapter, container, false);
+        final View root;
+        if (chapter.equals("chapter"))
+            root = inflater.inflate(R.layout.fragment_chapter, container, false);
+        else
+            root = inflater.inflate(R.layout.fragment_sig, container, false);
         arrayList = context.getResources().getStringArray(R.array.placeHolder_text);
 
         imageView = root.findViewById(R.id.chapterBanner);
@@ -58,8 +66,14 @@ public class PlaceholderFragment extends Fragment {
 
        final AlertDialog.Builder builder = new MaterialAlertDialogBuilder(context);
 
-        title.setText(TAB_TITLES[position]);
-        imageView.setImageResource(imageResource[position]);
+        if (chapter.equals("chapter")) {
+            title.setText(TAB_TITLES[position]);
+            imageView.setImageResource(imageResource[position]);
+        }
+        else {
+            title.setText(SIG_TAB_TITLES[position]);
+            imageView.setImageResource(sigImageResource[position]);
+        }
         social.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
