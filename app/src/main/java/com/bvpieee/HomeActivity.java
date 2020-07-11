@@ -60,6 +60,9 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         fab.setRippleColor(Color.parseColor("#AFEEEE"));
 
         loadFragments(homefrag);
+
+        // Home Activity context for SharedElementTransition in EventAdapter
+        com.bvpieee.adapters.EventsAdapterKt.setHomeActivityContextHolder(new HomeActivity());
     }
 
     @Override
