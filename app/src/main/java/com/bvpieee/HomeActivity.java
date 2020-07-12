@@ -62,7 +62,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         loadFragments(homefrag);
 
         // Home Activity context for SharedElementTransition in EventAdapter
-        com.bvpieee.adapters.EventsAdapterKt.setHomeActivityContextHolder(new HomeActivity());
+        com.bvpieee.adapters.EventsAdapterKt.setHomeActivityContextHolder(this);
     }
 
     @Override
