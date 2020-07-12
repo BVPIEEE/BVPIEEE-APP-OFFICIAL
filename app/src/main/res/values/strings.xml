@@ -34,6 +34,9 @@
     <string name="name">NAME</string>
     <string name="post">POST</string>
     <string name="tap_to_know_more">Tap to know more</string>
+    <string name="special_interest_groups_sigs">Special Interest Groups (SIGs), BVPIEEE</string>
+    <string name="auxillary_team_bvpieee">Auxillary Team, BVPIEEE</string>
+    <string name="chapters">Chapters</string>
     <string-array name="placeHolder_text">
         <item>RAS Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel eros nulla. Pellentesque id turpis a turpis molestie hendrerit eu non libero. Morbi eget sodales est. Ut ultrices, tortor sed commodo aliquam, lorem nisi consectetur turpis, euismod venenatis elit nisl ac mauris. Nam ut imperdiet lorem. Nulla id fringilla tellus, eu tincidunt sapien</item>
         <item>CS Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel eros nulla. Pellentesque id turpis a turpis molestie hendrerit eu non libero. Morbi eget sodales est. Ut ultrices, tortor sed commodo aliquam, lorem nisi consectetur turpis, euismod venenatis elit nisl ac mauris. Nam ut imperdiet lorem. Nulla id fringilla tellus, eu tincidunt sapien</item>

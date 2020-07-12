@@ -6,7 +6,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,7 +29,7 @@ public class CoreTemFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     private RecyclerView myRecyclerView;
     View view;
-    private List<CoreTeamModel> memberCore;
+    private List<TeamFragModelClass> memberCore;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -54,11 +53,11 @@ public class CoreTemFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         memberCore= new ArrayList<>();
-        memberCore.add(new CoreTeamModel("Kshitij Sidana","Chairperson, BVPIEEE",R.drawable.kshitijsidana));
-        memberCore.add(new CoreTeamModel("Himani Negi","Vice Chairperson, BVPIEEE", R.drawable.himaninegi));
-        memberCore.add(new CoreTeamModel("Chetanya","General Secretary, BVPIEEE",R.drawable.chetanya));
-        memberCore.add(new CoreTeamModel("Sanjana Deswal","Chief Coordinator, BVPIEEE and IAS Chairperson",R.drawable.sanjanadeswal));
-        memberCore.add(new CoreTeamModel("Aaktiti Jain","Joint Secretary, BVPIEEE and WIE Vice Chairperon",R.drawable.aakritijain));
+        memberCore.add(new TeamFragModelClass("Kshitij Sidana","Chairperson, BVPIEEE",R.drawable.kshitijsidana));
+        memberCore.add(new TeamFragModelClass("Himani Negi","Vice Chairperson, BVPIEEE", R.drawable.himaninegi));
+        memberCore.add(new TeamFragModelClass("Chetanya","General Secretary, BVPIEEE",R.drawable.chetanya));
+        memberCore.add(new TeamFragModelClass("Sanjana Deswal","Chief Coordinator, BVPIEEE and IAS Chairperson",R.drawable.sanjanadeswal));
+        memberCore.add(new TeamFragModelClass("Aaktiti Jain","Joint Secretary, BVPIEEE and WIE Vice Chairperon",R.drawable.aakritijain));
 
 
     }
@@ -69,7 +68,7 @@ public class CoreTemFragment extends Fragment {
         // Inflate the layout for this fragment
         view=inflater.inflate(R.layout.fragment_core_tem ,container,false);
         myRecyclerView =(RecyclerView) view.findViewById(R.id.rvCore);
-        RecyclerViewAdapter recyclerViewAdapter=new RecyclerViewAdapter(getContext(),memberCore);
+        RecyclerViewAdapterCoreTeam recyclerViewAdapter=new RecyclerViewAdapterCoreTeam(getContext(),memberCore);
         myRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         myRecyclerView.setAdapter(recyclerViewAdapter);
         return view;
