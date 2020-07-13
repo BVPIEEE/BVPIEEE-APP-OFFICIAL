@@ -54,7 +54,7 @@ public class PlaceholderFragment extends Fragment {
             root = inflater.inflate(R.layout.fragment_chapter, container, false);
         else
             root = inflater.inflate(R.layout.fragment_sig, container, false);
-        arrayList = context.getResources().getStringArray(R.array.placeHolder_text);
+        arrayList = context.getResources().getStringArray(R.array.chapter_description);
 
         imageView = root.findViewById(R.id.chapterBanner);
         title = root.findViewById(R.id.textView2);
