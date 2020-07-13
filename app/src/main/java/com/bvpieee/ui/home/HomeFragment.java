@@ -46,6 +46,7 @@ public class HomeFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_home, null);
 
+
         //Chapters Coverflow
         FeatureCoverFlow coverFlow = null;
         coverFlow = root.findViewById(R.id.chapterCoverflow);

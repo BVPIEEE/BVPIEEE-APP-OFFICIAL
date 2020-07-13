@@ -75,5 +75,7 @@ dependencies {
     implementation 'com.sdsmdg.harjot:materialshadows:1.2.5'
     //recyclerview dependency
     implementation "androidx.recyclerview:recyclerview:1.1.0"
+    //MotionLayout
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta7'
 
 }
