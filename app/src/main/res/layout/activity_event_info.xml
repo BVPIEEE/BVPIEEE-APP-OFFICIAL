@@ -37,6 +37,10 @@
             android:paddingRight="16dp"
             android:paddingBottom="16dp"
             android:text="@string/dummyText" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/eventsRecycler"/>
 
         <!--        <Button-->
         <!--            android:id="@+id/btnMarkGoing"-->

@@ -56,6 +56,7 @@ class EventsAdapter(val eventDataSet: ArrayList<EventInfo>) : RecyclerView.Adapt
             val intent = Intent(it.context, EventInfoPage::class.java)
             intent.putExtra("EventTitle", eventDataSet[position].eventTitle)
             intent.putExtra("EventDate", eventDataSet[position].eventDate)
+            intent.putExtra("Position",position)
 
             val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
                 homeActivityContextHolder,
