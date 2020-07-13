@@ -17,12 +17,8 @@
             android:label="@string/title_activity_chapter"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".HomeActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".LoginActivity"
-            android:screenOrientation="portrait" />
+        <activity android:name=".HomeActivity"  android:screenOrientation="portrait" android:theme="@style/SplashTheme"/>
+        <activity android:name=".LoginActivity"  android:screenOrientation="portrait" />
         <activity
             android:name=".SplashScreen"
             android:screenOrientation="portrait"

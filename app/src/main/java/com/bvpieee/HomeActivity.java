@@ -6,12 +6,20 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+
+import com.bvpieee.ui.events.EventDetailFragment;
 import com.bvpieee.ui.events.EventsFragment;
 import com.bvpieee.ui.home.Home2Fragment;
 import com.bvpieee.ui.home.HomeFragment;
 import com.bvpieee.ui.teams.TeamsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -22,6 +30,8 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import java.util.ArrayList;
+
 public class HomeActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     Fragment homefrag = new HomeFragment();
@@ -29,7 +39,9 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
 //    Fragment teamsfrag = new TeamsFragment();
     FloatingActionButton fab;
     Fragment home2 = new Home2Fragment();
+    Fragment eventDetail = new EventDetailFragment();
     BottomNavigationView navView;
+
     private static int SPLASH_SCREEN_TIME_OUT=3000;
 
     @Override
@@ -57,6 +69,8 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
 //        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
 //        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 //        NavigationUI.setupWithNavController(navView, navController);
+
+
         fab.setRippleColor(Color.parseColor("#AFEEEE"));
 
         loadFragments(homefrag);
@@ -65,6 +79,8 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         com.bvpieee.adapters.EventsAdapterKt.setHomeActivityContextHolder(this);
     }
 
+
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         Fragment fragment = null;
@@ -72,7 +88,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         switch (menuItem.getItemId()){
             case R.id.navigation_events:
                 if (navView.getSelectedItemId() != R.id.navigation_events)
-                    fragment = eventfrag;
+                    fragment = eventDetail;
                 else
                     navView.setEnabled(false);
                 break;

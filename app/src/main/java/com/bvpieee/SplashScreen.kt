@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.activity_splash_screen.*
 
 class SplashScreen : AppCompatActivity() {
 
-    private val TimeSplash:Long=10000
+    private val TimeSplash:Long=2000
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,9 +19,7 @@ class SplashScreen : AppCompatActivity() {
 //        avi.show()
         val animation = findViewById<LottieAnimationView>(R.id.lottieSplash)
         animation.speed = 1.0F // How fast does the animation play
-        // Starts the animation from 50% of the beginning
         animation.addAnimatorUpdateListener {
-            // Called everytime the frame of the animation changes
         }
         animation.repeatMode = LottieDrawable.RESTART // Restarts the animation (you can choose to reverse it as well)
         animation.cancelAnimation()

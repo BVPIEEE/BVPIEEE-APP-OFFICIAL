@@ -2,13 +2,19 @@ package com.bvpieee.ui.teams;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.bvpieee.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,6 +27,9 @@ public class CoreTemFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private RecyclerView myRecyclerView;
+    View view;
+    private List<TeamFragModelClass> memberCore;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -40,18 +49,29 @@ public class CoreTemFragment extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
+        memberCore= new ArrayList<>();
+        memberCore.add(new TeamFragModelClass("Kshitij Sidana","Chairperson, BVPIEEE",R.drawable.kshitijsidana));
+        memberCore.add(new TeamFragModelClass("Himani Negi","Vice Chairperson, BVPIEEE", R.drawable.himaninegi));
+        memberCore.add(new TeamFragModelClass("Chetanya","General Secretary, BVPIEEE",R.drawable.chetanya));
+        memberCore.add(new TeamFragModelClass("Sanjana Deswal","Chief Coordinator, BVPIEEE and IAS Chairperson",R.drawable.sanjanadeswal));
+        memberCore.add(new TeamFragModelClass("Aaktiti Jain","Joint Secretary, BVPIEEE and WIE Vice Chairperon",R.drawable.aakritijain));
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_core_tem, container, false);
+        view=inflater.inflate(R.layout.fragment_core_tem ,container,false);
+        myRecyclerView =(RecyclerView) view.findViewById(R.id.rvCore);
+        RecyclerViewAdapterCoreTeam recyclerViewAdapter=new RecyclerViewAdapterCoreTeam(getContext(),memberCore);
+        myRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        myRecyclerView.setAdapter(recyclerViewAdapter);
+        return view;
     }
+
 }

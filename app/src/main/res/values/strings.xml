@@ -10,6 +10,12 @@
     <string name="tab_text_3">CS</string>
     <string name="tab_text_4">WIE</string>
     <string name="tab_text_5">HKN</string>
+    <string name="tab_text_6">CODE-X</string>
+    <string name="tab_text_7">DRISHTI</string>
+    <string name="tab_text_8">ROBOTICS &amp; AUTOMATION UNITED</string>
+    <string name="tab_text_9">BVCOE QUIZ CLUB</string>
+    <string name="tab_text_10">ENTREPRENEURSHIP CELL</string>
+    <string name="tab_text_11">GAMMA</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="team_tab_core">CORE TEAMS</string>
     <string name="team_tab_chaps">CHAPTER TEAMS</string>
@@ -20,7 +26,25 @@
     <string name="lottieanimation">LottieAnimation</string>
     <string name="social_media_handles">Social Media Handles</string>
     <string name="background">Background</string>
-    // Dummy text
+    <string name="about">About</string>
+    <string name="eventworkshop">Events and Workshops</string>
+    <string name="team">Team</string>
+    <string name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel eros nulla. Pellentesque id turpis a turpis molestie hendrerit eu non libero. Morbi eget sodales est. Ut ultrices, tortor sed commodo aliquam, lorem nisi consectetur turpis, euismod venenatis elit nisl ac mauris. Nam ut imperdiet lorem. Nulla id fringilla tellus, eu tincidunt sapien</string>
+    <string name="core_team_member_image">Core Team Member Image</string>
+    <string name="name">NAME</string>
+    <string name="post">POST</string>
+    <string name="tap_to_know_more">Tap to know more</string>
+    <string name="special_interest_groups_sigs">Special Interest Groups (SIGs), BVPIEEE</string>
+    <string name="auxillary_team_bvpieee">Auxillary Team, BVPIEEE</string>
+    <string name="chapters">Chapters</string>
+    <string-array name="placeHolder_text">
+        <item>RAS Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel eros nulla. Pellentesque id turpis a turpis molestie hendrerit eu non libero. Morbi eget sodales est. Ut ultrices, tortor sed commodo aliquam, lorem nisi consectetur turpis, euismod venenatis elit nisl ac mauris. Nam ut imperdiet lorem. Nulla id fringilla tellus, eu tincidunt sapien</item>
+        <item>CS Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel eros nulla. Pellentesque id turpis a turpis molestie hendrerit eu non libero. Morbi eget sodales est. Ut ultrices, tortor sed commodo aliquam, lorem nisi consectetur turpis, euismod venenatis elit nisl ac mauris. Nam ut imperdiet lorem. Nulla id fringilla tellus, eu tincidunt sapien</item>
+        <item>IAS Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel eros nulla. Pellentesque id turpis a turpis molestie hendrerit eu non libero. Morbi eget sodales est. Ut ultrices, tortor sed commodo aliquam, lorem nisi consectetur turpis, euismod venenatis elit nisl ac mauris. Nam ut imperdiet lorem. Nulla id fringilla tellus, eu tincidunt sapien</item>
+        <item>WIE Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel eros nulla. Pellentesque id turpis a turpis molestie hendrerit eu non libero. Morbi eget sodales est. Ut ultrices, tortor sed commodo aliquam, lorem nisi consectetur turpis, euismod venenatis elit nisl ac mauris. Nam ut imperdiet lorem. Nulla id fringilla tellus, eu tincidunt sapien</item>
+        <item>HKN Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel eros nulla. Pellentesque id turpis a turpis molestie hendrerit eu non libero. Morbi eget sodales est. Ut ultrices, tortor sed commodo aliquam, lorem nisi consectetur turpis, euismod venenatis elit nisl ac mauris. Nam ut imperdiet lorem. Nulla id fringilla tellus, eu tincidunt sapien</item>
+    </string-array>
+// Dummy text
     <string name="dummyText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mi quis hendrerit dolor magna eget est lorem ipsum. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam. Faucibus ornare suspendisse sed nisi lacus sed viverra. At in tellus integer feugiat scelerisque varius morbi enim. Morbi tincidunt augue interdum velit euismod in pellentesque. Sed odio morbi quis commodo odio aenean. Magnis dis parturient montes nascetur ridiculus mus. In fermentum et sollicitudin ac orci. Quis varius quam quisque id. Dis parturient montes nascetur ridiculus mus. Ut eu sem integer vitae justo eget.
 
 Dictum at tempor commodo ullamcorper a lacus. Orci dapibus ultrices in iaculis. Ut placerat orci nulla pellentesque dignissim enim sit amet. Turpis egestas pretium aenean pharetra magna ac. Eu lobortis elementum nibh tellus molestie. Tristique nulla aliquet enim tortor at auctor urna nunc. Elementum tempus egestas sed sed risus pretium. Massa enim nec dui nunc. Egestas integer eget aliquet nibh praesent tristique magna. Fames ac turpis egestas maecenas. Velit scelerisque in dictum non.

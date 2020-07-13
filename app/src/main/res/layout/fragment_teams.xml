@@ -13,7 +13,7 @@
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/team"
             android:layout_width="match_parent"
-            android:layout_height="500dp"
+            android:layout_height="600dp"
             android:layout_gravity="center"
             android:layout_weight="4"
             android:scaleType="centerCrop"
@@ -43,11 +43,12 @@
         android:orientation="vertical"
         android:id="@+id/teams_linear">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/Logo_HeightFor_Teams_Tab"
-            android:src="@drawable/bvpieee"
-            android:background="@color/black"/>
+<!--        <ImageView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/Logo_HeightFor_Teams_Tab"-->
+<!--            android:src="@drawable/bvpieee"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:background="@color/colorPrimaryDark"/>-->
 
 <!--        <TextView-->
 <!--            android:layout_margin="20dp"-->
@@ -68,18 +69,38 @@
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/black">
+            android:background="@color/colorPrimaryDark"
+            android:padding="10dp">
+<!--            <com.google.android.material.tabs.TabLayout-->
+<!--                android:id="@+id/tabLayoutTeams"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="100dp"-->
+<!--                app:tabTextColor="@color/white"-->
+<!--                android:padding="10dp"-->
+<!--                app:tabMode="scrollable"-->
+<!--                app:tabBackground="@drawable/tab_selector"-->
+<!--                app:tabRippleColor="@android:color/holo_orange_light"-->
+<!--                app:tabSelectedTextColor="@android:color/holo_orange_light"-->
+<!--                android:background="@drawable/tablayout_bgcolor">-->
+
+<!--            </com.google.android.material.tabs.TabLayout>-->
+
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabLayoutTeams"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:accessibilityHeading="true"
-                app:tabTextColor="@color/white"
-                android:padding="5dp"
-                app:tabSelectedTextColor="@android:color/holo_orange_light"
-                android:background="@color/black">
-
-            </com.google.android.material.tabs.TabLayout>
+                android:layout_height="36dp"
+                android:background="@drawable/tablayout_bgcolor"
+                app:tabMode="scrollable"
+                app:tabBackground="@drawable/tab_selector"
+                app:tabSelectedTextColor="@color/colorPrimaryDark"
+                app:tabPaddingStart="16dp"
+                app:tabTextColor="@android:color/holo_orange_light"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                app:tabPaddingEnd="16dp"
+                app:tabIndicatorHeight="0dp"
+                app:tabRippleColor="@null"/>
 
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -90,4 +111,6 @@
         </androidx.viewpager.widget.ViewPager>
 
     </LinearLayout>
+
+
 </RelativeLayout>
