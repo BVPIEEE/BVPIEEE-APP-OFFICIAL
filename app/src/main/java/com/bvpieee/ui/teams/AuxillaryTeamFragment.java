@@ -62,8 +62,8 @@ public class AuxillaryTeamFragment extends Fragment {
         memberAuxy.add(new TeamFragModelClass("Bhavya Wahie","Head - Creativity, Head - Sponsorship",R.drawable.bvpieee));
         memberAuxy.add(new TeamFragModelClass("Shreyas Gupta","Head - Creativity",R.drawable.bvpieee));
         memberAuxy.add(new TeamFragModelClass("Ankit Goel","Head - Sponsorship",R.drawable.ankitgoel));
-        memberAuxy.add(new TeamFragModelClass("Anuvrat","Head - Infrastructure and Logistics",R.drawable.pranavgrover));
-        memberAuxy.add(new TeamFragModelClass("Amit Kumar","Head - Infrastructure and Logistics",R.drawable.pranavgrover));
+        memberAuxy.add(new TeamFragModelClass("Anuvrat","Head - Infrastructure and Logistics",R.drawable.bvpieee));
+        memberAuxy.add(new TeamFragModelClass("Amit Kumar","Head - Infrastructure and Logistics",R.drawable.amitkumar));
         memberAuxy.add(new TeamFragModelClass("Shivam Sharma","Student Representative",R.drawable.shivamsharma));
         memberAuxy.add(new TeamFragModelClass("Amisha Malik","Student Representative",R.drawable.amishamalik));
 

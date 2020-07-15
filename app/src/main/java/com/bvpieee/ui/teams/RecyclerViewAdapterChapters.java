@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bvpieee.R;
 import com.bvpieee.adapters.ChapterPagerAdapter;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 public class RecyclerViewAdapterChapters extends RecyclerView.Adapter<RecyclerViewAdapterChapters.MyViewHolderForChapterTeams> {
@@ -37,6 +39,7 @@ public class RecyclerViewAdapterChapters extends RecyclerView.Adapter<RecyclerVi
     @Override
     public void onBindViewHolder(@NonNull MyViewHolderForChapterTeams holder, int position) {
         holder.textView_chapter_name.setText(mData.get(position).getChapterName());
+        holder.textview_chaptwr_fullform.setText(mData.get(position).getChapterFullForm());
         holder.imageView_chapter_photo.setImageResource(mData.get(position).getChapPhoto());
     }
 
@@ -48,11 +51,13 @@ public class RecyclerViewAdapterChapters extends RecyclerView.Adapter<RecyclerVi
     public static class MyViewHolderForChapterTeams extends RecyclerView.ViewHolder {
 
         private TextView textView_chapter_name;
+        private TextView textview_chaptwr_fullform;
         private ImageView imageView_chapter_photo;
 
         public MyViewHolderForChapterTeams(@NonNull View itemView) {
             super(itemView);
             textView_chapter_name=(TextView) itemView.findViewById(R.id.tvChapName);
+            textview_chaptwr_fullform=(TextView) itemView.findViewById(R.id.tvChapNameFullForm);
             imageView_chapter_photo=(ImageView) itemView.findViewById(R.id.imgChapter);
 
 

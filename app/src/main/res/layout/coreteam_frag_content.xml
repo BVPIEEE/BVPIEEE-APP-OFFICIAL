@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/memberItem">
 
 
     <androidx.cardview.widget.CardView
@@ -19,42 +20,78 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:background="@color/colorAccent"/>
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/imgCore"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:padding="5dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="5dp"
                 android:src="@drawable/bvpieee"
                 android:contentDescription="@string/core_team_member_image" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/name"
-                android:padding="5dp"
-                android:id="@+id/tvnameCore"
-                android:layout_marginStart="5dp"
-                android:textColor="@color/black"
-                android:textSize="32sp"/>
+        </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="90dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/name"
+            android:layout_marginTop="5dp"
+            android:padding="5dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/tvnameCore"
+            android:textColor="@color/black"
+            android:textSize="32sp"/>
 
             <TextView
                 android:id="@+id/corePost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/post"
                 android:padding="5dp"
-                android:layout_marginStart="5dp"
-                android:textColor="@color/black"
-                />
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/tvnameCore"
+                android:text="@string/post"
+                android:textColor="@color/black" />
+
+            <!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/tap_to_know_more"-->
+<!--                android:gravity="center|bottom"-->
+<!--                android:padding="5dp"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:textAlignment="center"/>-->
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="100dp"
+            android:orientation="vertical">
+
+<!--            <TextView-->
+<!--                android:id="@+id/corePost"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/post"-->
+<!--                android:padding="5dp"-->
+<!--                android:layout_marginStart="5dp"-->
+<!--                android:textColor="@color/black"-->
+<!--                />-->
 
             <TextView
                 android:layout_width="match_parent"
@@ -62,7 +99,6 @@
                 android:text="@string/tap_to_know_more"
                 android:gravity="center|bottom"
                 android:padding="5dp"
-                android:background="@color/colorAccent"
                 android:textColor="@color/black"
                 android:layout_marginTop="10dp"
                 android:textAlignment="center"/>

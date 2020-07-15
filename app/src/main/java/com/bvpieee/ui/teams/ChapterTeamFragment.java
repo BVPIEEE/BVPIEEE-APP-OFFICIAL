@@ -54,11 +54,11 @@ public class ChapterTeamFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         ChapterName= new ArrayList<>();
-        ChapterName.add(new ChapterTeamFragModel("BVPIEEE Robotics and Automation Society (RAS)",R.drawable.raspp));
-        ChapterName.add(new ChapterTeamFragModel("BVPIEEE Computer Society (CS)",R.drawable.cspp));
-        ChapterName.add(new ChapterTeamFragModel("BVPIEEE Industry and Application Society (IAS)",R.drawable.iaspp));
-        ChapterName.add(new ChapterTeamFragModel("BVPIEEE Women In Engineering (WIE)",R.drawable.wiepp));
-        ChapterName.add(new ChapterTeamFragModel("BVPIEEE HKN Lambda ETA Chapter",R.drawable.hknpp));
+        ChapterName.add(new ChapterTeamFragModel("BVPIEEE RAS","Robotics and Automation Society (RAS)",R.drawable.raspp));
+        ChapterName.add(new ChapterTeamFragModel("BVPIEEE CS","Computer Society (CS)",R.drawable.cspp));
+        ChapterName.add(new ChapterTeamFragModel("BVPIEEE IAS","Industry and Application Society (IAS)",R.drawable.iaspp));
+        ChapterName.add(new ChapterTeamFragModel("BVPIEEE WIE","Women In Engineering (WIE)",R.drawable.wiepp));
+        ChapterName.add(new ChapterTeamFragModel("BVPIEEE HKN","HKN Lambda ETA Chapter",R.drawable.hknpp));
 
     }
 

@@ -5,13 +5,17 @@ import com.bvpieee.Chapter;
 public class ChapterTeamFragModel  {
 
     private String ChapterName;
+    private String ChapterFullForm;
     private  int ChapPhoto;
 
     public ChapterTeamFragModel(){
     }
 
-    public ChapterTeamFragModel(String chapname, int chapterphoto){
+
+
+    public ChapterTeamFragModel(String chapname, String chapterfullform, int chapterphoto){
         ChapterName=chapname;
+        ChapterFullForm=chapterfullform;
         ChapPhoto=chapterphoto;
     }
 
@@ -22,6 +26,10 @@ public class ChapterTeamFragModel  {
     public String getChapterName() {
         return ChapterName;
     }
+
+    public void setChapterFullForm(String chapterFullForm) { ChapterFullForm = chapterFullForm; }
+
+    public String getChapterFullForm() { return ChapterFullForm; }
 
     public void setChapterName(String chapterName) {
         ChapterName = chapterName;

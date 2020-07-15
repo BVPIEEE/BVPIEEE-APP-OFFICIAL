@@ -25,23 +25,35 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Chapter Name"
+                android:text="@string/chapter_name"
                 android:padding="5dp"
                 android:id="@+id/tvChapName"
                 android:layout_marginStart="5dp"
                 android:textColor="@color/black"
-                android:textSize="32sp"/>
+                android:textSize="24sp"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chapter_full_form"
+                android:padding="5dp"
+                android:layout_below="@id/tvChapName"
+                android:id="@+id/tvChapNameFullForm"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
 
 
             <ImageView
                 android:id="@+id/imgChapter"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="180dp"
                 android:padding="5dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="40dp"
                 android:src="@drawable/bvpieee"
                 android:layout_below="@+id/tvChapName"
-                android:contentDescription="Chapter Image" />
+                android:contentDescription="@string/chapter_image" />
 
 
 
@@ -50,3 +62,4 @@
     </androidx.cardview.widget.CardView>
 
 </LinearLayout>
+

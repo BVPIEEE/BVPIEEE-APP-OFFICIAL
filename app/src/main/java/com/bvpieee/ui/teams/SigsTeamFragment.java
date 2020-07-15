@@ -53,7 +53,7 @@ public class SigsTeamFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         memberSigs = new ArrayList<>();
-        memberSigs.add(new TeamFragModelClass("Shubham Kumar","Head Supervisor, Drishti",R.drawable.bvpieee));
+        memberSigs.add(new TeamFragModelClass("Shubham Kumar","Head Supervisor, Drishti",R.drawable.shubhamkumar));
         memberSigs.add(new TeamFragModelClass("Shreyas Grupta", "Executive, Drishti", R.drawable.bvpieee));
         memberSigs.add(new TeamFragModelClass("Bhavya Wahie", "Executive, Drishti", R.drawable.bvpieee));
         memberSigs.add(new TeamFragModelClass("Archit Kumar", "Head Supervisor, Entreprenureship Cell", R.drawable.architkumar));

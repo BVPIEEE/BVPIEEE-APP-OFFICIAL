@@ -50,6 +50,11 @@
 Dictum at tempor commodo ullamcorper a lacus. Orci dapibus ultrices in iaculis. Ut placerat orci nulla pellentesque dignissim enim sit amet. Turpis egestas pretium aenean pharetra magna ac. Eu lobortis elementum nibh tellus molestie. Tristique nulla aliquet enim tortor at auctor urna nunc. Elementum tempus egestas sed sed risus pretium. Massa enim nec dui nunc. Egestas integer eget aliquet nibh praesent tristique magna. Fames ac turpis egestas maecenas. Velit scelerisque in dictum non.
     </string>
     <string name="btnMarkGoing">MARK GOING</string>
+    <string name="chapter_name">Chapter Name</string>
+    <string name="chapter_full_form">Chapter Full Form</string>
+    <string name="chapter_image">Chapter Image</string>
+    <string name="member_name">Member name</string>
+    <string name="member_info">Member Info</string>
 
 
 </resources>

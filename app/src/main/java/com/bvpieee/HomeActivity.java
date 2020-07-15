@@ -88,7 +88,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         switch (menuItem.getItemId()){
             case R.id.navigation_events:
                 if (navView.getSelectedItemId() != R.id.navigation_events)
-                    fragment = eventDetail;
+                    fragment = eventfrag;
                 else
                     navView.setEnabled(false);
                 break;
