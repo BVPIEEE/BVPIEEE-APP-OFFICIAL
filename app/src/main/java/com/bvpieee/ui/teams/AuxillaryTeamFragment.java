@@ -53,19 +53,27 @@ public class AuxillaryTeamFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         memberAuxy= new ArrayList<>();
-        memberAuxy.add(new TeamFragModelClass("Harshit Gaur","Head - Publicity/ Corporate and Media Affairs",R.drawable.harshitgaur));
-        memberAuxy.add(new TeamFragModelClass("Tanya Mahajan","Head - Human Recources", R.drawable.tanyamahajan));
-        memberAuxy.add(new TeamFragModelClass("Naman Aggarwal","Head - Public Relations, Head - Sponsorship",R.drawable.namanaggarwal));
-        memberAuxy.add(new TeamFragModelClass("Umang Seth","Head - Event Management",R.drawable.umangseth));
-        memberAuxy.add(new TeamFragModelClass("Pranav Grover","Head - Event Management",R.drawable.pranavgrover));
-        memberAuxy.add(new TeamFragModelClass("Amol Puri","Head - Publications and Documentation",R.drawable.amolpuri));
-        memberAuxy.add(new TeamFragModelClass("Bhavya Wahie","Head - Creativity, Head - Sponsorship",R.drawable.bvpieee));
-        memberAuxy.add(new TeamFragModelClass("Shreyas Gupta","Head - Creativity",R.drawable.bvpieee));
-        memberAuxy.add(new TeamFragModelClass("Ankit Goel","Head - Sponsorship",R.drawable.ankitgoel));
-        memberAuxy.add(new TeamFragModelClass("Anuvrat","Head - Infrastructure and Logistics",R.drawable.bvpieee));
-        memberAuxy.add(new TeamFragModelClass("Amit Kumar","Head - Infrastructure and Logistics",R.drawable.amitkumar));
-        memberAuxy.add(new TeamFragModelClass("Shivam Sharma","Student Representative",R.drawable.shivamsharma));
-        memberAuxy.add(new TeamFragModelClass("Amisha Malik","Student Representative",R.drawable.amishamalik));
+        memberAuxy.add(new TeamFragModelClass("Harshit Gaur","Head - Publicity/ Corporate and Media Affairs",R.drawable.harshitgaur,"Beleives in innovation at its core. Dreamer and aspiring engineer." +
+                "Field of work : Deep Learning, App development and AR/VR"));
+        memberAuxy.add(new TeamFragModelClass("Tanya Mahajan","Head - Human Recources", R.drawable.tanyamahajan,"I like to do coding,and is fine of series and listening music "));
+        memberAuxy.add(new TeamFragModelClass("Naman Aggarwal","Head - Public Relations, Head - Sponsorship",R.drawable.namanaggarwal,"An avid Tech geek and startup enthusiast. " +
+                "Securing sponsorships and maintaining good public relations is my domain fo work"));
+        memberAuxy.add(new TeamFragModelClass("Umang Seth","Head - Event Management",R.drawable.umangseth,"I am Robotics enthusiast. Also interested in Aerospace." +
+                "Field of work : Robotics and AI"));
+        memberAuxy.add(new TeamFragModelClass("Pranav Grover","Head - Event Management",R.drawable.pranavgrover,"I can do work as well as get work done by people. I believe in maintaining good relations with each and everyone." +
+                "I am good at managing events."));
+        memberAuxy.add(new TeamFragModelClass("Amol Puri","Head - Publications and Documentation",R.drawable.amolpuri,"Wants to learn new things, expand network and gain experience." +
+                "I work as publications and documentation head and currently am working on C++."));
+        memberAuxy.add(new TeamFragModelClass("Bhavya Wahie","Head - Creativity, Head - Sponsorship",R.drawable.bvpieee,"Marketing Enthusiast. Video editing is my domain of work."));
+        memberAuxy.add(new TeamFragModelClass("Shreyas Gupta","Head - Creativity",R.drawable.bvpieee,""));
+        memberAuxy.add(new TeamFragModelClass("Ankit Goel","Head - Sponsorship",R.drawable.ankitgoel, "Hard-working and open for learning new things Getting sponsors for events is my domain of work."));
+        memberAuxy.add(new TeamFragModelClass("Anuvrat","Head - Infrastructure and Logistics",R.drawable.bvpieee,"My responsiblity is to make arrangement for various events taking place in the society"));
+        memberAuxy.add(new TeamFragModelClass("Amit Kumar","Head - Infrastructure and Logistics",R.drawable.amitkumar,"I like to keep a positive attitude I enjoy facing challenges." +
+                "Field of work : Power system, power electronics and embedded systems."));
+        memberAuxy.add(new TeamFragModelClass("Shivam Sharma","Student Representative",R.drawable.shivamsharma,"Those who can imagine anything, can create the impossible."
+        + "Trying to find the answer -Can Machines Think?"));
+        memberAuxy.add(new TeamFragModelClass("Amisha Malik","Student Representative",R.drawable.amishamalik,"I'm enthusiastic about coding and learning new technologies!"
+        + "My work involves making sure that student members are fully aware of the major IEEE projects and events and are actively involved in them, leading growth."));
 
     }
 
@@ -75,7 +83,7 @@ public class AuxillaryTeamFragment extends Fragment {
         // Inflate the layout for this fragment
         view=inflater.inflate(R.layout.fragment_auxillary_team ,container,false);
         myRecyclerView =(RecyclerView) view.findViewById(R.id.rvAuxy);
-        RecyclerViewAdapterCoreTeam recyclerViewAdapter=new RecyclerViewAdapterCoreTeam(getContext(),memberAuxy);
+        RecyclerViewAdapterAuxillaryTeam recyclerViewAdapter=new RecyclerViewAdapterAuxillaryTeam(getContext(),memberAuxy);
         myRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         myRecyclerView.setAdapter(recyclerViewAdapter);
             return view;

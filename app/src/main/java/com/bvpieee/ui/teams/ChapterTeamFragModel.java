@@ -8,6 +8,7 @@ public class ChapterTeamFragModel  {
     private String ChapterFullForm;
     private  int ChapPhoto;
 
+
     public ChapterTeamFragModel(){
     }
 

@@ -53,11 +53,17 @@ public class CoreTemFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         memberCore= new ArrayList<>();
-        memberCore.add(new TeamFragModelClass("Kshitij Sidana","Chairperson, BVPIEEE",R.drawable.kshitijsidana));
-        memberCore.add(new TeamFragModelClass("Himani Negi","Vice Chairperson, BVPIEEE", R.drawable.himaninegi));
-        memberCore.add(new TeamFragModelClass("Chetanya","General Secretary, BVPIEEE",R.drawable.chetanya));
-        memberCore.add(new TeamFragModelClass("Sanjana Deswal","Chief Coordinator, BVPIEEE and IAS Chairperson",R.drawable.sanjanadeswal));
-        memberCore.add(new TeamFragModelClass("Aaktiti Jain","Joint Secretary, BVPIEEE and WIE Vice Chairperon",R.drawable.aakritijain));
+        memberCore.add(new TeamFragModelClass("Kshitij Sidana","Chairperson, BVPIEEE",R.drawable.kshitijsidana,
+                "Fueled by fascination. Driven by logic. Jack of all but master of some.\n Domain of work : Robotics and Computer Vision"));
+        memberCore.add(new TeamFragModelClass("Himani Negi","Vice Chairperson, BVPIEEE", R.drawable.himaninegi,"Hi, This is me, Himani Negi. Currently I am a student developer " +
+                "in Google summer of code under redhenlab organization. I am working under Image and audio clustering project. Previosuly I was research intern in IIIT-D where I worked in analysing " +
+                "the collusive behaviour in social networking site.Creating a world with innovative ideas is something a part of my vision and I never look back to put efforts for it."));
+        memberCore.add(new TeamFragModelClass("Chetanya","General Secretary, BVPIEEE",R.drawable.chetanya,"Lead,Guidance,Mentor without a title is my philosophy. " +
+                "Blockchain Application Researcher"));
+        memberCore.add(new TeamFragModelClass("Sanjana Deswal","Chief Coordinator, BVPIEEE and IAS Chairperson",R.drawable.sanjanadeswal,"I am always curious to work and try something new." +
+                "Firld of work: Non-Technical"));
+        memberCore.add(new TeamFragModelClass("Aakriti Jain","Joint Secretary, BVPIEEE and WIE Vice Chairperon",R.drawable.aakritijain,"I am an enthusiastic learner, love to grab new opportunities and take lead from the front." +
+                "I manage the team and events. I've always been inclined towards the managerial stuff. I have started exploring the technical side too, with ML and web design."));
 
 
     }
