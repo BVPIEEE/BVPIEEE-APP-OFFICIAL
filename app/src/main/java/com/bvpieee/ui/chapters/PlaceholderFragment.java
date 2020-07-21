@@ -1,6 +1,7 @@
 package com.bvpieee.ui.chapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -11,11 +12,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+
+import com.bvpieee.HomeActivity;
 import com.bvpieee.R;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
@@ -31,7 +35,7 @@ public class PlaceholderFragment extends Fragment {
     private String chapter;
     private ImageView imageView;
     private TextView title, placeholder;
-    private CardView social, socialExpanded, aboutLayout;
+    private CardView social, socialExpanded, aboutLayout,  eventLayout;
     private RelativeLayout white;
     private Button close;
     private int[] imageResource = {R.drawable.raspp, R.drawable.cspp, R.drawable.iaspp, R.drawable.wiepp, R.drawable.hknpp};
@@ -56,6 +60,7 @@ public class PlaceholderFragment extends Fragment {
             root = inflater.inflate(R.layout.fragment_sig, container, false);
         arrayList = context.getResources().getStringArray(R.array.chapter_description);
 
+        eventLayout = root.findViewById(R.id.eventsLayout);
         imageView = root.findViewById(R.id.chapterBanner);
         title = root.findViewById(R.id.textView2);
         social = root.findViewById(R.id.socialLayout);
@@ -108,6 +113,13 @@ public class PlaceholderFragment extends Fragment {
                         dialog.dismiss();
                     }
                 });
+            }
+        });
+
+        eventLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(context, HomeActivity.class).putExtra("FRAG","event"));
             }
         });
 

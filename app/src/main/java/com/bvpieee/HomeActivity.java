@@ -1,11 +1,14 @@
 package com.bvpieee;
 
-import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import com.bvpieee.ui.events.EventDetailFragment;
 import com.bvpieee.ui.events.EventsFragment;
@@ -14,23 +17,8 @@ import com.bvpieee.ui.home.HomeFragment;
 import com.bvpieee.ui.teams.TeamsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import java.util.ArrayList;
+import java.util.Objects;
 
 public class HomeActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -48,6 +36,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
 
 //        ActionBar mActionBar = getSupportActionBar();
 //        mActionBar.setDisplayOptions(ActionBar.DISPLAY_HOME_AS_UP | ActionBar.DISPLAY_SHOW_CUSTOM | ActionBar.DISPLAY_SHOW_HOME);
@@ -73,7 +62,19 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
 
         fab.setRippleColor(Color.parseColor("#AFEEEE"));
 
-        loadFragments(homefrag);
+        Bundle bundle = getIntent().getExtras();
+        if(bundle != null) {
+            Log.d("Bundle", "onCreate: "+bundle.getString("FRAG"));
+            if (Objects.equals(bundle.getString("FRAG"), "event")) {
+                Log.d("Bundle", "onCreate: if clause runs ");
+                loadFragments(eventfrag);
+                Log.d("Bundle", "onCreate: if clause runs 2 ");
+            }
+
+        }
+        else
+            loadFragments(homefrag);
+
 
         // Home Activity context for SharedElementTransition in EventAdapter
         com.bvpieee.adapters.EventsAdapterKt.setHomeActivityContextHolder(this);
@@ -133,6 +134,8 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
 
     private boolean loadFragments(Fragment fragment)
     {
+        Log.d("Bundle", "loadFragments: frag is null"+fragment.getId());
+
         if (fragment!=null)
         {
             Log.d("navigation", "loadFragments: Frag is loaded");
