@@ -47,8 +47,8 @@ public class PlaceholderFragment extends Fragment {
     private Button close;
     private int[] imageResource = {R.drawable.raspp, R.drawable.cspp, R.drawable.iaspp, R.drawable.wiepp, R.drawable.hknpp};
     private int[] sigImageResource = {R.drawable.codex, R.drawable.drishti, R.drawable.robotics, R.drawable.quiz, R.drawable.entrepr, R.drawable.gamma};
-    private String[] fbIds = {"357306677679810","1201811083175429","483730548444337","266525677321638","125463600824133"};
-    private String[] websites = {"https://bvpieeend.com/pages/societies_chapters.html","https://bvpieeend.com/pages/societies_chapters.html","https://bvpieeend.com/pages/societies_chapters.html","https://bvpieeend.com/pages/wie.html","https://bvpieeend.com/pages/societies_chapters.html"};
+    private String[] fbIds;
+    private String[] websites;
     Context context;
    String[] arrayList;
 //    private String[] titles = {"RAS", "IAS", "CS", "WIE", "HKN"};
@@ -63,11 +63,18 @@ public class PlaceholderFragment extends Fragment {
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         final View root;
-        if (chapter.equals("chapter"))
+        if (chapter.equals("chapter")) {
             root = inflater.inflate(R.layout.fragment_chapter1, container, false);
-        else
-            root = inflater.inflate(R.layout.fragment_sig, container, false);
-        arrayList = context.getResources().getStringArray(R.array.chapter_description);
+            arrayList = context.getResources().getStringArray(R.array.chapter_description);
+            fbIds = new String[]{"357306677679810", "1201811083175429", "483730548444337", "266525677321638", "125463600824133"};
+            websites = new String[]{"https://bvpieeend.com/pages/societies_chapters.html", "https://bvpieeend.com/pages/societies_chapters.html", "https://bvpieeend.com/pages/societies_chapters.html", "https://bvpieeend.com/pages/wie.html", "https://bvpieeend.com/pages/societies_chapters.html"};
+        }
+        else {
+            root = inflater.inflate(R.layout.fragment_sig1, container, false);
+            arrayList = context.getResources().getStringArray(R.array.sig_description);
+            fbIds = new String[]{"125463600824133","125463600824133","125463600824133","125463600824133","125463600824133"};
+            websites = new String[]{"https://bvpieeend.com/pages/sigs.html", "https://bvpieeend.com/pages/sigs.html", "https://bvpieeend.com/pages/sigs.html", "https://bvpieeend.com/pages/sigs.html", "https://bvpieeend.com/pages/sigs.html"};
+        }
 
         eventLayout = root.findViewById(R.id.eventsLayout);
         imageView = root.findViewById(R.id.chapterBanner);
