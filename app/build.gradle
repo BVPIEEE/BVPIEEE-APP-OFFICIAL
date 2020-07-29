@@ -17,12 +17,12 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     signingConfigs {
-        debug {
-            storeFile = rootProject.file("keystore/debug.keystore")
-            storePassword 'bvpieee'
-            keyAlias 'bvpieee'
-            keyPassword 'bvpieee'
-        }
+//        debug {
+//            storeFile = rootProject.file("keystore/debug.keystore")
+//            storePassword 'bvpieee'
+//            keyAlias 'bvpieee'
+//            keyPassword 'bvpieee'
+//        }
     }
 
     buildTypes {

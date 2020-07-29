@@ -2,6 +2,7 @@ package com.bvpieee.ui.teams;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
@@ -38,7 +39,6 @@ public class RecyclerViewAdapterCoreTeam extends RecyclerView.Adapter<RecyclerVi
         View view;
         view= LayoutInflater.from(mContext).inflate(R.layout.coreteam_frag_content,parent,false);
         final MyViewHolder holder=new MyViewHolder(view);
-
         memberDialog=new Dialog(mContext);
         memberDialog.setContentView(R.layout.dialog_team_member_info);
         memberDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -47,9 +47,9 @@ public class RecyclerViewAdapterCoreTeam extends RecyclerView.Adapter<RecyclerVi
             @Override
             public void onClick(View view) {
 
-                ImageView memberimg=(ImageView) memberDialog.findViewById(R.id.imgMember);
-                TextView memberName=(TextView) memberDialog.findViewById(R.id.MemberName);
-                TextView memberInfo=(TextView) memberDialog.findViewById(R.id.member_info);
+                ImageView memberimg= memberDialog.findViewById(R.id.imgMember);
+                TextView memberName=memberDialog.findViewById(R.id.MemberName);
+                TextView memberInfo=memberDialog.findViewById(R.id.member_info);
                 memberimg.setImageResource(mData.get(holder.getAdapterPosition()).getPhoto());
                 memberName.setText(mData.get(holder.getAdapterPosition()).getName());
                 memberInfo.setText(mData.get(holder.getAdapterPosition()).getMemberDetails());
@@ -65,7 +65,7 @@ public class RecyclerViewAdapterCoreTeam extends RecyclerView.Adapter<RecyclerVi
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.textView_name.setText(mData.get(position).getName());
         holder.textView_post.setText(mData.get(position).getPost());
-        holder.imageView_photo.setImageResource(mData.get(position).getPhoto());
+//        holder.imageView_photo.setImageResource(mData.get(position).getPhoto());
     }
 
 
@@ -74,11 +74,13 @@ public class RecyclerViewAdapterCoreTeam extends RecyclerView.Adapter<RecyclerVi
         return mData.size();
     }
 
+
+
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
         private TextView textView_name;
         private TextView textView_post;
-        private ImageView imageView_photo;
+//        private ImageView imageView_photo;
         private LinearLayout memberRvItem;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -87,10 +89,9 @@ public class RecyclerViewAdapterCoreTeam extends RecyclerView.Adapter<RecyclerVi
             memberRvItem=(LinearLayout) itemView.findViewById(R.id.memberItem);
             textView_name=(TextView) itemView.findViewById(R.id.tvnameCore);
             textView_post=(TextView) itemView.findViewById(R.id.corePost);
-            imageView_photo=(ImageView) itemView.findViewById(R.id.imgCore);
+//            imageView_photo=(ImageView) itemView.findViewById(R.id.imgCore);
+
 
         }
     }
-
-
 }

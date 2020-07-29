@@ -9,16 +9,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.events.EventInfoPage">
-
-        </activity>
+        <activity android:name=".ui.teams.HKN_Team"/>
+        <activity android:name=".ui.teams.WIE_Team"/>
+        <activity android:name=".ui.teams.IAS_Team"/>
+        <activity android:name=".ui.teams.CS_Team"/>
+        <activity android:name=".ui.teams.RAS_Team" />
+        <activity android:name=".ui.events.EventInfoPage" />
         <activity
             android:name=".ChapterActivity"
             android:label="@string/title_activity_chapter"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".HomeActivity"  android:screenOrientation="portrait" android:theme="@style/SplashTheme"/>
-        <activity android:name=".LoginActivity"  android:screenOrientation="portrait" />
+        <activity
+            android:name=".HomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme" />
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SplashScreen"
             android:screenOrientation="portrait"

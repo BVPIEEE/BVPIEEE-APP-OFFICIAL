@@ -1,5 +1,6 @@
 package com.bvpieee.ui.teams;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -20,7 +21,7 @@ import java.util.List;
  * Use the {@link ChapterTeamFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ChapterTeamFragment extends Fragment {
+public class ChapterTeamFragment extends Fragment  implements RecyclerViewAdapterChapters.onChapterClickListener{
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -68,10 +69,34 @@ public class ChapterTeamFragment extends Fragment {
         // Inflate the layout for this fragment
         view=inflater.inflate(R.layout.fragment_chapter2 ,container,false);
         myRecyclerView =(RecyclerView) view.findViewById(R.id.rvChaptername);
-        RecyclerViewAdapterChapters recyclerViewAdapter=new RecyclerViewAdapterChapters(getContext(),ChapterName);
+        RecyclerViewAdapterChapters recyclerViewAdapter=new RecyclerViewAdapterChapters(getContext(),ChapterName,this);
         myRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         myRecyclerView.setAdapter(recyclerViewAdapter);
         return view;
 
+    }
+
+    @Override
+    public void onChapterClick(int position) {
+        if (position==0) {
+            Intent intentRAS = new Intent(ChapterTeamFragment.this.getActivity(), RAS_Team.class);
+            startActivity(intentRAS);
+        }
+        else if (position==1){
+            Intent intentCS = new Intent(ChapterTeamFragment.this.getActivity(),CS_Team.class);
+            startActivity(intentCS);
+        }
+        else if (position==2){
+            Intent intentIAS= new Intent(ChapterTeamFragment.this.getActivity(),IAS_Team.class);
+            startActivity(intentIAS);
+        }
+        else if(position==3){
+            Intent intentWIE= new Intent(ChapterTeamFragment.this.getActivity(),WIE_Team.class);
+            startActivity(intentWIE);
+        }
+        else{
+            Intent intentHKN= new Intent(ChapterTeamFragment.this.getActivity(),HKN_Team.class);
+            startActivity(intentHKN);
+        }
     }
 }

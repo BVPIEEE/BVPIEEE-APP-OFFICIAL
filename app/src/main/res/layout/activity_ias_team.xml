@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
+
+        <TextView android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="@string/industrial_automation_society"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:background="@android:color/holo_orange_light"
+            android:layout_margin="10dp"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/black" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvIAS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/coreteam_frag_content"
+            android:layout_margin="1dp"/>
+
+    </LinearLayout>
+</LinearLayout>
+

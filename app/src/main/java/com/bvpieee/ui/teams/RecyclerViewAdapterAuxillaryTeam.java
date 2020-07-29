@@ -64,7 +64,7 @@ public class RecyclerViewAdapterAuxillaryTeam extends RecyclerView.Adapter<Recyc
 
         holder.textView_name.setText(mData.get(position).getName());
         holder.textView_post.setText(mData.get(position).getPost());
-        holder.imageView_photo.setImageResource(mData.get(position).getPhoto());
+//        holder.imageView_photo.setImageResource(mData.get(position).getPhoto());
 
     }
 
@@ -77,7 +77,7 @@ public class RecyclerViewAdapterAuxillaryTeam extends RecyclerView.Adapter<Recyc
 
         private TextView textView_name;
         private TextView textView_post;
-        private ImageView imageView_photo;
+//        private ImageView imageView_photo;
         private LinearLayout memberRvItem;
 
         public MyViewHolderAuxy(@NonNull View itemView) {
@@ -85,7 +85,7 @@ public class RecyclerViewAdapterAuxillaryTeam extends RecyclerView.Adapter<Recyc
             memberRvItem=(LinearLayout) itemView.findViewById(R.id.memberItem);
             textView_name=(TextView) itemView.findViewById(R.id.tvnameCore);
             textView_post=(TextView) itemView.findViewById(R.id.corePost);
-            imageView_photo=(ImageView) itemView.findViewById(R.id.imgCore);
+//            imageView_photo=(ImageView) itemView.findViewById(R.id.imgCore);
         }
     }
 

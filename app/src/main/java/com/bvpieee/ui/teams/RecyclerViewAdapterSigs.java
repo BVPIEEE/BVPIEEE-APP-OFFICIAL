@@ -39,7 +39,7 @@ public class RecyclerViewAdapterSigs extends RecyclerView.Adapter<RecyclerViewAd
     public void onBindViewHolder(@NonNull MyViewHolderSigs holder, int position) {
         holder.textView_name.setText(mData.get(position).getName());
         holder.textView_post.setText(mData.get(position).getPost());
-        holder.imageView_photo.setImageResource(mData.get(position).getPhoto());
+//        holder.imageView_photo.setImageResource(mData.get(position).getPhoto());
     }
 
     @Override
@@ -51,7 +51,7 @@ public class RecyclerViewAdapterSigs extends RecyclerView.Adapter<RecyclerViewAd
 
         private TextView textView_name;
         private TextView textView_post;
-        private ImageView imageView_photo;
+//        private ImageView imageView_photo;
 
 
         public MyViewHolderSigs(@NonNull View itemView) {
@@ -59,7 +59,7 @@ public class RecyclerViewAdapterSigs extends RecyclerView.Adapter<RecyclerViewAd
 
             textView_name=(TextView) itemView.findViewById(R.id.tvnameCore);
             textView_post=(TextView) itemView.findViewById(R.id.corePost);
-            imageView_photo=(ImageView) itemView.findViewById(R.id.imgCore);
+//            imageView_photo=(ImageView) itemView.findViewById(R.id.imgCore);
 
         }
     }

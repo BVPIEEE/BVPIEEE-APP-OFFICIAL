@@ -53,7 +53,7 @@
         <item>E-Cell (Entrepreneurship Cell) aims at providing a platform for students to interact with professionals and industrialists from different fields. E-Cell organizes Group Discussions, Conferences, and many more Interactive sessions and helps in developing a Professional environment for students. Its aim is to help the budding engineers of the institution to realize their dreams of establishing their own start-ups, aiding them in conceptualizing and executing their plans by conducting one to one interaction with entrepreneurs and field experts.</item>
         <item>BVPIEEE added a vertex to its graph in the form of GAMMA which stands for Gaming and Multimedia Animation by organizing its orientation meeting on 5th March 2014. This SIG of BVPIEEE is a new dimension which encapsulates not only gaming but all the hard work that it takes to build a game. It not only wants the students to have fun while playing games but also learn the game.</item>
     </string-array>
-// Dummy text
+    // Dummy text
     <string name="dummyText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mi quis hendrerit dolor magna eget est lorem ipsum. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam. Faucibus ornare suspendisse sed nisi lacus sed viverra. At in tellus integer feugiat scelerisque varius morbi enim. Morbi tincidunt augue interdum velit euismod in pellentesque. Sed odio morbi quis commodo odio aenean. Magnis dis parturient montes nascetur ridiculus mus. In fermentum et sollicitudin ac orci. Quis varius quam quisque id. Dis parturient montes nascetur ridiculus mus. Ut eu sem integer vitae justo eget.
 
 Dictum at tempor commodo ullamcorper a lacus. Orci dapibus ultrices in iaculis. Ut placerat orci nulla pellentesque dignissim enim sit amet. Turpis egestas pretium aenean pharetra magna ac. Eu lobortis elementum nibh tellus molestie. Tristique nulla aliquet enim tortor at auctor urna nunc. Elementum tempus egestas sed sed risus pretium. Massa enim nec dui nunc. Egestas integer eget aliquet nibh praesent tristique magna. Fames ac turpis egestas maecenas. Velit scelerisque in dictum non.
@@ -64,6 +64,11 @@ Dictum at tempor commodo ullamcorper a lacus. Orci dapibus ultrices in iaculis. 
     <string name="chapter_image">Chapter Image</string>
     <string name="member_name">Member name</string>
     <string name="member_info">Member Info</string>
+    <string name="robotics_and_automation_society">Robotics and Automation Society</string>
+    <string name="computer_society">Computer Society</string>
+    <string name="industrial_automation_society">Industrial Automation Society</string>
+    <string name="hkn_lambda_eta_chapter">HKN Lambda ETA Chapter</string>
+    <string name="women_in_engineering">Women In Engineering</string>
 
 
 </resources>
