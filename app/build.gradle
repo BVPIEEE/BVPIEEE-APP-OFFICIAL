@@ -16,21 +16,21 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-    signingConfigs {
-        debug {
-            storeFile = rootProject.file("keystore/debug.keystore")
-            storePassword 'bvpieee'
-            keyAlias 'bvpieee'
-            keyPassword 'bvpieee'
-        }
-    }
+//    signingConfigs {
+//        debug {
+//            storeFile = rootProject.file("keystore/debug.keystore")
+//            storePassword 'bvpieee'
+//            keyAlias 'bvpieee'
+//            keyPassword 'bvpieee'
+//        }
+//    }
 
     buildTypes {
-        debug {
-            signingConfig signingConfigs.debug
-            minifyEnabled false
-            versionNameSuffix '-debug-version'
-        }
+//        debug {
+//            signingConfig signingConfigs.debug
+//            minifyEnabled false
+//            versionNameSuffix '-debug-version'
+//        }
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -89,5 +89,6 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:1.1.0"
     //MotionLayout
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta8'
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
 }
