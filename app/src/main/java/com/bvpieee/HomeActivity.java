@@ -30,8 +30,6 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
     Fragment eventDetail = new EventDetailFragment();
     BottomNavigationView navView;
 
-    private static int SPLASH_SCREEN_TIME_OUT=3000;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,11 +62,23 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
 
         Bundle bundle = getIntent().getExtras();
         if(bundle != null) {
-            Log.d("Bundle", "onCreate: "+bundle.getString("FRAG"));
+            Log.d("Bundle", "onCreate: "+bundle.getString("TEAM"));
             if (Objects.equals(bundle.getString("FRAG"), "event")) {
                 Log.d("Bundle", "onCreate: if clause runs ");
-                loadFragments(eventfrag);
+                Bundle team = new Bundle();
+                team.putString("TEAMS",bundle.getString("TEAM"));
+                EventsFragment event = new EventsFragment();
+                event.setArguments(team);
+                loadFragments(event);
+
                 Log.d("Bundle", "onCreate: if clause runs 2 ");
+            }
+            if(Objects.equals(bundle.getString("FRAG"), "teams")){
+                Bundle team = new Bundle();
+                team.putString("TEAMS",bundle.getString("CHAP"));
+                TeamsFragment event = new TeamsFragment();
+                event.setArguments(team);
+                loadFragments(event);
             }
 
         }
@@ -115,6 +125,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
 //                fragment = teamsfrag;
                 break;
         }
+        assert fragment != null;
         return loadFragments(fragment);
     }
 
@@ -125,7 +136,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         }
 
         if(getSupportFragmentManager().getBackStackEntryCount() > 0) {
-            getSupportFragmentManager().popBackStackImmediate();
+            loadFragments(homefrag);
         }
 
         else
@@ -134,7 +145,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
 
     private boolean loadFragments(Fragment fragment)
     {
-        Log.d("Bundle", "loadFragments: frag is null"+fragment.getId());
+//        Log.d("Bundle", "loadFragments: frag is null"+fragment.getId());
 
         if (fragment!=null)
         {

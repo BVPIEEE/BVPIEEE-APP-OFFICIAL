@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EventWebView"></activity>
+        <activity android:name=".EventWebView"/>
         <activity android:name=".ui.teams.HKN_Team" />
         <activity android:name=".ui.teams.WIE_Team" />
         <activity android:name=".ui.teams.IAS_Team" />
@@ -24,7 +24,7 @@
         <activity
             android:name=".HomeActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme" />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LoginActivity"
             android:screenOrientation="portrait" />

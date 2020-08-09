@@ -2,7 +2,7 @@ package com.bvpieee.models
 
 import java.io.Serializable
 
-class EventInfo(val eventTitle: String, val eventDate: String, val eventDept: String, val eventDesc: String, val eventImage: String, val url: String?) : Serializable {
+class EventInfo(val eventTitle: String? = null, val eventDate: String? = null, val eventDept: String? = null, val eventDesc: String? = null, val eventImage: String? = null, val url: String? = null) : Serializable {
 
 
 

@@ -13,7 +13,7 @@
 
     <item
         android:id="@+id/navigation_teams"
-        android:icon="@drawable/teams_icon"
+        android:icon="@drawable/ic_baseline_people_alt_24"
         android:title="@string/title_team" />
 
 </menu>
