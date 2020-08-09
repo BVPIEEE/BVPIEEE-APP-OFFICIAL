@@ -1,29 +1,19 @@
 package com.bvpieee.ui.teams;
 
 import android.animation.Animator;
-import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TableLayout;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.bvpieee.R;
 import com.google.android.material.tabs.TabLayout;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class TeamsFragment extends Fragment {
 
@@ -33,10 +23,20 @@ public class TeamsFragment extends Fragment {
     TabLayout tabLayout;
     View layout, teams;
     LottieAnimationView animationView;
+    String team_chap=null;
 //    private RecyclerView myRecyclerView;
 //    private List<CoreTeamModel> memberCore;
 
     public TeamsFragment(){
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if(getArguments() != null){
+            Bundle arguments = getArguments();
+            team_chap = arguments.getString("TEAMS");
+        }
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -53,7 +53,6 @@ public class TeamsFragment extends Fragment {
         animationView.addAnimatorListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
-
             }
 
             @Override
@@ -105,5 +104,11 @@ public class TeamsFragment extends Fragment {
         adapterTeams.addFragment(new AuxillaryTeamFragment(),"Auxillary Team");
 
         viewPager.setAdapter(adapterTeams);
+        if(team_chap!=null) {
+            if (team_chap.equals("chapter"))
+                viewPager.setCurrentItem(1);
+            else if (team_chap.equals("sig"))
+                viewPager.setCurrentItem(2);
+        }
     }
 }
