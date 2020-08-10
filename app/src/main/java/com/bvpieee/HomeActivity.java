@@ -1,10 +1,14 @@
 package com.bvpieee;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,8 +19,15 @@ import com.bvpieee.ui.events.EventsFragment;
 import com.bvpieee.ui.home.Home2Fragment;
 import com.bvpieee.ui.home.HomeFragment;
 import com.bvpieee.ui.teams.TeamsFragment;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.FirebaseError;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Objects;
 
@@ -29,12 +40,18 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
     Fragment home2 = new Home2Fragment();
     Fragment eventDetail = new EventDetailFragment();
     BottomNavigationView navView;
-
+    private FirebaseAuth mAuth;
+    private GoogleSignInClient mgoogleSigninClient;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
+        // google sign in client for logout
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+        mgoogleSigninClient=GoogleSignIn.getClient(this,gso);
 
 //        ActionBar mActionBar = getSupportActionBar();
 //        mActionBar.setDisplayOptions(ActionBar.DISPLAY_HOME_AS_UP | ActionBar.DISPLAY_SHOW_CUSTOM | ActionBar.DISPLAY_SHOW_HOME);
@@ -90,7 +107,34 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         com.bvpieee.adapters.EventsAdapterKt.setHomeActivityContextHolder(this);
     }
 
-
+// menu for google logout
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.actionbar_menu,menu);
+        return true;
+    }
+// logout menu item click
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.logout:
+                // google logout code
+                mgoogleSigninClient.signOut().addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        startActivity(new Intent(HomeActivity.this,LoginActivity.class));
+                        finish();
+                    }
+                });
+                return true;
+            case R.id.developers:
+                Toast.makeText(this,"Developer details will be added soon",Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
