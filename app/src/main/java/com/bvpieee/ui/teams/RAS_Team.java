@@ -79,7 +79,6 @@ public class RAS_Team extends AppCompatActivity {
         myRecyclerView.setItemViewCacheSize(50);
         myRecyclerView.setDrawingCacheEnabled(true);
         myRecyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
-        myRecyclerView.setHasFixedSize(true);
         myRecyclerView.setNestedScrollingEnabled(false);
 
     }

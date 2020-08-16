@@ -5,7 +5,6 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bvpieee.R;
@@ -58,7 +57,6 @@ public class WIE_Team extends AppCompatActivity {
         WIERecyclerView.setAdapter(recyclerViewAdapter);
         WIERecyclerView.invalidate();
         WIERecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        WIERecyclerView.setHasFixedSize(true);
         WIERecyclerView.setItemViewCacheSize(100);
         WIERecyclerView.setDrawingCacheEnabled(true);
         WIERecyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
