@@ -1,9 +1,13 @@
 package com.bvpieee.ui.teams;
 
 import android.content.Context;
+import android.content.Intent;
+import android.media.Image;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -39,6 +43,19 @@ public class RecyclerViewAdapterSigs extends RecyclerView.Adapter<RecyclerViewAd
     public void onBindViewHolder(@NonNull MyViewHolderSigs holder, int position) {
         holder.textView_name.setText(mData.get(position).getName());
         holder.textView_post.setText(mData.get(position).getPost());
+
+        Uri url;
+        url= Uri.parse(mData.get(position).getLinkedIn());
+
+        holder.linkedIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(Intent.ACTION_VIEW,url);
+                intent.setPackage("com.linkedin.android");
+                mContext.startActivity(intent);
+            }
+        });
+
 //        holder.imageView_photo.setImageResource(mData.get(position).getPhoto());
     }
 
@@ -51,6 +68,7 @@ public class RecyclerViewAdapterSigs extends RecyclerView.Adapter<RecyclerViewAd
 
         private TextView textView_name;
         private TextView textView_post;
+        private ImageButton linkedIn;
 //        private ImageView imageView_photo;
 
 
@@ -59,7 +77,8 @@ public class RecyclerViewAdapterSigs extends RecyclerView.Adapter<RecyclerViewAd
 
             textView_name=(TextView) itemView.findViewById(R.id.tvnameCore);
             textView_post=(TextView) itemView.findViewById(R.id.corePost);
-//            imageView_photo=(ImageView) itemView.findViewById(R.id.imgCore);
+            linkedIn=itemView.findViewById(R.id.linkedin_img_btn);
+//            imageView_photo=(ImageView) itemView.findViewById(R.id.img);
 
         }
     }

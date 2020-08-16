@@ -8,6 +8,7 @@
         android:contentDescription="@string/app_name"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="16dp"
         android:scaleType="centerCrop" />
 
     <LinearLayout
@@ -18,7 +19,6 @@
         android:layout_height="wrap_content"
         android:background="#70ffffff"
         android:orientation="vertical">
-
     </LinearLayout>
 
     <LinearLayout
@@ -34,9 +34,9 @@
             android:textSize="10sp"
             android:padding="2dp"
             android:alpha="80"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="@color/white"
-            android:fontFamily="sans-serif-black"/>
+            android:background="#98DAFC"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif"/>
 
     </LinearLayout>
 

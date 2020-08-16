@@ -56,9 +56,13 @@ public class ChapterTeamFragment extends Fragment  implements RecyclerViewAdapte
 
         ChapterName= new ArrayList<>();
         ChapterName.add(new ChapterTeamFragModel("BVPIEEE RAS","Robotics and Automation Society (RAS)",R.drawable.raspp));
+
         ChapterName.add(new ChapterTeamFragModel("BVPIEEE CS","Computer Society (CS)",R.drawable.cspp));
+
         ChapterName.add(new ChapterTeamFragModel("BVPIEEE IAS","Industry and Application Society (IAS)",R.drawable.iaspp));
+
         ChapterName.add(new ChapterTeamFragModel("BVPIEEE WIE","Women In Engineering (WIE)",R.drawable.wiepp));
+
         ChapterName.add(new ChapterTeamFragModel("BVPIEEE HKN","HKN Lambda ETA Chapter",R.drawable.hknpp));
 
     }

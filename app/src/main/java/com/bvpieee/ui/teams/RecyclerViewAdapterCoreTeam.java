@@ -4,10 +4,16 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.ImageDecoder;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
+import android.text.util.Linkify;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -50,21 +56,36 @@ public class RecyclerViewAdapterCoreTeam extends RecyclerView.Adapter<RecyclerVi
                 ImageView memberimg= memberDialog.findViewById(R.id.imgMember);
                 TextView memberName=memberDialog.findViewById(R.id.MemberName);
                 TextView memberInfo=memberDialog.findViewById(R.id.member_info);
+//                TextView linkedinPage=memberDialog.findViewById(R.id.linkedin);
                 memberimg.setImageResource(mData.get(holder.getAdapterPosition()).getPhoto());
                 memberName.setText(mData.get(holder.getAdapterPosition()).getName());
                 memberInfo.setText(mData.get(holder.getAdapterPosition()).getMemberDetails());
+//                linkedinPage.setText(mData.get(holder.getAdapterPosition()).getLinkedIn());
+//                linkedinPage.setMovementMethod(LinkMovementMethod.getInstance());
                 memberDialog.show();
-//                Toast.makeText(mContext,"Test Click" + String.valueOf(holder.getAdapterPosition()),Toast.LENGTH_SHORT).show();
             }
         });
-
         return holder;
     }
+
+
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.textView_name.setText(mData.get(position).getName());
         holder.textView_post.setText(mData.get(position).getPost());
+        Uri url;
+        url= Uri.parse(mData.get(position).getLinkedIn());
+
+
+        holder.linkedIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(Intent.ACTION_VIEW,url);
+                intent.setPackage("com.linkedin.android");
+                mContext.startActivity(intent);
+            }
+        });
 //        holder.imageView_photo.setImageResource(mData.get(position).getPhoto());
     }
 
@@ -82,6 +103,7 @@ public class RecyclerViewAdapterCoreTeam extends RecyclerView.Adapter<RecyclerVi
         private TextView textView_post;
 //        private ImageView imageView_photo;
         private LinearLayout memberRvItem;
+        private ImageButton linkedIn;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -89,7 +111,9 @@ public class RecyclerViewAdapterCoreTeam extends RecyclerView.Adapter<RecyclerVi
             memberRvItem=(LinearLayout) itemView.findViewById(R.id.memberItem);
             textView_name=(TextView) itemView.findViewById(R.id.tvnameCore);
             textView_post=(TextView) itemView.findViewById(R.id.corePost);
-//            imageView_photo=(ImageView) itemView.findViewById(R.id.imgCore);
+            linkedIn=(ImageButton) itemView.findViewById(R.id.linkedin_img_btn);
+
+//            imageView_photo=(ImageView) itemView.findViewById(R.id.img);
 
 
         }
