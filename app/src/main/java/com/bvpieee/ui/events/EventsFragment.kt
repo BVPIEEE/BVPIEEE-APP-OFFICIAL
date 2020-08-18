@@ -80,7 +80,7 @@ class EventsFragment : Fragment() {
                             eventList!!.add(info)
                         }
                     }
-                    val adapter = EventsAdapter(eventList!!)
+                    val adapter = EventsAdapter(eventList!!,context)
                     rvEvents!!.layoutManager = GridLayoutManager(context, 2)
                     rvEvents!!.adapter = adapter
                     eventSwipeLayout.isRefreshing = false
