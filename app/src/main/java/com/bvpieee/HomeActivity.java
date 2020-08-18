@@ -1,22 +1,27 @@
 package com.bvpieee;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import com.bvpieee.ui.events.EventDetailFragment;
 import com.bvpieee.ui.events.EventsFragment;
-import com.bvpieee.ui.home.Home2Fragment;
 import com.bvpieee.ui.home.HomeFragment;
 import com.bvpieee.ui.teams.TeamsFragment;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Objects;
 
@@ -26,61 +31,79 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
     Fragment eventfrag = new EventsFragment();
 //    Fragment teamsfrag = new TeamsFragment();
     FloatingActionButton fab;
-    Fragment home2 = new Home2Fragment();
-    Fragment eventDetail = new EventDetailFragment();
     BottomNavigationView navView;
-
-    private static int SPLASH_SCREEN_TIME_OUT=3000;
+    private FirebaseAuth mAuth;
+    private GoogleSignInClient mgoogleSigninClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
-
-//        ActionBar mActionBar = getSupportActionBar();
-//        mActionBar.setDisplayOptions(ActionBar.DISPLAY_HOME_AS_UP | ActionBar.DISPLAY_SHOW_CUSTOM | ActionBar.DISPLAY_SHOW_HOME);
+        // google sign in client for logout
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+        mgoogleSigninClient=GoogleSignIn.getClient(this,gso);
 
         navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(this);
         fab = findViewById(R.id.fab_home);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loadFragments(homefrag);
-            }
-        });
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-//        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-//                R.id.navigation_home, R.id.navigation_events, R.id.navigation_teams)
-//                .build();
-//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-//        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-//        NavigationUI.setupWithNavController(navView, navController);
+        fab.setOnClickListener(v -> loadFragments(homefrag));
 
 
         fab.setRippleColor(Color.parseColor("#AFEEEE"));
-
+        loadFragments(homefrag);
         Bundle bundle = getIntent().getExtras();
         if(bundle != null) {
-            Log.d("Bundle", "onCreate: "+bundle.getString("FRAG"));
+            Log.d("Bundle", "onCreate: "+bundle.getString("TEAM"));
             if (Objects.equals(bundle.getString("FRAG"), "event")) {
                 Log.d("Bundle", "onCreate: if clause runs ");
-                loadFragments(eventfrag);
+                Bundle team = new Bundle();
+                team.putString("TEAMS",bundle.getString("TEAM"));
+                EventsFragment event = new EventsFragment();
+                event.setArguments(team);
+                loadFragments(event);
+
                 Log.d("Bundle", "onCreate: if clause runs 2 ");
+            }
+            if(Objects.equals(bundle.getString("FRAG"), "teams")){
+                Bundle team = new Bundle();
+                team.putString("TEAMS",bundle.getString("CHAP"));
+                TeamsFragment event = new TeamsFragment();
+                event.setArguments(team);
+                loadFragments(event);
             }
 
         }
-        else
-            loadFragments(homefrag);
 
-
-        // Home Activity context for SharedElementTransition in EventAdapter
-        com.bvpieee.adapters.EventsAdapterKt.setHomeActivityContextHolder(this);
     }
 
-
+// menu for google logout
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.actionbar_menu,menu);
+        return true;
+    }
+// logout menu item click
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.logout:
+                // google logout code
+                mgoogleSigninClient.signOut().addOnCompleteListener(this, task -> {
+                    startActivity(new Intent(HomeActivity.this,LoginActivity.class));
+                    finish();
+                });
+                return true;
+            case R.id.developers:
+                Toast.makeText(this,"Developer details will be added soon",Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -98,43 +121,30 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
                     fragment = new TeamsFragment();
                 else
                     navView.setEnabled(false);
-//                new Handler().postDelayed(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        Intent i=new Intent(HomeActivity.this,
-//                                LotteSplashActivity.class);
-//                        //Intent is used to switch from one activity to another.
-//                        startActivity(i);
-//                        //invoke the SecondActivity.
-//                        finish();
-//                        //the current activity will get finished.
-//                    }
-//                }, SPLASH_SCREEN_TIME_OUT);
-//                Intent intent=new Intent(HomeActivity.this,LotteSplashActivity.class);
-//                startActivity(intent);
-//                fragment = teamsfrag;
                 break;
         }
+        assert fragment != null;
         return loadFragments(fragment);
     }
 
     @Override
     public void onBackPressed() {
         if (getSupportFragmentManager().findFragmentById(R.id.fragmentContainer) instanceof HomeFragment) {
-            finish();
+                finish();
         }
 
         if(getSupportFragmentManager().getBackStackEntryCount() > 0) {
             getSupportFragmentManager().popBackStackImmediate();
         }
 
-        else
+        else {
             super.onBackPressed();
+        }
     }
 
     private boolean loadFragments(Fragment fragment)
     {
-        Log.d("Bundle", "loadFragments: frag is null"+fragment.getId());
+        Log.d("Bundle", "loadFragments:"+fragment.getClass().getName());
 
         if (fragment!=null)
         {
@@ -142,7 +152,7 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.fragmentContainer,fragment)
-                    .addToBackStack(null)
+                    .addToBackStack(fragment.getClass().getName())
                     .commit();
 
             return true;
@@ -151,7 +161,8 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
     }
 
     @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
+    protected void onResume() {
 
+        super.onResume();
     }
 }

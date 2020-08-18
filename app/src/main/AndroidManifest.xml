@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.bvpieee">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,10 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.teams.HKN_Team"/>
-        <activity android:name=".ui.teams.WIE_Team"/>
-        <activity android:name=".ui.teams.IAS_Team"/>
-        <activity android:name=".ui.teams.CS_Team"/>
+        <activity android:name=".EventWebView"/>
+        <activity android:name=".ui.teams.HKN_Team" />
+        <activity android:name=".ui.teams.WIE_Team" />
+        <activity android:name=".ui.teams.IAS_Team" />
+        <activity android:name=".ui.teams.CS_Team" />
         <activity android:name=".ui.teams.RAS_Team" />
         <activity android:name=".ui.events.EventInfoPage" />
         <activity
@@ -23,17 +26,17 @@
         <activity
             android:name=".HomeActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme" />
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".LoginActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme1"/>
         <activity
             android:name=".SplashScreen"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

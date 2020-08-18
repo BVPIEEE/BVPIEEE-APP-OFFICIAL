@@ -1,5 +1,6 @@
 package com.bvpieee.ui.chapters;
 
+import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -20,6 +21,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -41,7 +43,7 @@ public class PlaceholderFragment extends Fragment {
     private String chapter;
     private ImageView imageView;
     private TextView title, placeholder;
-    private CardView social, socialExpanded, aboutLayout,  eventLayout;
+    private CardView social, socialExpanded, aboutLayout, eventLayout, teamLayout;
     private RelativeLayout white;
     ImageButton instagram, facebook, website;
     private Button close;
@@ -50,7 +52,8 @@ public class PlaceholderFragment extends Fragment {
     private String[] fbIds;
     private String[] websites;
     Context context;
-   String[] arrayList;
+    String[] arrayList;
+    String team;
 //    private String[] titles = {"RAS", "IAS", "CS", "WIE", "HKN"};
 
     public PlaceholderFragment(int position, String chapter) {
@@ -64,15 +67,16 @@ public class PlaceholderFragment extends Fragment {
             Bundle savedInstanceState) {
         final View root;
         if (chapter.equals("chapter")) {
+            team = "chapter";
             root = inflater.inflate(R.layout.fragment_chapter1, container, false);
             arrayList = context.getResources().getStringArray(R.array.chapter_description);
             fbIds = new String[]{"357306677679810", "1201811083175429", "483730548444337", "266525677321638", "125463600824133"};
             websites = new String[]{"https://bvpieeend.com/pages/societies_chapters.html", "https://bvpieeend.com/pages/societies_chapters.html", "https://bvpieeend.com/pages/societies_chapters.html", "https://bvpieeend.com/pages/wie.html", "https://bvpieeend.com/pages/societies_chapters.html"};
-        }
-        else {
+        } else {
+            team = "sig";
             root = inflater.inflate(R.layout.fragment_sig1, container, false);
             arrayList = context.getResources().getStringArray(R.array.sig_description);
-            fbIds = new String[]{"125463600824133","125463600824133","125463600824133","125463600824133","125463600824133"};
+            fbIds = new String[]{"125463600824133", "125463600824133", "125463600824133", "125463600824133", "125463600824133"};
             websites = new String[]{"https://bvpieeend.com/pages/sigs.html", "https://bvpieeend.com/pages/sigs.html", "https://bvpieeend.com/pages/sigs.html", "https://bvpieeend.com/pages/sigs.html", "https://bvpieeend.com/pages/sigs.html"};
         }
 
@@ -86,82 +90,10 @@ public class PlaceholderFragment extends Fragment {
         facebook = root.findViewById(R.id.facebook);
         website = root.findViewById(R.id.website);
         aboutLayout = root.findViewById(R.id.aboutLayout);
+        teamLayout = root.findViewById(R.id.teamLayout);
 
 //        white = root.findViewById(R.id.whiteBack);
 
-       final AlertDialog.Builder builder = new MaterialAlertDialogBuilder(context);
-
-        if (chapter.equals("chapter")) {
-            title.setText(TAB_TITLES[position]);
-            imageView.setImageResource(imageResource[position]);
-        }
-        else {
-            title.setText(SIG_TAB_TITLES[position]);
-            imageView.setImageResource(sigImageResource[position]);
-        }
-        social.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                white.setVisibility(View.VISIBLE);
-//                socialExpanded.setVisibility(View.VISIBLE);
-//                close.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        socialExpanded.setVisibility(View.GONE);
-////                        white.setVisibility(View.INVISIBLE);
-//                    }
-//                });
-            }
-        });
-        facebook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("PlaceholderFragment", "onClick: facebook call");
-                startActivity(newFacebookIntent(context.getPackageManager(),fbIds[position]));
-            }
-        });
-
-        instagram.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                instagram();
-            }
-        });
-        website.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(websites[position]));
-                startActivity(intent);
-            }
-        });
-        aboutLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LayoutInflater inflater = ((AppCompatActivity) context).getLayoutInflater();
-                View view = inflater.inflate(R.layout.about_dialog, null);
-                builder.setView(view);
-                close = view.findViewById(R.id.close_dialog_button);
-                placeholder = view.findViewById(R.id.placeHolder);
-                placeholder.setText(arrayList[position]);
-                final AlertDialog dialog = builder.create();
-                dialog.show();
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-                close.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-                    }
-                });
-            }
-        });
-
-        eventLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(context, HomeActivity.class).putExtra("FRAG","event"));
-            }
-        });
 
         return root;
     }
@@ -172,14 +104,15 @@ public class PlaceholderFragment extends Fragment {
             Log.d("PlaceholderFragment", "newFacebookIntent: facebook intent called");
             ApplicationInfo applicationInfo = pm.getApplicationInfo("com.facebook.katana", 0);
             if (applicationInfo.enabled) {
-                uri = Uri.parse("fb://page/"+url);
+                uri = Uri.parse("fb://page/" + url);
             }
         } catch (PackageManager.NameNotFoundException ignored) {
-            uri = Uri.parse("https://www.facebook.com/"+url);
+            uri = Uri.parse("https://www.facebook.com/" + url);
         }
-        return new Intent(Intent.ACTION_VIEW,uri);
+        return new Intent(Intent.ACTION_VIEW, uri);
     }
-    public void instagram(){
+
+    public void instagram() {
         Uri uri = Uri.parse("http://instagram.com/_u/bvpieee");
         Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
 
@@ -191,6 +124,69 @@ public class PlaceholderFragment extends Fragment {
                     Uri.parse("http://instagram.com/bvpieee")));
         }
     }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        final AlertDialog.Builder builder = new MaterialAlertDialogBuilder(context);
+
+        if (chapter.equals("chapter")) {
+            title.setText(TAB_TITLES[position]);
+            imageView.setImageResource(imageResource[position]);
+        } else {
+            title.setText(SIG_TAB_TITLES[position]);
+            imageView.setImageResource(sigImageResource[position]);
+        }
+        facebook.setOnClickListener(v -> {
+            Log.d("PlaceholderFragment", "onClick: facebook call");
+            startActivity(newFacebookIntent(context.getPackageManager(), fbIds[position]));
+        });
+
+        instagram.setOnClickListener(v -> instagram());
+        website.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(websites[position]));
+            startActivity(intent);
+        });
+        aboutLayout.setOnClickListener(v -> {
+            LayoutInflater inflater = ((AppCompatActivity) context).getLayoutInflater();
+            View view = inflater.inflate(R.layout.about_dialog, null);
+            builder.setView(view);
+            close = view.findViewById(R.id.close_dialog_button);
+            placeholder = view.findViewById(R.id.placeHolder);
+            placeholder.setText(arrayList[position]);
+            final AlertDialog dialog = builder.create();
+            dialog.show();
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+            close.setOnClickListener(v1 -> dialog.dismiss());
+        });
+
+        eventLayout.setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("FRAG", "event");
+            bundle.putString("TEAM", title.getText().toString());
+            Intent intent = new Intent(context, HomeActivity.class);
+            intent.putExtras(bundle);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            Activity activity = (Activity) context;
+            activity.finish();
+        });
+
+        teamLayout.setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("FRAG", "teams");
+            bundle.putString("CHAP", team);
+            Intent intent = new Intent(context, HomeActivity.class);
+            intent.putExtras(bundle);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            Activity activity = (Activity) context;
+            activity.finish();
+        });
+    }
+
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);

@@ -29,6 +29,16 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/organizer"
+            android:layout_marginTop="16dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="16dp"
+            android:text="EVENT ORGANIZER"/>
+
+        <TextView
             android:id="@+id/tvEventDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -37,10 +47,17 @@
             android:paddingRight="16dp"
             android:paddingBottom="16dp"
             android:text="@string/dummyText" />
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/eventsRecycler"/>
+        <android.widget.Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="REGISTER"
+            android:id="@+id/registerEventButton"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+        <!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:id="@+id/eventsRecycler"/>-->
 
         <!--        <Button-->
         <!--            android:id="@+id/btnMarkGoing"-->
@@ -51,7 +68,7 @@
         <!--            android:layout_marginBottom="16dp"-->
         <!--            android:text="@string/btnMarkGoing" />-->
 
-    </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/linearLayout_EventTitle"

@@ -2,21 +2,26 @@ package com.bvpieee.ui.teams;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bvpieee.R;
 
 import java.util.List;
+import java.util.Objects;
 
 public class RecyclerViewAdapterCSTeam extends RecyclerView.Adapter<RecyclerViewAdapterCSTeam.CSViewHolder> {
 
@@ -65,6 +70,19 @@ public class RecyclerViewAdapterCSTeam extends RecyclerView.Adapter<RecyclerView
 
         holder.name.setText(mData.get(position).getName());
         holder.post.setText(mData.get(position).getPost());
+//        holder.imageView_photo.setImageResource(mData.get(holder.getAdapterPosition()).getPhoto());
+        Uri url;
+        url= Uri.parse(mData.get(position).getLinkedIn());
+
+        holder.linkedIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(Intent.ACTION_VIEW,url);
+                intent.setPackage("com.linkedin.android");
+                mContext.startActivity(intent);
+            }
+        });
+
     }
 
     @Override
@@ -76,15 +94,21 @@ public class RecyclerViewAdapterCSTeam extends RecyclerView.Adapter<RecyclerView
 
         private TextView name;
         private TextView post;
+//        private ImageView imageView_photo;
         private LinearLayout memberRvItem;
+        private ImageButton linkedIn;
 
         public CSViewHolder(@NonNull View itemView) {
             super(itemView);
             memberRvItem=(LinearLayout) itemView.findViewById(R.id.memberItem);
             name=itemView.findViewById(R.id.tvnameCore);
             post=itemView.findViewById(R.id.corePost);
+            linkedIn=itemView.findViewById(R.id.linkedin_img_btn);
+//            imageView_photo=itemView.findViewById(R.id.img);
 
         }
     }
+
+
 
 }

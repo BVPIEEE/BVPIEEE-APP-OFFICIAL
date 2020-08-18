@@ -1,26 +1,29 @@
 package com.bvpieee.ui.teams;
 
-import android.widget.ScrollView;
-
 public class TeamFragModelClass {
+
 
     private String Name;
     private String Post;
     private int Photo;
     private String MemberDetails;
+    private String LinkedIn;
 
     public TeamFragModelClass(){
     }
 
-
-
-    public TeamFragModelClass(String name, String post, int photo, String memberDetails){
+    public TeamFragModelClass(String name, String post, int photo, String memberDetails, String linkedIn){
             Name=name;
             Post=post;
             Photo=photo;
             MemberDetails=memberDetails;
+            LinkedIn=linkedIn;
     }
 
+
+    public void setLinkedIn(String linkedIn) { LinkedIn = linkedIn; }
+
+    public String getLinkedIn() { return LinkedIn; }
 
     public String getName() {
         return Name;

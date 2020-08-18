@@ -46,7 +46,7 @@ public class RecyclerViewAdapterChapters extends RecyclerView.Adapter<RecyclerVi
     public void onBindViewHolder(@NonNull MyViewHolderForChapterTeams holder, int position) {
         holder.textView_chapter_name.setText(mData.get(position).getChapterName());
         holder.textview_chaptwr_fullform.setText(mData.get(position).getChapterFullForm());
-//        holder.imageView_chapter_photo.setImageResource(mData.get(position).getChapPhoto());
+        holder.imageView_chapter_photo.setImageResource(mData.get(position).getChapPhoto());
     }
 
     @Override
@@ -65,7 +65,7 @@ public class RecyclerViewAdapterChapters extends RecyclerView.Adapter<RecyclerVi
             super(itemView);
             textView_chapter_name=itemView.findViewById(R.id.tvChapName);
             textview_chaptwr_fullform=itemView.findViewById(R.id.tvChapNameFullForm);
-//            imageView_chapter_photo=itemView.findViewById(R.id.imgChapter);
+            imageView_chapter_photo=itemView.findViewById(R.id.imgChapter);
             memberItem=itemView.findViewById(R.id.chapterCard);
             this.onClickListener=onClickListener;
             itemView.setOnClickListener(this);

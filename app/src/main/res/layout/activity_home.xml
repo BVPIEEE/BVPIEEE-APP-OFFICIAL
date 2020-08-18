@@ -9,7 +9,7 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinator"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="90dp"
         android:fitsSystemWindows="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/fab_home"
             app:elevation="20dp"
-            app:fabCustomSize="70dp"
+            app:fabCustomSize="60dp"
             app:borderWidth="3dp"
             android:backgroundTint="@color/white"
             android:src="@drawable/ic_home_black_24dp"

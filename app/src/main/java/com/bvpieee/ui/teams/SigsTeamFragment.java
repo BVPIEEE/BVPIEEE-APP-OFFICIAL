@@ -53,20 +53,36 @@ public class SigsTeamFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         memberSigs = new ArrayList<>();
-        memberSigs.add(new TeamFragModelClass("Shubham Kumar","Head Supervisor, Drishti",R.drawable.shubhamkumar,"I'm a creative being who is eager to learn new things." +
-                "Android Application Developmemt is my domain of work"));
-        memberSigs.add(new TeamFragModelClass("Shreyas Grupta", "Executive, Drishti", R.drawable.bvpieee,"Photography"));
-        memberSigs.add(new TeamFragModelClass("Bhavya Wahie", "Executive, Drishti", R.drawable.bvpieee,"Marketing Enthusiast and Video Editing"));
-        memberSigs.add(new TeamFragModelClass("Archit Kumar", "Head Supervisor, Entreprenureship Cell", R.drawable.architkumar,"I'm analytical in nature, which perceives that I love solving problems. " +
+        memberSigs.add(new TeamFragModelClass("Shubham Kumar","Head Supervisor, Drishti",R.drawable.shubhamkumar,
+                "I'm a creative being who is eager to learn new things." +
+                "Android Application Developmemt is my domain of work","https://www.linkedin.com/in/shubham-kumar-707a94194/"));
+
+
+        memberSigs.add(new TeamFragModelClass("Shreyas Grupta", "Executive, Drishti", R.drawable.bvpieee,"Photography","https://www.linkedin.com/"));
+
+
+        memberSigs.add(new TeamFragModelClass("Bhavya Wahie", "Executive, Drishti", R.drawable.bvpieee,
+                "Marketing Enthusiast and Video Editing","https://www.linkedin.com/"));
+
+
+        memberSigs.add(new TeamFragModelClass("Archit Kumar", "Head Supervisor, Entreprenureship Cell", R.drawable.architkumar,
+                "I'm analytical in nature, which perceives that I love solving problems. " +
                 "In my opinion, an engineering degree is worth nothing if it  can't contribute to our daily problems." +
                 "Apart from that, I'm a proven communicator i.e a very patient listener and a keen observer. " +
                 "Our division, Entrepreneurship cell would work more towards being a startup incubator in order to nurture upcoming ideas and shape them into a venture. " +
-                "We also aim to instill an entrepreneur like mindset in students through various activities and opportunities."));
-        memberSigs.add(new TeamFragModelClass("Satvik Singh", "Head Supervisor, Gamma", R.drawable.satviksingh,"Creative and enthusiastic. I love to do anything related to video games. Even making them." +
-                "Hosting gaming events across the calendar and introducing Game Development to learners"));
-        memberSigs.add(new TeamFragModelClass("Harshit Mathur", "Head Supervisor, BQC", R.drawable.harshitmathur,"I'm always curious and enthusiastic about learning and exploring new avenues." +
-                "Currently Programming and Quizzing with some past experience with Robotics and Automation."));
-        memberSigs.add(new TeamFragModelClass("Rishabh Singh", "Head Supervisor, Influencers SIG", R.drawable.bvpieee,"Industrial Automation is my field of work. My Instagram Page : Seventh Sense"));
+                "We also aim to instill an entrepreneur like mindset in students through various activities and opportunities.","http://linkedin.com/in/archit-kumar-26455a1a7"));
+
+
+        memberSigs.add(new TeamFragModelClass("Satvik Singh", "Head Supervisor, Gamma", R.drawable.satviksingh,
+                "Creative and enthusiastic. I love to do anything related to video games. Even making them." +
+                "Hosting gaming events across the calendar and introducing Game Development to learners","https://www.linkedin.com/in/satvik-singh-2345521a7/"));
+
+
+        memberSigs.add(new TeamFragModelClass("Harshit Mathur", "Head Supervisor, BQC", R.drawable.harshitmathur,
+                "I'm always curious and enthusiastic about learning and exploring new avenues." +
+                "Currently Programming and Quizzing with some past experience with Robotics and Automation.","https://www.linkedin.com/in/harshit-mathur-26558a1a2"));
+
+//        memberSigs.add(new TeamFragModelClass("Rishabh Singh", "Head Supervisor, Influencers SIG", R.drawable.bvpieee,"Industrial Automation is my field of work. My Instagram Page : Seventh Sense",R.string.));
 
     }
 
@@ -79,6 +95,9 @@ public class SigsTeamFragment extends Fragment {
         RecyclerViewAdapterCoreTeam recyclerViewAdapter=new RecyclerViewAdapterCoreTeam(getContext(),memberSigs);
         myRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         myRecyclerView.setAdapter(recyclerViewAdapter);
+        myRecyclerView.setItemViewCacheSize(20);
+        myRecyclerView.setDrawingCacheEnabled(true);
+        myRecyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
         return view;
     }
 

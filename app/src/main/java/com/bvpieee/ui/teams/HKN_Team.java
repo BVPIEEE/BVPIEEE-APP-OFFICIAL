@@ -1,6 +1,7 @@
 package com.bvpieee.ui.teams;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,15 +24,24 @@ public class HKN_Team extends AppCompatActivity {
         setContentView(R.layout.activity_hkn_team);
 
         memberChapter=new ArrayList<>();
-        memberChapter.add(new TeamFragModelClass("Himani Negi","President",R.drawable.himaninegi,"Hi, This is me, Himani Negi.Currently I am a student developer in Google summer of code under redhenlab organization. " +
+        memberChapter.add(new TeamFragModelClass("Himani Negi","President",R.drawable.himaninegi,
+                "Hi, This is me, Himani Negi.Currently I am a student developer in Google summer of code under redhenlab organization. " +
                 "I am working under Image and audio clustering project. Previosuly I was research intern in IIIT-D where I worked in analysing the collusive behaviour in social networking site." +
-                "Creating a world with innovative ideas is something a part of my vision and I never look back to put efforts for it."));
-        memberChapter.add(new TeamFragModelClass("Kshitij Sidana","Vice-President",R.drawable.kshitijsidana,"Fueled by fascination. Driven by logic. Jack of all but master of some. Domain of work: Robotics and Computer Vision."));
+                "Creating a world with innovative ideas is something a part of my vision and I never look back to put efforts for it.",
+                "https://www.linkedin.com/in/himaninegi/"));
+
+
+        memberChapter.add(new TeamFragModelClass("Kshitij Sidana","Vice-President",R.drawable.kshitijsidana,
+                "Fueled by fascination. Driven by logic. Jack of all but master of some. Domain of work: Robotics and Computer Vision.",
+                "https://www.linkedin.com/in/kshitij-sidana/"));
 
         HKNRecyclerview=findViewById(R.id.rvHKN);
         RecyclerViewAdapterCSTeam recyclerViewAdapter=new RecyclerViewAdapterCSTeam(this,memberChapter);
         HKNRecyclerview.setAdapter(recyclerViewAdapter);
         HKNRecyclerview.setLayoutManager(new LinearLayoutManager(this));
+        HKNRecyclerview.setItemViewCacheSize(20);
+        HKNRecyclerview.setDrawingCacheEnabled(true);
+        HKNRecyclerview.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
 
     }
 }
