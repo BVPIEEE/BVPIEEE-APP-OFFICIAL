@@ -1,5 +1,6 @@
 package com.bvpieee.ui.chapters;
 
+import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -165,14 +166,24 @@ public class PlaceholderFragment extends Fragment {
             Bundle bundle = new Bundle();
             bundle.putString("FRAG", "event");
             bundle.putString("TEAM", title.getText().toString());
-            startActivity(new Intent(context, HomeActivity.class).putExtras(bundle));
+            Intent intent = new Intent(context, HomeActivity.class);
+            intent.putExtras(bundle);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            Activity activity = (Activity) context;
+            activity.finish();
         });
 
         teamLayout.setOnClickListener(v -> {
             Bundle bundle = new Bundle();
             bundle.putString("FRAG", "teams");
             bundle.putString("CHAP", team);
-            startActivity(new Intent(context, HomeActivity.class).putExtras(bundle));
+            Intent intent = new Intent(context, HomeActivity.class);
+            intent.putExtras(bundle);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            Activity activity = (Activity) context;
+            activity.finish();
         });
     }
 

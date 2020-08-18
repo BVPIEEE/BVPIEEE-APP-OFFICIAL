@@ -1,5 +1,7 @@
 package com.bvpieee.adapters
 
+import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
@@ -12,14 +14,13 @@ import androidx.core.app.ActivityOptionsCompat
 import androidx.core.content.ContextCompat.startActivity
 import androidx.core.util.Pair
 import androidx.recyclerview.widget.RecyclerView
-import com.bvpieee.HomeActivity
 import com.bvpieee.R
 import com.bvpieee.models.EventInfo
 import com.bvpieee.ui.events.EventInfoPage
 import com.squareup.picasso.Picasso
 
 
-lateinit var homeActivityContextHolder: HomeActivity
+//lateinit var homeActivityContextHolder: HomeActivity
 
 class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
     val tvEventTitle: TextView = v.findViewById(R.id.tvEventTitle)
@@ -28,7 +29,7 @@ class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
     val cvEvent: CardView = v.findViewById(R.id.cvEvent)
 }
 
-class EventsAdapter(val eventDataSet: ArrayList<EventInfo>) : RecyclerView.Adapter<ViewHolder>() {
+class EventsAdapter(val eventDataSet: ArrayList<EventInfo>, val context: Context?) : RecyclerView.Adapter<ViewHolder>() {
 
     private val TAG = "EventsAdapter"
 
@@ -66,7 +67,7 @@ class EventsAdapter(val eventDataSet: ArrayList<EventInfo>) : RecyclerView.Adapt
             intent.putExtra("Position",position)
 
             val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
-                homeActivityContextHolder,
+                context as Activity,
                 Pair.create<View, String>(tvEventTitle, "eventTitleTransition"),
                 Pair.create<View, String>(tvEventDate, "eventDateTransition"),
                 Pair.create<View, String>(ivEventBanner, "eventBannerTransition")
