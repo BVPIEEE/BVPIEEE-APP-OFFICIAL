@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -67,6 +68,8 @@ public class RecyclerViewAdapterCSTeam extends RecyclerView.Adapter<RecyclerView
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewAdapterCSTeam.CSViewHolder holder, int position) {
+        holder.itemView.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.animation_recyclerview));
+
 
         holder.name.setText(mData.get(position).getName());
         holder.post.setText(mData.get(position).getPost());

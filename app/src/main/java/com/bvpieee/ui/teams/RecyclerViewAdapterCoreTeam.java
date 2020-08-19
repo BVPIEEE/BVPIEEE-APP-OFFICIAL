@@ -13,6 +13,8 @@ import android.text.util.Linkify;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -72,6 +74,11 @@ public class RecyclerViewAdapterCoreTeam extends RecyclerView.Adapter<RecyclerVi
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+
+        //animation on recyclerview
+//        holder.linkedIn.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.animation_recyclerview));
+        holder.memberRvItem.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.animation_recyclerview));
+
         holder.textView_name.setText(mData.get(position).getName());
         holder.textView_post.setText(mData.get(position).getPost());
         Uri url;

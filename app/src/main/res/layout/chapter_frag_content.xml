@@ -8,53 +8,76 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="20dp"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="30dp"
         android:elevation="30dp"
         android:layout_margin="10dp"
-        android:padding="5dp"
-        app:cardElevation="30dp">
+        android:foreground="?android:attr/selectableItemBackground">
 
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_gravity="center"
-            android:layout_marginStart="10dp">
+            android:layout_gravity="center">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/chapter_name"
-                android:padding="5dp"
-                android:id="@+id/tvChapName"
-                android:layout_marginStart="5dp"
-                android:textColor="@color/black"
-                android:textSize="24sp"/>
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/chapter_name"-->
+<!--                android:padding="5dp"-->
+<!--                android:id="@+id/tvChapName"-->
+<!--                android:layout_marginStart="5dp"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="24sp"/>-->
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/chapter_full_form"
-                android:padding="5dp"
-                android:layout_below="@id/tvChapName"
-                android:id="@+id/tvChapNameFullForm"
-                android:layout_marginStart="5dp"
-                android:textColor="@color/black"
-                android:textSize="16sp"/>
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/chapter_full_form"-->
+<!--                android:padding="5dp"-->
+<!--                android:layout_below="@id/tvChapName"-->
+<!--                android:id="@+id/tvChapNameFullForm"-->
+<!--                android:layout_marginStart="5dp"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="16sp"/>-->
 
 
             <ImageView
                 android:id="@+id/imgChapter"
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:padding="5dp"
-                android:layout_marginTop="40dp"
+                android:layout_height="250dp"
+                android:layout_below="@+id/tvChapNameFullForm"
                 android:src="@drawable/bvpieee"
-                android:layout_below="@+id/tvChapName"
-                android:contentDescription="@string/chapter_image" />
+                android:contentDescription="@string/chapter_image"/>
+
+            <TextView
+                android:background="@android:color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/chapter_name"
+                android:padding="5dp"
+                android:id="@+id/tvChapName"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textAlignment="center"
+                android:fontFamily="sans-serif"/>
+
+
+            <TextView
+                android:background="@android:color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/chapter_full_form"
+                android:padding="5dp"
+                android:layout_below="@id/tvChapName"
+                android:id="@+id/tvChapNameFullForm"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif"/>
+
 
 
 

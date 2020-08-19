@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -44,6 +45,8 @@ public class RecyclerViewAdapterChapters extends RecyclerView.Adapter<RecyclerVi
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolderForChapterTeams holder, int position) {
+        holder.itemView.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.animation_recyclerview));
+
         holder.textView_chapter_name.setText(mData.get(position).getChapterName());
         holder.textview_chaptwr_fullform.setText(mData.get(position).getChapterFullForm());
         holder.imageView_chapter_photo.setImageResource(mData.get(position).getChapPhoto());

@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -64,6 +65,8 @@ public class RecyclerViewAdapterAuxillaryTeam extends RecyclerView.Adapter<Recyc
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolderAuxy holder, int position) {
+        holder.itemView.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.animation_recyclerview));
+
 
         holder.textView_name.setText(mData.get(position).getName());
         holder.textView_post.setText(mData.get(position).getPost());
