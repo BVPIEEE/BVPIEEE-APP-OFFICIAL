@@ -78,7 +78,7 @@ public class RecyclerViewAdapterAuxillaryTeam extends RecyclerView.Adapter<Recyc
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Intent.ACTION_VIEW,url);
-                intent.setData(Uri.parse("com.linkedin.android"));
+                intent.setPackage("com.linkedin.android");
                 mContext.startActivity(intent);
             }
         });
@@ -105,7 +105,7 @@ public class RecyclerViewAdapterAuxillaryTeam extends RecyclerView.Adapter<Recyc
             memberRvItem=(LinearLayout) itemView.findViewById(R.id.memberItem);
             textView_name=(TextView) itemView.findViewById(R.id.tvnameCore);
             textView_post=(TextView) itemView.findViewById(R.id.corePost);
-            linkedIn=itemView.findViewById(R.id.linkedin_img_btn);
+            linkedIn=(ImageButton) itemView.findViewById(R.id.linkedin_img_btn);
 //            imageView_photo=(ImageView) itemView.findViewById(R.id.img);
         }
     }
