@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:shadowColor="#10000000"
             android:shadowDx="5"
@@ -51,6 +51,18 @@
             android:layout_marginBottom="5dp"
             android:background="?android:attr/listDivider" />
 
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/divider"
+            app:cardCornerRadius="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            app:cardElevation="20dp"
+            android:elevation="20dp">
+
         <it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow
             android:id="@+id/chapterCoverflow"
             android:layout_width="match_parent"
@@ -64,10 +76,11 @@
             coverflow:maxScaleFactor="1.5"
             android:splitMotionEvents="true"
             coverflow:reflectionGap="0px"
-            coverflow:rotationThreshold="0.3"
-            coverflow:scalingThreshold="0.3"
+            coverflow:rotationThreshold="1.0"
+            coverflow:scalingThreshold="1.0"
             coverflow:spacing="0.6"
-            app:alignAnimationTime="300"/>
+            app:alignAnimationTime="800"/>
+        </androidx.cardview.widget.CardView>
 
 
     </RelativeLayout>
@@ -83,7 +96,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="0.5dp"
             android:layout_marginBottom="5dp"
             android:fontFamily="monospace"
@@ -99,13 +112,22 @@
             android:layout_width="300dp"
             android:layout_alignStart="@id/sigsHeading"
             android:layout_height="2dp"
-            android:backgroundTint="@color/colorAccent"
+            android:backgroundTint="@color/colorPrimaryDark"
             android:elevation="20dp"
             android:layout_marginRight="0.5dp"
             android:layout_marginLeft="0.5dp"
             android:layout_below="@id/sigsHeading"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="2dp"
             android:background="?android:attr/listDivider" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/divider2"
+            app:cardCornerRadius="20dp"
+            android:layout_margin="10dp"
+            app:cardElevation="20dp"
+            android:elevation="20dp">
 
         <it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow
             android:id="@+id/sigsCoverflow"
@@ -119,11 +141,12 @@
             android:splitMotionEvents="true"
             coverflow:coverWidth="150dp"
             coverflow:maxScaleFactor="1.5"
-            coverflow:rotationThreshold="0.3"
-            coverflow:scalingThreshold="0.3"
+            coverflow:rotationThreshold="1.0"
+            coverflow:scalingThreshold="1.0"
             coverflow:spacing="0.6"
             android:scrollbarFadeDuration="5000"
-            app:alignAnimationTime="300"/>
+            app:alignAnimationTime="800"/>
+    </androidx.cardview.widget.CardView>
 
 <!--        <TextView-->
 <!--            android:id="@+id/sigsHeading"-->
@@ -153,7 +176,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="5dp"
             android:elevation="100dp"

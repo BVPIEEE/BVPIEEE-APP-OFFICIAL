@@ -97,6 +97,8 @@ public class RecyclerViewAdapterCoreTeam extends RecyclerView.Adapter<RecyclerVi
     }
 
 
+
+
     @Override
     public int getItemCount() {
         return mData.size();

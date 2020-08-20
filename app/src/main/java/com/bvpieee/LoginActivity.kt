@@ -42,11 +42,14 @@ class LoginActivity : AppCompatActivity() {
         if(requestCode == RC_SIGN_IN){
             val task =GoogleSignIn.getSignedInAccountFromIntent(data)
             progressBar.visibility = View.VISIBLE
+            pgb.visibility=View.VISIBLE
+            pgb.speed=2f
             try {
                 val account = task.getResult(ApiException::class.java)
                 firebaseAuthWithGoogle(account!!)
             }catch (e:Exception){
                 progressBar.visibility = View.INVISIBLE
+                pgb.visibility = View.INVISIBLE
             }
         }
     }
@@ -55,7 +58,8 @@ class LoginActivity : AppCompatActivity() {
         firebaseAuth.signInWithCredential(credential)
             .addOnCompleteListener { task ->
                 if(task.isSuccessful){
-                    progressBar.visibility = View.VISIBLE
+                    pgb.visibility = View.VISIBLE
+//                    pgb.speed=50f
                     SavedPreference.setEmail(this, account.email.toString())
                     SavedPreference.setUsername(this, account.displayName.toString())
                     startActivity(Intent(this, HomeActivity::class.java))

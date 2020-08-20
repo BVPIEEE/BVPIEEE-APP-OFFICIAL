@@ -14,42 +14,45 @@
         android:layout_height="wrap_content"
         app:cardCornerRadius="20dp"
         android:padding="5dp"
-        android:layout_margin="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
         android:foreground="?android:attr/selectableItemBackground">
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp"
-            android:background="#dcdcdc">
-<!--            android:background="#FFFBE4">-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:padding="10dp"-->
+<!--            android:background="#dcdcdc">-->
+<!--&lt;!&ndash;            android:background="#FFFBE4">&ndash;&gt;-->
 
-            <ImageView
-                android:id="@+id/img"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginBottom="15dp"
-                android:src="@drawable/ic_baseline_person_pin_24"
-                android:contentDescription="@string/core_team_member_image" />
+<!--            <ImageView-->
+<!--                android:id="@+id/img"-->
+<!--                android:layout_width="60dp"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:layout_gravity="center_vertical"-->
+<!--                android:layout_marginBottom="15dp"-->
+<!--                android:src="@drawable/ic_baseline_person_pin_24"-->
+<!--                android:contentDescription="@string/core_team_member_image" />-->
 
-        </LinearLayout>
+<!--        </LinearLayout>-->
 
-<!--        <View-->
-<!--            android:layout_width="10dp"-->
-<!--            android:layout_height="150dp"-->
-<!--            android:background="@color/colorPrimary"/>-->
+        <View
+            android:layout_width="10dp"
+            android:layout_height="150dp"
+            android:background="@color/colorPrimary"/>
 
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginEnd="80dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="10dp">
+        android:padding="10dp"
+        android:background="#dcdcdc"
+        android:layout_marginStart="10dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -63,9 +66,10 @@
 
             <TextView
                 android:id="@+id/corePost"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
+                android:layout_marginEnd="80dp"
                 android:text="@string/post"
                 android:textColor="@color/black" />
 
@@ -93,7 +97,6 @@
                 android:id="@+id/linkedin_img_btn"
                 android:layout_width="60dp"
                 android:layout_height="75dp"
-                android:layout_gravity="end|center_vertical"
                 android:background="#dcdcdc"
                 android:src="@drawable/linkedinicon"/>
 
