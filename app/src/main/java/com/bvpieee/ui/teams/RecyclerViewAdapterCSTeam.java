@@ -21,6 +21,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bvpieee.R;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -55,11 +57,20 @@ public class RecyclerViewAdapterCSTeam extends RecyclerView.Adapter<RecyclerView
                 ImageView memberimg= memberDialog.findViewById(R.id.imgMember);
                 TextView memberName=memberDialog.findViewById(R.id.MemberName);
                 TextView memberInfo=memberDialog.findViewById(R.id.member_info);
+                TextView closeDialog=memberDialog.findViewById(R.id.closedialog);
                 memberimg.setImageResource(mData.get(holder.getAdapterPosition()).getPhoto());
                 memberName.setText(mData.get(holder.getAdapterPosition()).getName());
                 memberInfo.setText(mData.get(holder.getAdapterPosition()).getMemberDetails());
                 memberDialog.show();
 //                Toast.makeText(mContext,"Test Click" + String.valueOf(holder.getAdapterPosition()),Toast.LENGTH_SHORT).show();
+
+                closeDialog.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        memberDialog.dismiss();
+                    }
+                });
+
             }
         });
 

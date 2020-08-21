@@ -52,11 +52,20 @@ public class RecyclerViewAdapterAuxillaryTeam extends RecyclerView.Adapter<Recyc
                 ImageView memberimg=(ImageView) memberDialog.findViewById(R.id.imgMember);
                 TextView memberName=(TextView) memberDialog.findViewById(R.id.MemberName);
                 TextView memberInfo=(TextView) memberDialog.findViewById(R.id.member_info);
+                TextView closeDialog=memberDialog.findViewById(R.id.closedialog);
                 memberimg.setImageResource(mData.get(holder.getAdapterPosition()).getPhoto());
                 memberName.setText(mData.get(holder.getAdapterPosition()).getName());
                 memberInfo.setText(mData.get(holder.getAdapterPosition()).getMemberDetails());
                 memberDialog.show();
 //                Toast.makeText(mContext,"Test Click" + String.valueOf(holder.getAdapterPosition()),Toast.LENGTH_SHORT).show();
+
+                closeDialog.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        memberDialog.dismiss();
+                    }
+                });
+
             }
         });
 
