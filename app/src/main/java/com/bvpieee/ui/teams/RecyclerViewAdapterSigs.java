@@ -1,5 +1,6 @@
 package com.bvpieee.ui.teams;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.media.Image;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -24,6 +26,7 @@ public class RecyclerViewAdapterSigs extends RecyclerView.Adapter<RecyclerViewAd
 
     Context mContext;
     List<TeamFragModelClass> mData;
+    Dialog memberDialog;
 
     public RecyclerViewAdapterSigs (Context mContext,List<TeamFragModelClass> mData){
         this.mContext=mContext;
@@ -37,13 +40,37 @@ public class RecyclerViewAdapterSigs extends RecyclerView.Adapter<RecyclerViewAd
         View view;
         view= LayoutInflater.from(mContext).inflate(R.layout.coreteam_frag_content,parent,false);
         MyViewHolderSigs holder=new MyViewHolderSigs(view);
+
+        holder.memberRvItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ImageView memberimg= memberDialog.findViewById(R.id.imgMember);
+                TextView memberName=memberDialog.findViewById(R.id.MemberName);
+                TextView memberInfo=memberDialog.findViewById(R.id.member_info);
+                TextView closeDialog=memberDialog.findViewById(R.id.closedialog);
+                memberimg.setImageResource(mData.get(holder.getAdapterPosition()).getPhoto());
+                memberName.setText(mData.get(holder.getAdapterPosition()).getName());
+                memberInfo.setText(mData.get(holder.getAdapterPosition()).getMemberDetails());
+                memberDialog.show();
+//                Toast.makeText(mContext,"Test Click" + String.valueOf(holder.getAdapterPosition()),Toast.LENGTH_SHORT).show();
+
+                closeDialog.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        memberDialog.dismiss();
+                    }
+                });
+            }
+        });
+
+
         return holder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolderSigs holder, int position) {
         holder.itemView.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.animation_recyclerview));
-
         holder.textView_name.setText(mData.get(position).getName());
         holder.textView_post.setText(mData.get(position).getPost());
 
@@ -72,12 +99,14 @@ public class RecyclerViewAdapterSigs extends RecyclerView.Adapter<RecyclerViewAd
         private TextView textView_name;
         private TextView textView_post;
         private ImageButton linkedIn;
+        private LinearLayout memberRvItem;
 //        private ImageView imageView_photo;
 
 
         public MyViewHolderSigs(@NonNull View itemView) {
             super(itemView);
 
+            memberRvItem=(LinearLayout) itemView.findViewById(R.id.memberItem);
             textView_name=(TextView) itemView.findViewById(R.id.tvnameCore);
             textView_post=(TextView) itemView.findViewById(R.id.corePost);
             linkedIn=itemView.findViewById(R.id.linkedin_img_btn);

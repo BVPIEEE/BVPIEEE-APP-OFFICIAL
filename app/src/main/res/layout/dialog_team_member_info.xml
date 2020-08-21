@@ -20,8 +20,6 @@
             android:layout_height="match_parent"
             app:cardCornerRadius="20dp"
             app:cardElevation="30dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp">
 
@@ -66,8 +64,30 @@
                     android:fontFamily="sans-serif-black"/>
 
             </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="20dp"
+            android:clickable="true"
+            android:focusable="true">
 
+            <TextView
+                android:id="@+id/closedialog"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="CLOSE"
+                android:textSize="24sp"
+                android:padding="10dp"
+                android:clickable="true"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:background="#C9379D"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:focusable="true" />
 
         </androidx.cardview.widget.CardView>
 

@@ -36,6 +36,7 @@ public class RecyclerViewAdapterCoreTeam extends RecyclerView.Adapter<RecyclerVi
     List<TeamFragModelClass>mData;
     Dialog memberDialog;
 
+
     public RecyclerViewAdapterCoreTeam(Context mContext, List<TeamFragModelClass> mData) {
         this.mContext = mContext;
         this.mData = mData;
@@ -58,6 +59,7 @@ public class RecyclerViewAdapterCoreTeam extends RecyclerView.Adapter<RecyclerVi
                 ImageView memberimg= memberDialog.findViewById(R.id.imgMember);
                 TextView memberName=memberDialog.findViewById(R.id.MemberName);
                 TextView memberInfo=memberDialog.findViewById(R.id.member_info);
+                TextView closeDialog=memberDialog.findViewById(R.id.closedialog);
 //                TextView linkedinPage=memberDialog.findViewById(R.id.linkedin);
                 memberimg.setImageResource(mData.get(holder.getAdapterPosition()).getPhoto());
                 memberName.setText(mData.get(holder.getAdapterPosition()).getName());
@@ -65,6 +67,13 @@ public class RecyclerViewAdapterCoreTeam extends RecyclerView.Adapter<RecyclerVi
 //                linkedinPage.setText(mData.get(holder.getAdapterPosition()).getLinkedIn());
 //                linkedinPage.setMovementMethod(LinkMovementMethod.getInstance());
                 memberDialog.show();
+
+                closeDialog.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        memberDialog.dismiss();
+                    }
+                });
             }
         });
         return holder;
