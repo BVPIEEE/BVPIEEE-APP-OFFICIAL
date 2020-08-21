@@ -53,6 +53,13 @@ public class AuxillaryTeamFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         memberAuxy= new ArrayList<>();
+
+        memberAuxy.add(new TeamFragModelClass("Sajal Jain","Head- App Development",R.drawable.sajaljain,
+                "I am a highly motivated individual with a passion for constantly developing skills and growing professionally. " +
+                "I thrive for creativity, innovation and aesthetics. Domain of work: Android Mobile Application Development, UI/UX Designing",
+                "https://www.linkedin.com/in/sajal-jain-1a4163177"));
+
+
         memberAuxy.add(new TeamFragModelClass("Harshit Gaur","Head - Publicity/ Corporate and Media Affairs",R.drawable.harshitgaur,
                 "Beleives in innovation at its core. Dreamer and aspiring engineer." +
                 "Field of work : Deep Learning, App development and AR/VR","https://www.linkedin.com/in/harshitgaur2"));

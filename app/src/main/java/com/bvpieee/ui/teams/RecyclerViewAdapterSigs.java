@@ -81,7 +81,7 @@ public class RecyclerViewAdapterSigs extends RecyclerView.Adapter<RecyclerViewAd
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Intent.ACTION_VIEW,url);
-                intent.setPackage("com.linkedin.android");
+                intent.setData(url);
                 mContext.startActivity(intent);
             }
         });
