@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -98,7 +97,9 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
                 });
                 return true;
             case R.id.developers:
-                Toast.makeText(this,"Developer details will be added soon",Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this,"Developer details will be added soon",Toast.LENGTH_SHORT).show();
+                Intent intent= new Intent(this, DeveloperDetails.class);
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

@@ -98,7 +98,7 @@ public class RecyclerViewAdapterCoreTeam extends RecyclerView.Adapter<RecyclerVi
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Intent.ACTION_VIEW,url);
-                intent.setPackage("com.linkedin.android");
+                intent.setData(url);
                 mContext.startActivity(intent);
             }
         });
