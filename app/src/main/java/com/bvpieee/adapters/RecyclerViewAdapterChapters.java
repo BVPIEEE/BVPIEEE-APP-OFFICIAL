@@ -1,7 +1,6 @@
-package com.bvpieee.ui.teams;
+package com.bvpieee.adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,13 +10,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bvpieee.R;
-import com.bvpieee.adapters.ChapterPagerAdapter;
-
-import org.w3c.dom.Text;
+import com.bvpieee.models.ChapterTeamFragModel;
 
 import java.util.List;
 

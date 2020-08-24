@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bvpieee.R;
+import com.bvpieee.adapters.RecyclerViewAdapterCoreTeam;
+import com.bvpieee.models.TeamFragModelClass;
 
 import java.util.ArrayList;
 import java.util.List;

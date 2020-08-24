@@ -1,9 +1,8 @@
-package com.bvpieee.ui.teams;
+package com.bvpieee.adapters;
 
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bvpieee.R;
+import com.bvpieee.models.TeamFragModelClass;
 
 import java.util.List;
 

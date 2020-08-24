@@ -1,4 +1,4 @@
-package com.bvpieee;
+package com.bvpieee.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,7 +15,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bvpieee.ui.teams.ChapterTeamFragModel;
+import com.bvpieee.R;
+import com.bvpieee.models.DeveloperDetailModel;
 
 import java.util.List;
 

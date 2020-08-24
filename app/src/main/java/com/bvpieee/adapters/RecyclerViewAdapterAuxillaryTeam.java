@@ -1,4 +1,4 @@
-package com.bvpieee.ui.teams;
+package com.bvpieee.adapters;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -16,35 +16,31 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bvpieee.R;
-
-import org.w3c.dom.Text;
+import com.bvpieee.models.TeamFragModelClass;
 
 import java.util.List;
-import java.util.Objects;
 
-public class RecyclerViewAdapterCSTeam extends RecyclerView.Adapter<RecyclerViewAdapterCSTeam.CSViewHolder> {
+public class RecyclerViewAdapterAuxillaryTeam extends RecyclerView.Adapter<RecyclerViewAdapterAuxillaryTeam.MyViewHolderAuxy> {
+
 
     Context mContext;
     List<TeamFragModelClass> mData;
     Dialog memberDialog;
 
-
-    public RecyclerViewAdapterCSTeam(Context mContext, List<TeamFragModelClass> mData){
+    public RecyclerViewAdapterAuxillaryTeam(Context mContext, List<TeamFragModelClass> mData) {
         this.mContext = mContext;
         this.mData = mData;
     }
 
-
     @NonNull
     @Override
-    public CSViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyViewHolderAuxy onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
         view= LayoutInflater.from(mContext).inflate(R.layout.coreteam_frag_content,parent,false);
-        final CSViewHolder holder=new CSViewHolder(view);
+        final MyViewHolderAuxy holder=new MyViewHolderAuxy(view);
 
         memberDialog=new Dialog(mContext);
         memberDialog.setContentView(R.layout.dialog_team_member_info);
@@ -54,9 +50,9 @@ public class RecyclerViewAdapterCSTeam extends RecyclerView.Adapter<RecyclerView
             @Override
             public void onClick(View view) {
 
-                ImageView memberimg= memberDialog.findViewById(R.id.imgMember);
-                TextView memberName=memberDialog.findViewById(R.id.MemberName);
-                TextView memberInfo=memberDialog.findViewById(R.id.member_info);
+                ImageView memberimg=(ImageView) memberDialog.findViewById(R.id.imgMember);
+                TextView memberName=(TextView) memberDialog.findViewById(R.id.MemberName);
+                TextView memberInfo=(TextView) memberDialog.findViewById(R.id.member_info);
                 TextView closeDialog=memberDialog.findViewById(R.id.closedialog);
                 memberimg.setImageResource(mData.get(holder.getAdapterPosition()).getPhoto());
                 memberName.setText(mData.get(holder.getAdapterPosition()).getName());
@@ -78,13 +74,13 @@ public class RecyclerViewAdapterCSTeam extends RecyclerView.Adapter<RecyclerView
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerViewAdapterCSTeam.CSViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolderAuxy holder, int position) {
         holder.itemView.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.animation_recyclerview));
 
 
-        holder.name.setText(mData.get(position).getName());
-        holder.post.setText(mData.get(position).getPost());
-//        holder.imageView_photo.setImageResource(mData.get(holder.getAdapterPosition()).getPhoto());
+        holder.textView_name.setText(mData.get(position).getName());
+        holder.textView_post.setText(mData.get(position).getPost());
+
         Uri url;
         url= Uri.parse(mData.get(position).getLinkedIn());
 
@@ -97,6 +93,8 @@ public class RecyclerViewAdapterCSTeam extends RecyclerView.Adapter<RecyclerView
             }
         });
 
+//        holder.imageView_photo.setImageResource(mData.get(position).getPhoto());
+
     }
 
     @Override
@@ -104,25 +102,22 @@ public class RecyclerViewAdapterCSTeam extends RecyclerView.Adapter<RecyclerView
         return mData.size();
     }
 
-    public static class CSViewHolder extends RecyclerView.ViewHolder{
+    public static class MyViewHolderAuxy extends RecyclerView.ViewHolder {
 
-        private TextView name;
-        private TextView post;
+        private TextView textView_name;
+        private TextView textView_post;
 //        private ImageView imageView_photo;
         private LinearLayout memberRvItem;
         private ImageButton linkedIn;
 
-        public CSViewHolder(@NonNull View itemView) {
+        public MyViewHolderAuxy(@NonNull View itemView) {
             super(itemView);
             memberRvItem=(LinearLayout) itemView.findViewById(R.id.memberItem);
-            name=itemView.findViewById(R.id.tvnameCore);
-            post=itemView.findViewById(R.id.corePost);
-            linkedIn=itemView.findViewById(R.id.linkedin_img_btn);
-//            imageView_photo=itemView.findViewById(R.id.img);
-
+            textView_name=(TextView) itemView.findViewById(R.id.tvnameCore);
+            textView_post=(TextView) itemView.findViewById(R.id.corePost);
+            linkedIn=(ImageButton) itemView.findViewById(R.id.linkedin_img_btn);
+//            imageView_photo=(ImageView) itemView.findViewById(R.id.img);
         }
     }
-
-
 
 }
