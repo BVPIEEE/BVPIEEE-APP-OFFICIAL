@@ -49,7 +49,7 @@
         app:layout_constraintStart_toEndOf="@id/guideline3"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/aboutLayout"
         android:layout_width="0dp"
         android:layout_height="70dp"
@@ -59,6 +59,8 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:clickable="true"
+        android:outlineAmbientShadowColor="#76bcb0"
+        android:outlineSpotShadowColor="#76bcb0"
         android:focusable="true"
         app:cardBackgroundColor="@android:color/transparent"
         app:cardCornerRadius="10dp"
@@ -97,9 +99,9 @@
                 android:src="@drawable/ic_white_down_arrow" />
 
         </RelativeLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/eventsLayout"
         android:layout_width="0dp"
         android:layout_height="70dp"
@@ -110,6 +112,8 @@
         android:layout_marginBottom="16dp"
         android:clickable="true"
         android:focusable="true"
+        android:outlineAmbientShadowColor="#91b7dc"
+        android:outlineSpotShadowColor="#91b7dc"
         app:cardBackgroundColor="@android:color/transparent"
         app:cardCornerRadius="10dp"
         app:cardElevation="10dp"
@@ -135,9 +139,9 @@
                 android:textStyle="bold"
                 tools:ignore="RelativeOverlap" />
         </RelativeLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/teamLayout"
         android:layout_width="0dp"
         android:layout_height="70dp"
@@ -147,6 +151,8 @@
         android:layout_marginEnd="16dp"
         android:clickable="true"
         android:focusable="true"
+        android:outlineAmbientShadowColor="#f5cd8f"
+        android:outlineSpotShadowColor="#f5cd8f"
         app:cardBackgroundColor="@android:color/transparent"
         app:cardCornerRadius="10dp"
         app:cardElevation="10dp"
@@ -171,10 +177,10 @@
                 android:textStyle="bold"
                 tools:ignore="RelativeOverlap" />
         </RelativeLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/socialLayout"
         android:layout_width="0dp"
         android:elevation="5dp"
@@ -185,6 +191,8 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:clickable="true"
+        android:outlineAmbientShadowColor="#f69680"
+        android:outlineSpotShadowColor="#f69680"
         android:focusable="true"
         android:padding="10dp"
         app:cardBackgroundColor="@android:color/transparent"
@@ -226,7 +234,7 @@
                 android:src="@drawable/ic_white_down_arrow" />
         </RelativeLayout>
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:elevation="10dp"

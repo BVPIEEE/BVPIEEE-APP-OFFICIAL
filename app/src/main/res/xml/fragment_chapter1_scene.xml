@@ -44,7 +44,8 @@
 
     <Transition
         app:constraintSetEnd="@id/end"
-        app:constraintSetStart="@+id/start" >
+        app:constraintSetStart="@+id/start"
+        app:duration="150">
         <OnClick app:targetId="@+id/socialLayout" app:clickAction="toggle" />
         <KeyFrameSet >
             <KeyAttribute

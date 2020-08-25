@@ -2,6 +2,7 @@ package com.bvpieee.ui.chapters;
 
 import android.content.Context;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
@@ -9,8 +10,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.bvpieee.R;
-import com.bvpieee.ui.events.EventsFragment;
-import com.bvpieee.ui.home.HomeFragment;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
@@ -24,10 +23,10 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     private final Context mContext;
     private final String Chapter;
 
-    public SectionsPagerAdapter(Context context, FragmentManager fm, String chapter) {
-        super(fm);
-        this.Chapter = chapter;
-        mContext = context;
+    public SectionsPagerAdapter(@NonNull FragmentManager fm, Context mContext, String chapter) {
+        super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        this.mContext = mContext;
+        Chapter = chapter;
     }
 
     @Override
@@ -49,7 +48,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     public int getCount() {
         // Show 5 total pages.
         if (Chapter.equals("chapter"))
-            return 5;
-        return 6;
+            return TAB_TITLES.length;
+        return SIG_TAB_TITLES.length;
     }
 }
