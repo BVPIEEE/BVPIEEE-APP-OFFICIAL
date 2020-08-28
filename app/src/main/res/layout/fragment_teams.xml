@@ -41,7 +41,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:id="@+id/teams_linear">
+        android:id="@+id/teams_linear"
+        android:layout_marginBottom="75dp">
 
 <!--        <ImageView-->
 <!--            android:layout_width="match_parent"-->
@@ -69,7 +70,7 @@
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/BottomNavItemColor"
             android:padding="10dp">
 <!--            <com.google.android.material.tabs.TabLayout-->
 <!--                android:id="@+id/tabLayoutTeams"-->
@@ -92,9 +93,9 @@
                 android:background="@drawable/tablayout_bgcolor"
                 app:tabMode="scrollable"
                 app:tabBackground="@drawable/tab_selector"
-                app:tabSelectedTextColor="@color/colorPrimaryDark"
+                app:tabSelectedTextColor="@color/white"
                 app:tabPaddingStart="16dp"
-                app:tabTextColor="@android:color/holo_orange_light"
+                app:tabTextColor="@color/BottomNavBg"
                 android:layout_marginTop="5dp"
                 android:layout_marginStart="2dp"
                 android:layout_marginEnd="2dp"

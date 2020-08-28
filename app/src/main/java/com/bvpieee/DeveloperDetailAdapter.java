@@ -55,9 +55,14 @@ public class DeveloperDetailAdapter extends RecyclerView.Adapter<DeveloperDetail
         holder.linkedinDeveloper.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent(Intent.ACTION_VIEW,linkedin_url);
-                intent.setData(linkedin_url);
-                mContext.startActivity(intent);
+                Intent intent=new Intent(Intent.ACTION_VIEW,linkedin_url);
+                intent.setPackage("com.linkedin.android");
+                if (intent.getPackage()==null){
+                    intent.setData(linkedin_url);
+                    mContext.startActivity(intent);
+                } else {
+                    mContext.startActivity(intent);
+                }
             }
         });
 
@@ -67,9 +72,14 @@ public class DeveloperDetailAdapter extends RecyclerView.Adapter<DeveloperDetail
         holder.gmailDeveloper.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    Intent emailTheDeveloper=new Intent(Intent.ACTION_SENDTO,email);
-                    emailTheDeveloper.setPackage("com.google.android.gm");
-                    mContext.startActivity(Intent.createChooser(emailTheDeveloper,""));
+                Intent emailTheDeveloper = new Intent(Intent.ACTION_SENDTO, email);
+                emailTheDeveloper.setPackage("com.google.android.gm");
+                if (emailTheDeveloper.getPackage() == null) {
+                    emailTheDeveloper.setData(email);
+                    mContext.startActivity(emailTheDeveloper);
+                } else {
+                    mContext.startActivity(Intent.createChooser(emailTheDeveloper, "Email Us"));
+                }
             }
         });
     }

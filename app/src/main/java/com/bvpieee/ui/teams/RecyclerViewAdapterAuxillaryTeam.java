@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bvpieee.R;
 
 import java.util.List;
+import java.util.Random;
 
 public class RecyclerViewAdapterAuxillaryTeam extends RecyclerView.Adapter<RecyclerViewAdapterAuxillaryTeam.MyViewHolderAuxy> {
 
@@ -53,11 +54,17 @@ public class RecyclerViewAdapterAuxillaryTeam extends RecyclerView.Adapter<Recyc
                 TextView memberName=(TextView) memberDialog.findViewById(R.id.MemberName);
                 TextView memberInfo=(TextView) memberDialog.findViewById(R.id.member_info);
                 TextView closeDialog=memberDialog.findViewById(R.id.closedialog);
+                LinearLayout dialogLayout= memberDialog.findViewById(R.id.dialog_layout);
+
+                Random random = new Random();
+                int currentColor= Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256));
+                dialogLayout.setBackgroundColor(currentColor);
+
                 memberimg.setImageResource(mData.get(holder.getAdapterPosition()).getPhoto());
                 memberName.setText(mData.get(holder.getAdapterPosition()).getName());
                 memberInfo.setText(mData.get(holder.getAdapterPosition()).getMemberDetails());
                 memberDialog.show();
-//                Toast.makeText(mContext,"Test Click" + String.valueOf(holder.getAdapterPosition()),Toast.LENGTH_SHORT).show();
+
 
                 closeDialog.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -87,8 +94,13 @@ public class RecyclerViewAdapterAuxillaryTeam extends RecyclerView.Adapter<Recyc
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Intent.ACTION_VIEW,url);
-                intent.setData(url);
-                mContext.startActivity(intent);
+                intent.setPackage("com.linkedin.android");
+                if (intent.getPackage()==null){
+                    intent.setData(url);
+                    mContext.startActivity(intent);
+                } else {
+                    mContext.startActivity(intent);
+                }
             }
         });
 

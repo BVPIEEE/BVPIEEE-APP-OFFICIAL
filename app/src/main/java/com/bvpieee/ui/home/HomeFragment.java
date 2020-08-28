@@ -19,6 +19,7 @@ import com.bvpieee.adapters.CoverFlowAdapter;
 import com.bvpieee.R;
 import com.bvpieee.adapters.SigAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 import java.util.ArrayList;
 
@@ -33,13 +34,13 @@ public class HomeFragment extends Fragment {
     private Context context;
     private ScrollView scrollView;
     private Boolean isBLocked = true;
-    BottomNavigationView bottomNavigationView;
+    ChipNavigationBar bottomNavigationView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         if(getActivity()!=null)
-            bottomNavigationView = getActivity().findViewById(R.id.nav_view);
+            bottomNavigationView = getActivity().findViewById(R.id.bottom_nav);
 
         homeViewModel =
                  new ViewModelProvider(this).get(HomeViewModel.class);
@@ -121,12 +122,14 @@ public class HomeFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        bottomNavigationView.getMenu().findItem(R.id.navigation_home).setChecked(true);
+//        bottomNavigationView.getMenu().findItem(R.id.navigation_home).setChecked(true);
+        bottomNavigationView.setItemSelected(R.id.navigation_home,true);
     }
     @Override
     public void onResume() {
         super.onResume();
-        bottomNavigationView.getMenu().findItem(R.id.navigation_home).setChecked(true);
+//        bottomNavigationView.getMenu().findItem(R.id.navigation_home).setChecked(true);
+        bottomNavigationView.setItemSelected(R.id.navigation_home,true);
     }
 
     @Override

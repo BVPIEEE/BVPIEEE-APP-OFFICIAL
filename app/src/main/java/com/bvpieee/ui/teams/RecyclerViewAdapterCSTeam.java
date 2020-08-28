@@ -25,6 +25,7 @@ import org.w3c.dom.Text;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 
 public class RecyclerViewAdapterCSTeam extends RecyclerView.Adapter<RecyclerViewAdapterCSTeam.CSViewHolder> {
 
@@ -58,6 +59,12 @@ public class RecyclerViewAdapterCSTeam extends RecyclerView.Adapter<RecyclerView
                 TextView memberName=memberDialog.findViewById(R.id.MemberName);
                 TextView memberInfo=memberDialog.findViewById(R.id.member_info);
                 TextView closeDialog=memberDialog.findViewById(R.id.closedialog);
+                LinearLayout dialogLayout= memberDialog.findViewById(R.id.dialog_layout);
+
+                Random random = new Random();
+                int currentColor= Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256));
+                dialogLayout.setBackgroundColor(currentColor);
+
                 memberimg.setImageResource(mData.get(holder.getAdapterPosition()).getPhoto());
                 memberName.setText(mData.get(holder.getAdapterPosition()).getName());
                 memberInfo.setText(mData.get(holder.getAdapterPosition()).getMemberDetails());
@@ -92,8 +99,13 @@ public class RecyclerViewAdapterCSTeam extends RecyclerView.Adapter<RecyclerView
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Intent.ACTION_VIEW,url);
-                intent.setData(url);
-                mContext.startActivity(intent);
+                intent.setPackage("com.linkedin.android");
+                if (intent.getPackage()==null){
+                    intent.setData(url);
+                    mContext.startActivity(intent);
+                } else {
+                    mContext.startActivity(intent);
+                }
             }
         });
 

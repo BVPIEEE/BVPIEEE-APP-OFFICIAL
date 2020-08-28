@@ -21,16 +21,17 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
+import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 import java.util.Objects;
 
-public class HomeActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class HomeActivity extends AppCompatActivity {
 
     Fragment homefrag = new HomeFragment();
     Fragment eventfrag = new EventsFragment();
-//    Fragment teamsfrag = new TeamsFragment();
+    Fragment teamsfrag = new TeamsFragment();
     FloatingActionButton fab;
-    BottomNavigationView navView;
+    ChipNavigationBar navView;
     private FirebaseAuth mAuth;
     private GoogleSignInClient mgoogleSigninClient;
 
@@ -45,13 +46,36 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
                 .build();
         mgoogleSigninClient=GoogleSignIn.getClient(this,gso);
 
-        navView = findViewById(R.id.nav_view);
-        navView.setOnNavigationItemSelectedListener(this);
-        fab = findViewById(R.id.fab_home);
-        fab.setOnClickListener(v -> loadFragments(homefrag));
+        navView = findViewById(R.id.bottom_nav);
+//        navView.setOnNavigationItemSelectedListener(this);
+//        fab = findViewById(R.id.fab_home);
+//        fab.setOnClickListener(v -> loadFragments(homefrag));
 
 
-        fab.setRippleColor(Color.parseColor("#AFEEEE"));
+//        fab.setRippleColor(Color.parseColor("#AFEEEE"));
+
+        navView.setItemSelected(R.id.navigation_home,true);
+
+        navView.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(int id) {
+                switch (id){
+                    case R.id.navigation_home:
+                        loadFragments(homefrag);
+                        break;
+
+                    case R.id.navigation_teams:
+                        loadFragments(teamsfrag);
+                        break;
+
+                    case R.id.navigation_events:
+                        loadFragments(eventfrag);
+                        break;
+                }
+            }
+        });
+
+
         loadFragments(homefrag);
         Bundle bundle = getIntent().getExtras();
         if(bundle != null) {
@@ -106,31 +130,31 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         }
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        Fragment fragment = null;
-
-        switch (menuItem.getItemId()){
-            case R.id.navigation_events:
-                if (navView.getSelectedItemId() != R.id.navigation_events)
-                    fragment = eventfrag;
-                else
-                    navView.setEnabled(false);
-                break;
-            case R.id.navigation_teams:
-                if (navView.getSelectedItemId() != R.id.navigation_teams)
-                    fragment = new TeamsFragment();
-                else
-                    navView.setEnabled(false);
-                break;
-        }
-        assert fragment != null;
-        return loadFragments(fragment);
-    }
+//    @Override
+//    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+//        Fragment fragment = null;
+//
+//        switch (menuItem.getItemId()){
+//            case R.id.navigation_events:
+//                if (navView.getSelectedItemId() != R.id.navigation_events)
+//                    fragment = eventfrag;
+//                else
+//                    navView.setEnabled(false);
+//                break;
+//            case R.id.navigation_teams:
+//                if (navView.getSelectedItemId() != R.id.navigation_teams)
+//                    fragment = new TeamsFragment();
+//                else
+//                    navView.setEnabled(false);
+//                break;
+//        }
+//        assert fragment != null;
+//        return loadFragments(fragment);
+//    }
 
     @Override
     public void onBackPressed() {
-        if (getSupportFragmentManager().findFragmentById(R.id.fragmentContainer) instanceof HomeFragment) {
+        if (getSupportFragmentManager().findFragmentById(R.id.frag_container) instanceof HomeFragment) {
                 finish();
         }
 
@@ -145,14 +169,12 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
 
     private boolean loadFragments(Fragment fragment)
     {
-        Log.d("Bundle", "loadFragments:"+fragment.getClass().getName());
-
         if (fragment!=null)
         {
             Log.d("navigation", "loadFragments: Frag is loaded");
             getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.fragmentContainer,fragment)
+                    .replace(R.id.frag_container,fragment)
                     .addToBackStack(fragment.getClass().getName())
                     .commit();
 

@@ -29,6 +29,7 @@ import org.jetbrains.annotations.NotNull;
 import org.w3c.dom.Text;
 
 import java.util.List;
+import java.util.Random;
 
 public class RecyclerViewAdapterCoreTeam extends RecyclerView.Adapter<RecyclerViewAdapterCoreTeam.MyViewHolder> {
 
@@ -48,6 +49,7 @@ public class RecyclerViewAdapterCoreTeam extends RecyclerView.Adapter<RecyclerVi
         View view;
         view= LayoutInflater.from(mContext).inflate(R.layout.coreteam_frag_content,parent,false);
         final MyViewHolder holder=new MyViewHolder(view);
+
         memberDialog=new Dialog(mContext);
         memberDialog.setContentView(R.layout.dialog_team_member_info);
         memberDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -60,12 +62,16 @@ public class RecyclerViewAdapterCoreTeam extends RecyclerView.Adapter<RecyclerVi
                 TextView memberName=memberDialog.findViewById(R.id.MemberName);
                 TextView memberInfo=memberDialog.findViewById(R.id.member_info);
                 TextView closeDialog=memberDialog.findViewById(R.id.closedialog);
-//                TextView linkedinPage=memberDialog.findViewById(R.id.linkedin);
+                LinearLayout dialogLayout= memberDialog.findViewById(R.id.dialog_layout);
+
+                Random random = new Random();
+                int currentColor= Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256));;
+                dialogLayout.setBackgroundColor(currentColor);
+
                 memberimg.setImageResource(mData.get(holder.getAdapterPosition()).getPhoto());
                 memberName.setText(mData.get(holder.getAdapterPosition()).getName());
                 memberInfo.setText(mData.get(holder.getAdapterPosition()).getMemberDetails());
-//                linkedinPage.setText(mData.get(holder.getAdapterPosition()).getLinkedIn());
-//                linkedinPage.setMovementMethod(LinkMovementMethod.getInstance());
+
                 memberDialog.show();
 
                 closeDialog.setOnClickListener(new View.OnClickListener() {
@@ -88,6 +94,10 @@ public class RecyclerViewAdapterCoreTeam extends RecyclerView.Adapter<RecyclerVi
 //        holder.linkedIn.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.animation_recyclerview));
         holder.memberRvItem.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.animation_recyclerview));
 
+//        Random random = new Random();
+//        int currentColor= Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256));
+//        holder.ui_element.setBackgroundColor(currentColor);
+
         holder.textView_name.setText(mData.get(position).getName());
         holder.textView_post.setText(mData.get(position).getPost());
         Uri url;
@@ -98,8 +108,13 @@ public class RecyclerViewAdapterCoreTeam extends RecyclerView.Adapter<RecyclerVi
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Intent.ACTION_VIEW,url);
-                intent.setData(url);
-                mContext.startActivity(intent);
+                intent.setPackage("com.linkedin.android");
+                if (intent.getPackage()==null){
+                    intent.setData(url);
+                    mContext.startActivity(intent);
+                } else {
+                    mContext.startActivity(intent);
+                }
             }
         });
 //        holder.imageView_photo.setImageResource(mData.get(position).getPhoto());
@@ -122,6 +137,7 @@ public class RecyclerViewAdapterCoreTeam extends RecyclerView.Adapter<RecyclerVi
 //        private ImageView imageView_photo;
         private LinearLayout memberRvItem;
         private ImageButton linkedIn;
+        private View ui_element;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -130,6 +146,7 @@ public class RecyclerViewAdapterCoreTeam extends RecyclerView.Adapter<RecyclerVi
             textView_name=(TextView) itemView.findViewById(R.id.tvnameCore);
             textView_post=(TextView) itemView.findViewById(R.id.corePost);
             linkedIn=(ImageButton) itemView.findViewById(R.id.linkedin_img_btn);
+            ui_element=itemView.findViewById(R.id.ui_element_view);
 
 //            imageView_photo=(ImageView) itemView.findViewById(R.id.img);
 

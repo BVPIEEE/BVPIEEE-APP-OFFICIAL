@@ -14,10 +14,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <RelativeLayout
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="30dp"
+            app:cardCornerRadius="20dp"
+            android:layout_marginTop="10dp"
+            android:elevation="30dp"
+            android:id="@+id/chaptersLayout"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp">
+
+
+        <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/chaptersLayout">
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/chaptersHeading"
@@ -32,7 +43,7 @@
             android:text="Chapters"
             android:textAlignment="center"
             android:textAllCaps="true"
-            android:textColor="@color/tab_bg_color"
+            android:textColor="@color/black"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -78,18 +89,30 @@
             coverflow:rotationThreshold="1.0"
             coverflow:scalingThreshold="1.0"
             coverflow:spacing="0.6"
+            app:reflectionOpacity="0"
             app:alignAnimationTime="800"
-            android:background="@color/black"/>
+            android:background="@color/white"/>
+        </androidx.cardview.widget.CardView>
+        </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
 
-    </RelativeLayout>
+     <androidx.cardview.widget.CardView
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         app:cardCornerRadius="20dp"
+         android:elevation="30dp"
+         app:cardElevation="30dp"
+         android:id="@+id/sigsLayout"
+         android:layout_below="@+id/chaptersLayout"
+         android:layout_marginTop="10dp"
+         android:layout_marginStart="10dp"
+         android:layout_marginEnd="10dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/chaptersLayout"
-        android:id="@+id/sigsLayout">
+        android:layout_below="@id/chaptersLayout">
 
         <TextView
             android:id="@+id/sigsHeading"
@@ -143,9 +166,10 @@
             coverflow:rotationThreshold="1.0"
             coverflow:scalingThreshold="1.0"
             coverflow:spacing="0.6"
+            app:reflectionOpacity="0"
             android:scrollbarFadeDuration="5000"
             app:alignAnimationTime="800"
-            android:background="@color/black"/>
+            android:background="@color/white"/>
     </androidx.cardview.widget.CardView>
 
 <!--        <TextView-->
@@ -163,6 +187,7 @@
 
 
     </RelativeLayout>
+     </androidx.cardview.widget.CardView>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -220,7 +245,6 @@
             app:flipFrom="front"
             app:flipOnTouch="true"
             app:flipType="vertical"
-            android:background="@android:color/transparent"
             android:keepScreenOn="true">
 
             <!-- Back Layout Goes Here -->

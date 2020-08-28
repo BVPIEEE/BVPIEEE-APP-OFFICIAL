@@ -12,4 +12,19 @@
     <color name="toolbar_title_color">#5FD5E1</color>
     <color name="tab_bg_color">#084A6E</color>
     <color name="subtitle_color">#B0E7EF</color>
+    // color palette 1 - finalized as of now
+    <color name="BottomNavBg">#0B3142</color>
+    <color name="BottomNavItemColor">#FFD166</color>
+    <color name="TabSelectedText">#B9FAF8</color>
+    <color name="SecondaryColor">#778DA9</color>
+    <color name="BottleGreen">#23967F</color>
+
+    // color palette 2 - put to test
+    <color name="BottomNavBg2">#000022</color>
+    <color name="BottomNavItemColor2">#FFD166</color>
+    <color name="TabSelectedText2">#B9FAF8</color>
+    <color name="SecondaryColor2">#778DA9</color>
+    <color name="ThirdColor">#23967F</color>
+
+
 </resources>
