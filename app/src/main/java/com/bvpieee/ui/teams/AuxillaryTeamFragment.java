@@ -1,14 +1,13 @@
 package com.bvpieee.ui.teams;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.bvpieee.R;
 import com.bvpieee.adapters.RecyclerViewAdapterAuxillaryTeam;
@@ -58,7 +57,7 @@ public class AuxillaryTeamFragment extends Fragment {
 
         memberAuxy.add(new TeamFragModelClass("Sajal Jain","Head- App Development",R.drawable.sajaljain,
                 "I am a highly motivated individual with a passion for constantly developing skills and growing professionally. " +
-                "I thrive for creativity, innovation and aesthetics. Domain of work: Android Mobile Application Development, UI/UX Designing",
+                "I thrive for creativity, innovation and aesthetics.\nCo-Founder: College Connect\n Domain of work: Android Mobile Application Development, UI/UX Designing",
                 "https://www.linkedin.com/in/sajal-jain-1a4163177"));
 
 

@@ -1,37 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/white"
-    android:layout_margin="6dp"
+    android:layout_width="match_parent"
+    android:layout_height="110dp"
+    android:layout_margin="10dp"
+    android:background="@color/fui_transparent"
     android:padding="10dp"
-    app:cardElevation="20dp"
-    android:layout_height="wrap_content"
-    app:cardCornerRadius="20dp">
+    app:cardCornerRadius="20dp"
+    app:cardElevation="50dp">
 
     <RelativeLayout
+        android:id="@+id/flipCardFront"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:background="@color/BottleGreen"
+        android:padding="5dp">
 
-    <TextView
-        android:id="@+id/desc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:textColor="@color/black"
-        android:text="Description"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textSize="18sp" />
+        <TextView
+            android:id="@+id/topicBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:text="WORKSHOP TITLE"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Register"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/desc"
-        android:layout_marginTop="5dp"
-        android:id="@+id/quickRegister"/>
+        <TextView
+            android:id="@+id/dateandtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/topicBack"
+            android:layout_alignStart="@+id/topicBack"
+            android:layout_marginTop="5dp"
+            android:text="Day, Time"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/topicBack"
+            android:layout_alignTop="@id/dateandtime"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:id="@+id/venue"
+            android:text="Venue"
+            android:textAlignment="textEnd"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+        <android.widget.Button
+            android:id="@+id/quickRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dateandtime"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/oval_button"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:backgroundTint="@color/BottomNavItemColor"
+            android:text="Register" />
 
     </RelativeLayout>
 </com.google.android.material.card.MaterialCardView>

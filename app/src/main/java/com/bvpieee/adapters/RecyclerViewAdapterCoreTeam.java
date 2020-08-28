@@ -9,7 +9,6 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -17,6 +16,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.bvpieee.R;
 import com.bvpieee.models.TeamFragModelClass;
 
@@ -86,7 +86,7 @@ public class RecyclerViewAdapterCoreTeam extends RecyclerView.Adapter<RecyclerVi
 
         //animation on recyclerview
 //        holder.linkedIn.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.animation_recyclerview));
-        holder.memberRvItem.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.animation_recyclerview));
+//        holder.memberRvItem.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.animation_recyclerview));
 
 //        Random random = new Random();
 //        int currentColor= Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256));

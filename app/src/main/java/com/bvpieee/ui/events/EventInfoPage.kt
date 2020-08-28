@@ -1,13 +1,17 @@
 package com.bvpieee.ui.events
 
-import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.bvpieee.EventWebView
+import androidx.browser.customtabs.CustomTabsIntent
 import com.bvpieee.R
 import com.bvpieee.utils.toast
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_event_info.*
+import java.text.ParseException
+import java.text.SimpleDateFormat
+import java.util.*
+
 
 class EventInfoPage : AppCompatActivity() {
 
@@ -15,20 +19,34 @@ class EventInfoPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_event_info)
-
-        tvEventPageTitle.text = intent.getStringExtra("EventTitle")
-        tvEventPageDate.text = intent.getStringExtra("EventDate")
-        tvEventDescription.text = intent.getStringExtra("EventDesc")
-        organizer.text = intent.getStringExtra("EventOrg")
-        Picasso.get().load(intent.getStringExtra("EventImage")).into(ivEventBanner)
-        position = intent.getIntExtra("Position",0)
+        val bundle = intent.extras
+        tvEventPageTitle.text = bundle?.getString("EventTitle")
+        tvEventPageDate.text = bundle?.getString("EventDate")
+        tvEventDescription.text = bundle?.getString("EventDesc")
+        organizer.text = bundle?.getString("EventOrg")
+        Picasso.get().load(bundle?.getString("EventImage")).into(ivEventBanner)
+        position = intent.getIntExtra("Position", 0)
         toast(position.toString())
-        val url = intent.getStringExtra("EventUrl")
+        val url = bundle?.getString("EventUrl")
         registerEventButton.setOnClickListener {
-            val intent = Intent(this, EventWebView::class.java)
-            if (url!=null)
-                intent.putExtra("url",url)
-            startActivity(intent)
+            if (url != null) {
+                val builder = CustomTabsIntent.Builder()
+                val customTabsIntent = builder.build()
+                customTabsIntent.launchUrl(this, Uri.parse(url))
+            }
         }
+    }
+    private fun date(date: String): String {
+        val inputFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        val outputFormat = SimpleDateFormat("EEE, dd MMM yy", Locale.getDefault())
+        val datetext: Date
+        var str: String? = null
+        try {
+            datetext = inputFormat.parse(date)
+            str = outputFormat.format(datetext)
+        } catch (e: ParseException) {
+            e.printStackTrace()
+        }
+        return str.toString()
     }
 }

@@ -14,7 +14,6 @@
         <item name="colorPrimaryDark">@color/BottomNavBg</item>
         <item name="colorAccent">@color/BottomNavItemColor</item>
         <item name="icon">@drawable/bvpieee</item>
-        <item name="android:windowContentTransitions">true</item>
     </style>
 
     <style name="SplashTheme1" parent="Theme.MaterialComponents.Light.NoActionBar">
@@ -22,10 +21,9 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowContentTransitions">true</item>
     </style>
 
-    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+    <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/background_splash</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -34,12 +32,11 @@
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:windowContentTransitions">true</item>
 
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar"/>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />"
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />"
 
 </resources>
