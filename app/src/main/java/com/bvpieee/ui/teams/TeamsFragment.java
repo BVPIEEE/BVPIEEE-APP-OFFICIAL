@@ -13,6 +13,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.bvpieee.R;
+import com.bvpieee.adapters.SectionPageAdapterTeams;
 import com.google.android.material.tabs.TabLayout;
 
 public class TeamsFragment extends Fragment {

@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bvpieee.R;
+import com.bvpieee.adapters.RecyclerViewAdapterCSTeam;
+import com.bvpieee.models.TeamFragModelClass;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,14 +32,14 @@ public class CS_Team extends AppCompatActivity {
 
 
         memberChapterCS.add(new TeamFragModelClass("Saksham Pruthi", "Vice -Chairperson, CS",R.drawable.sakshampruthi,
-                "Things aren't always #000000 and #FFFFFF. Co-Founder, College Connect.\n" +
-                "Managing the Computer Society, organising various events, Assisting and providing the Chairpeerosn of Computer Society.",
+                "Things aren't always #000000 and #FFFFFF.\nCo-Founder: College Connect.\n" +
+                "Love to Explore new Tech. Love to Code and innovate\nDomain of Work: Android App Development.",
                 "https://linkedin.com/in/sakshampruthi"));
 
 
         memberChapterCS.add(new TeamFragModelClass("Harshit Gaur","Secretary, CS",R.drawable.harshitgaur,
                 "Believes in innovation at it's core. Dreamer and aspiring engineer\n"
-        +"Domain of Work: Deep Learning App Developmemt and AR/VR","https://www.linkedin.com/in/harshitgaur2"));
+        +"Domain of Work: Deep Learning App Development and AR/VR","https://www.linkedin.com/in/harshitgaur2"));
 
 
         memberChapterCS.add(new TeamFragModelClass("Dharana","Research and Development Head, CS",R.drawable.dharana,
@@ -47,7 +49,7 @@ public class CS_Team extends AppCompatActivity {
 
         memberChapterCS.add(new TeamFragModelClass("Ravneet Singh", "Research and Development Heas, CS",R.drawable.ravneetsingh,
                 "Ability to build sincerity and trust; moderate behaviours(less impulsive) and enhance agreeableness\n" +
-                "Skilled in network infrastructure, Experienced in troubleshooting Cisco devices as a network administrator.",
+                "Skilled in network infrastructure, Experienced in troubleshooting CISCO devices as a network administrator.",
                 "https://www.linkedin.com/in/ravneet-kumar-72a650140"));
 
 

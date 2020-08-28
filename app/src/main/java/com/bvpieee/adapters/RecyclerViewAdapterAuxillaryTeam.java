@@ -1,4 +1,4 @@
-package com.bvpieee.ui.teams;
+package com.bvpieee.adapters;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -19,6 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bvpieee.R;
+import com.bvpieee.models.TeamFragModelClass;
 
 import java.util.List;
 import java.util.Random;

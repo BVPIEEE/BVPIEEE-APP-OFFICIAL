@@ -1,4 +1,4 @@
-package com.bvpieee;
+package com.bvpieee.models;
 
 public class DeveloperDetailModel {
 

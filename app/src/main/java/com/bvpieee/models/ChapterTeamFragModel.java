@@ -1,6 +1,4 @@
-package com.bvpieee.ui.teams;
-
-import com.bvpieee.Chapter;
+package com.bvpieee.models;
 
 public class ChapterTeamFragModel  {
 

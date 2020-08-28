@@ -17,7 +17,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -29,6 +28,11 @@ import androidx.fragment.app.Fragment;
 
 import com.bvpieee.HomeActivity;
 import com.bvpieee.R;
+import com.bvpieee.ui.teams.CS_Team;
+import com.bvpieee.ui.teams.HKN_Team;
+import com.bvpieee.ui.teams.IAS_Team;
+import com.bvpieee.ui.teams.RAS_Team;
+import com.bvpieee.ui.teams.WIE_Team;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import static com.bvpieee.ui.chapters.SectionsPagerAdapter.SIG_TAB_TITLES;
@@ -43,8 +47,7 @@ public class PlaceholderFragment extends Fragment {
     private String chapter;
     private ImageView imageView;
     private TextView title, placeholder;
-    private CardView social, socialExpanded, aboutLayout, eventLayout, teamLayout;
-    private RelativeLayout white;
+    private CardView aboutLayout, eventLayout, teamLayout;
     ImageButton instagram, facebook, website;
     private Button close;
     private int[] imageResource = {R.drawable.raspp, R.drawable.cspp, R.drawable.iaspp, R.drawable.wiepp, R.drawable.hknpp};
@@ -83,7 +86,6 @@ public class PlaceholderFragment extends Fragment {
         eventLayout = root.findViewById(R.id.eventsLayout);
         imageView = root.findViewById(R.id.chapterBanner);
         title = root.findViewById(R.id.textView2);
-        social = root.findViewById(R.id.socialLayout);
 //        socialExpanded = root.findViewById(R.id.socialLayoutExpanded);
 //        close = root.findViewById(R.id.close);
         instagram = root.findViewById(R.id.instagram);
@@ -175,15 +177,39 @@ public class PlaceholderFragment extends Fragment {
         });
 
         teamLayout.setOnClickListener(v -> {
-            Bundle bundle = new Bundle();
-            bundle.putString("FRAG", "teams");
-            bundle.putString("CHAP", team);
-            Intent intent = new Intent(context, HomeActivity.class);
-            intent.putExtras(bundle);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
-            Activity activity = (Activity) context;
-            activity.finish();
+            if (chapter.equals("chapter")) {
+                Intent intent;
+                switch (position) {
+                    case 0:
+                        intent = new Intent(context, RAS_Team.class);
+                        break;
+                    case 1:
+                        intent = new Intent(context, CS_Team.class);
+                        break;
+                    case 2:
+                        intent = new Intent(context, IAS_Team.class);
+                        break;
+                    case 3:
+                        intent = new Intent(context, WIE_Team.class);
+                        break;
+                    case 4:
+                        intent = new Intent(context, HKN_Team.class);
+                        break;
+                    default: intent = null;
+                }
+                if(intent != null)
+                    startActivity(intent);
+            } else {
+                Bundle bundle = new Bundle();
+                bundle.putString("FRAG", "teams");
+                bundle.putString("CHAP", team);
+                Intent intent = new Intent(context, HomeActivity.class);
+                intent.putExtras(bundle);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                Activity activity = (Activity) context;
+                activity.finish();
+            }
         });
     }
 

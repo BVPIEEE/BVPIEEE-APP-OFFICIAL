@@ -3,12 +3,13 @@ package com.bvpieee.ui.teams;
 import android.os.Bundle;
 import android.view.View;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bvpieee.R;
+import com.bvpieee.adapters.RecyclerViewAdapterCSTeam;
+import com.bvpieee.models.TeamFragModelClass;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,8 +26,8 @@ public class HKN_Team extends AppCompatActivity {
 
         memberChapter=new ArrayList<>();
         memberChapter.add(new TeamFragModelClass("Himani Negi","President",R.drawable.himaninegi,
-                "Hi, This is me, Himani Negi.Currently I am a student developer in Google summer of code under redhenlab organization. " +
-                "I am working under Image and audio clustering project. Previosuly I was research intern in IIIT-D where I worked in analysing the collusive behaviour in social networking site." +
+                "Hi, This is me, Himani Negi.Currently I am a student developer in Google summer of code under Red Hen Lab organization. " +
+                "I am working under Image and audio clustering project. Previously I was research intern in IIIT-D where I worked in analysing the collusive behaviour in social networking site." +
                 "Creating a world with innovative ideas is something a part of my vision and I never look back to put efforts for it.",
                 "https://www.linkedin.com/in/himaninegi/"));
 

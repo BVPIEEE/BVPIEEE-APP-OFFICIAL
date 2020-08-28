@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bvpieee.R;
+import com.bvpieee.adapters.RecyclerViewAdapterCSTeam;
+import com.bvpieee.models.TeamFragModelClass;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +33,7 @@ public class WIE_Team extends AppCompatActivity {
 
 
         memberChapter.add(new TeamFragModelClass("Aakriti Jain","Vice-Chairperson, WIE",R.drawable.aakritijain,
-                "I am an enthusiastic learner, love to grab new opportunities and take lead from the front. " +
+                "I am an enthusiastic learner, love to grab new opportunities and take lead from the front." +
                 "Managing the team and events. I've always been inclined towards the managerial stuff. I have started exploring the technical side too,  with ML and Web Design",
                 "https://www.linkedin.com/in/aakriti-jain-9618861a7"));
 

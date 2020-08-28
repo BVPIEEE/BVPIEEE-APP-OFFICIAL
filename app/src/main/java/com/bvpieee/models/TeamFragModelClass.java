@@ -1,4 +1,4 @@
-package com.bvpieee.ui.teams;
+package com.bvpieee.models;
 
 public class TeamFragModelClass {
 

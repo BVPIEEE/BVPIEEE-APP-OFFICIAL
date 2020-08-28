@@ -6,9 +6,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import com.bvpieee.R;
-import com.bvpieee.ui.teams.ChapterTeamFragModel;
-import com.bvpieee.ui.teams.TeamFragModelClass;
+import com.bvpieee.adapters.DeveloperDetailAdapter;
+import com.bvpieee.models.DeveloperDetailModel;
 
 import java.util.ArrayList;
 import java.util.List;
