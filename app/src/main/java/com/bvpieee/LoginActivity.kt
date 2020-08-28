@@ -13,7 +13,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -72,7 +71,6 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true)
         if(GoogleSignIn.getLastSignedInAccount(this) != null){
             startActivity(Intent(this, HomeActivity::class.java))
             finish()
