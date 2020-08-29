@@ -18,11 +18,11 @@ import com.bvpieee.models.EventInfo;
 import com.bvpieee.ui.events.EventsFragment;
 import com.bvpieee.ui.home.HomeFragment;
 import com.bvpieee.ui.teams.TeamsFragment;
+import com.bvpieee.utils.Utils;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.material.card.MaterialCardView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,6 +30,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Objects;
 
 public class HomeActivity extends AppCompatActivity {
@@ -41,7 +45,7 @@ public class HomeActivity extends AppCompatActivity {
     ChipNavigationBar navView;
     private GoogleSignInClient mgoogleSigninClient;
     FirebaseDatabase firebaseDatabase;
-    TextView upcomingEvent;
+    TextView upcomingEvent, date;
     DatabaseReference mDatabaseReference;
     ValueEventListener listener;
     String url;
@@ -67,8 +71,9 @@ public class HomeActivity extends AppCompatActivity {
         navView = findViewById(R.id.bottom_nav);
         upcomingEvent = findViewById(R.id.upcomingEventName);
         materialCardView = findViewById(R.id.upcoming_event_button);
+        date = findViewById(R.id.date);
 
-        firebaseDatabase = FirebaseDatabase.getInstance();
+        firebaseDatabase = Utils.getDatabase();
         mDatabaseReference = firebaseDatabase.getReference("Events");
         mDatabaseReference.keepSynced(true);
         mDatabaseReference.orderByChild("date").addListenerForSingleValueEvent(listener = new ValueEventListener() {
@@ -78,6 +83,7 @@ public class HomeActivity extends AppCompatActivity {
                     for (DataSnapshot postDataSnapshot : snapshot.getChildren()) {
                         EventInfo event = postDataSnapshot.getValue(EventInfo.class);
                         upcomingEvent.setText(event.getName());
+                        date.setText(date(event.getDate()));
                         url = event.getUrl();
                         break;
                     }
@@ -141,6 +147,21 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+    }
+    public String date(String date) {
+        SimpleDateFormat inputFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        SimpleDateFormat outputFormat = new SimpleDateFormat("EEE, dd MMM yy",Locale.getDefault());
+        Date datetext;
+        String str = null;
+
+        try {
+            datetext = inputFormat.parse(date);
+            assert datetext != null;
+            str = outputFormat.format(datetext);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return str;
     }
 
     // menu for google logout

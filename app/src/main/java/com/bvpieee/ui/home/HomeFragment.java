@@ -1,7 +1,6 @@
 package com.bvpieee.ui.home;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,7 +11,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -20,21 +18,14 @@ import com.bvpieee.Chapter;
 import com.bvpieee.R;
 import com.bvpieee.adapters.CoverFlowAdapter;
 import com.bvpieee.adapters.SigAdapter;
-import com.bvpieee.models.EventInfo;
 import com.google.android.material.card.MaterialCardView;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 import com.wajahatkarim3.easyflipview.EasyFlipView;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Locale;
 
 import it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow;
 
@@ -94,7 +85,7 @@ public class HomeFragment extends Fragment {
         coverFlow2.setOnScrollPositionListener(this.onScrollListener());
 
 
-//        firebaseDatabase = FirebaseDatabase.getInstance();
+//        firebaseDatabase = Utils.getDatabase();
 //        mDatabaseReference = firebaseDatabase.getReference("Events");
 //        mDatabaseReference.keepSynced(true);
 //        mDatabaseReference.orderByChild("date").addListenerForSingleValueEvent(listener = new ValueEventListener() {
@@ -162,21 +153,7 @@ public class HomeFragment extends Fragment {
             }
         };
     }
-    public String date(String date) {
-        SimpleDateFormat inputFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-        SimpleDateFormat outputFormat = new SimpleDateFormat("EEE, dd MMM yy",Locale.getDefault());
-        Date datetext;
-        String str = null;
 
-        try {
-            datetext = inputFormat.parse(date);
-            assert datetext != null;
-            str = outputFormat.format(datetext);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return str;
-    }
 
 
     @Override

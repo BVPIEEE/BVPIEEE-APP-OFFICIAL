@@ -85,14 +85,16 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/upcoming_event_button"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:layout_margin="32dp"
+        android:layout_height="85dp"
+        android:layout_margin="24dp"
         android:background="@color/fui_transparent"
         android:clickable="true"
         android:focusable="true"
-        app:cardElevation="5dp"
+        app:cardElevation="20dp"
+        android:outlineAmbientShadowColor="@color/BottomNavBg"
+        android:outlineSpotShadowColor="@color/BottomNavBg"
         android:transitionName="Transition"
-        app:cardCornerRadius="15dp"
+        app:cardCornerRadius="25dp"
         app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -107,8 +109,8 @@
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
                 android:text="Upcoming Event"
                 android:textColor="#80ffffff"
                 app:layout_constraintStart_toStartOf="parent"
@@ -121,11 +123,23 @@
                 android:layout_marginTop="8dp"
                 android:text="Event Name"
                 android:textColor="@color/white"
-                android:textSize="24sp"
+                android:textSize="22sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.35000002" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="date"
+                android:id="@+id/date"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/upcomingEventName"
+                app:layout_constraintStart_toStartOf="@+id/upcomingEventName" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 

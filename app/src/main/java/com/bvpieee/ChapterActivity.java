@@ -8,8 +8,6 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.bvpieee.ui.chapters.SectionsPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -17,8 +15,6 @@ public class ChapterActivity extends AppCompatActivity {
 
     public static final String CHAPTER = "ChapterNumber";
     public static final String Coverflow = "CoverFlow";
-    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-    DatabaseReference mDatabaseReference;
     ArrayList<String> list = null;
 
     @Override
