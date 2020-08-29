@@ -14,7 +14,7 @@
     <color name="subtitle_color">#B0E7EF</color>
     // color palette 1 - finalized as of now
     <color name="BottomNavBg">#0B3142</color>
-    <color name="BottomNavItemColor">#FFD166</color>
+    <color name="BottomNavItemColor">#23967F</color>
     <color name="TabSelectedText">#B9FAF8</color>
     <color name="SecondaryColor">#778DA9</color>
     <color name="BottleGreen">#23967F</color>

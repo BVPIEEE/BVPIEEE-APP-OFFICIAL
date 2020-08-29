@@ -41,14 +41,12 @@ class LoginActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode == RC_SIGN_IN){
             val task =GoogleSignIn.getSignedInAccountFromIntent(data)
-            progressBar.visibility = View.VISIBLE
             pgb.visibility=View.VISIBLE
             pgb.speed=2f
             try {
                 val account = task.getResult(ApiException::class.java)
                 firebaseAuthWithGoogle(account!!)
             }catch (e: Exception){
-                progressBar.visibility = View.INVISIBLE
                 pgb.visibility = View.INVISIBLE
             }
         }
@@ -65,7 +63,8 @@ class LoginActivity : AppCompatActivity() {
                     startActivity(Intent(this, HomeActivity::class.java))
                     finish()
                 }
-                else snackbar(findViewById(R.id.googleSign), "Authentication Failed"); progressBar.visibility = View.INVISIBLE
+                else snackbar(findViewById(R.id.googleSign), "Authentication Failed");
+                pgb.visibility = View.INVISIBLE
             }
     }
 

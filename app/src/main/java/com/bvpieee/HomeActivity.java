@@ -1,23 +1,33 @@
 package com.bvpieee;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.fragment.app.Fragment;
 
+import com.bvpieee.models.EventInfo;
 import com.bvpieee.ui.events.EventsFragment;
 import com.bvpieee.ui.home.HomeFragment;
 import com.bvpieee.ui.teams.TeamsFragment;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 import java.util.Objects;
@@ -27,9 +37,21 @@ public class HomeActivity extends AppCompatActivity {
     Fragment homefrag = new HomeFragment();
     Fragment eventfrag = new EventsFragment();
     Fragment teamsfrag = new TeamsFragment();
-    FloatingActionButton fab;
+    MaterialCardView materialCardView;
     ChipNavigationBar navView;
     private GoogleSignInClient mgoogleSigninClient;
+    FirebaseDatabase firebaseDatabase;
+    TextView upcomingEvent;
+    DatabaseReference mDatabaseReference;
+    ValueEventListener listener;
+    String url;
+
+    @Override
+    protected void onDestroy() {
+        if (listener != null)
+            mDatabaseReference.removeEventListener(listener);
+        super.onDestroy();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,12 +65,42 @@ public class HomeActivity extends AppCompatActivity {
         mgoogleSigninClient = GoogleSignIn.getClient(this, gso);
 
         navView = findViewById(R.id.bottom_nav);
-//        navView.setOnNavigationItemSelectedListener(this);
-//        fab = findViewById(R.id.fab_home);
-//        fab.setOnClickListener(v -> loadFragments(homefrag));
+        upcomingEvent = findViewById(R.id.upcomingEventName);
+        materialCardView = findViewById(R.id.upcoming_event_button);
 
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        mDatabaseReference = firebaseDatabase.getReference("Events");
+        mDatabaseReference.keepSynced(true);
+        mDatabaseReference.orderByChild("date").addListenerForSingleValueEvent(listener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                try {
+                    for (DataSnapshot postDataSnapshot : snapshot.getChildren()) {
+                        EventInfo event = postDataSnapshot.getValue(EventInfo.class);
+                        upcomingEvent.setText(event.getName());
+                        url = event.getUrl();
+                        break;
+                    }
+                } catch (Exception e) {
+                    upcomingEvent.setText("No Upcoming Event");
+                    Log.d("HomeFragment", "onDataChange: " + e.getMessage());
+                }
+            }
 
-//        fab.setRippleColor(Color.parseColor("#AFEEEE"));
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        materialCardView.setOnClickListener(view -> {
+            if (url != null) {
+                CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+                builder.setToolbarColor(getColor(R.color.BottomNavBg));
+                CustomTabsIntent customTabsIntent = builder.build();
+                customTabsIntent.launchUrl(this, Uri.parse(url));
+            }
+        });
 
         loadFragments(homefrag);
         Bundle bundle = getIntent().getExtras();

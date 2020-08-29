@@ -14,6 +14,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.airbnb.lottie.LottieAnimationView;
 import com.bvpieee.R;
 import com.bvpieee.adapters.SectionPageAdapterTeams;
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.tabs.TabLayout;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
@@ -26,6 +27,7 @@ public class TeamsFragment extends Fragment {
     View layout, teams;
     LottieAnimationView animationView;
     String team_chap = null;
+    MaterialCardView materialCardView;
     Context context;
     //    private RecyclerView myRecyclerView;
 //    private List<CoreTeamModel> memberCore;
@@ -49,8 +51,11 @@ public class TeamsFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_teams, container, false);
         viewPager = view.findViewById(R.id.teamPager);
         tabLayout = view.findViewById(R.id.tabLayoutTeams);
-        if (getActivity() != null)
+        if (getActivity() != null) {
             bottomNavigationView = getActivity().findViewById(R.id.bottom_nav);
+            materialCardView = getActivity().findViewById(R.id.upcoming_event_button);
+            materialCardView.setVisibility(View.GONE);
+        }
 //        layout = view.findViewById(R.id.lottie_layer);
 //        teams = view.findViewById(R.id.teams_linear);
 //        teams.setVisibility(View.INVISIBLE);
