@@ -29,42 +29,42 @@ public class IAS_Team extends AppCompatActivity {
 
         memberChapter.add(new TeamFragModelClass("Sanjana Deswal","Chairperson, IAS",R.drawable.sanjanadeswal,
                 "I am always curious to work and try something new. Domain o f Work: Non-Tech",
-                "https://www.linkedin.com/in/sanjana-deswal-4b390616a"));
+                "https://www.linkedin.com/in/sanjana-deswal-4b390616a","IT, 4th Year"));
 
 
         memberChapter.add(new TeamFragModelClass("Bhavya Wahie", "Secretary, IAS",R.drawable.bvpieee,
-                "Video editor,Managing the Industrial Automation Society events","https://www.linkedin.com/"));
+                "No Info Available","https://www.linkedin.com/","No Info Available"));
 
         memberChapter.add(new TeamFragModelClass("Aniket Aggarwal","Event Management Head, IAS",R.drawable.bvpieee,
-                "My job is is to manage all the workshops and events taking place in IAS.","https://www.linkedin.com"));
+                "No Info Available","https://www.linkedin.com","No Info Available"));
 
         memberChapter.add(new TeamFragModelClass("Astha Chhabra","Head Public Relations, IAS",R.drawable.asthachhabra,
                 "An enthusiastic person eager to contribute to the team through hard work, attention to go in detail and organisational skills. Motivated to learn, grow, and excel professionally." +
-                "More inclines on the technical side rather than management side.","http://linkedin.com/in/astha-chhabra-20a20"));
+                        "More inclines on the technical side rather than management side.","http://linkedin.com/in/astha-chhabra-20a20","ECE, 4th Year"));
 
         memberChapter.add(new TeamFragModelClass("Naman Aggarwal","Head Industrial Relations, IAS",R.drawable.namanaggarwal,
                 "An avid Tech geek and startup enthusiast. Securing sponsorships and maintaining good public and industrial relations.",
-                "https://www.linkedin.com/in/naman-aggarwal-83b285188/"));
+                "https://www.linkedin.com/in/naman-aggarwal-83b285188/","CSE, 2nd Year"));
 
 
         memberChapter.add(new TeamFragModelClass("Komal Singal","Publication and Documentation Head, IAS",R.drawable.komalsingal,
                 "I like making dynamic websites, involved in art and craft activities, and coding. Full stack web developer| Java Programming | Python Programming | C Programming",
-                "https://www.linkedin.com/in/komal-singal-1673781a7"));
+                "https://www.linkedin.com/in/komal-singal-1673781a7",""));
 
 
         memberChapter.add(new TeamFragModelClass("Palvika","Creativity Head, IAS",R.drawable.palvikagoyal,
                 "I love to code and learn new skills. Also, always ready to do some creative stuff. Web Development enthusiast with knowledge of PHP, C Programming and Python Programming.",
-                "https://www.linkedin.com/in/palvika-goyal-035976181"));
+                "https://www.linkedin.com/in/palvika-goyal-035976181","ECE, 2nd Year"));
 
 
         memberChapter.add(new TeamFragModelClass("Shivam Jain","Chapter Representative, IAS",R.drawable.shivamjain,
                 "I have a keen interest in coding and is happy to help anytime. Currently I am working in Front end Web Development.",
-                "https://www.linkedin.com/in/shivamjain9990339112"));
+                "https://www.linkedin.com/in/shivamjain9990339112","ECE, 2nd Year"));
 
 
         memberChapter.add(new TeamFragModelClass("Amol Puri","Chapter Representative, IAS",R.drawable.amolpuri,
                 "Want to learn new things, expand network and gain experience. I work as Publication and Documentation Head and currently I am working on C++.",
-                "https://www.linkedin.com/profile/view"));
+                "https://www.linkedin.com/profile/view","ECE, 2nd Year"));
 
 
 

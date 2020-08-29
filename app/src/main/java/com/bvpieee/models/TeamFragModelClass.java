@@ -8,16 +8,19 @@ public class TeamFragModelClass {
     private int Photo;
     private String MemberDetails;
     private String LinkedIn;
+    private String BranchYear;
 
     public TeamFragModelClass(){
     }
 
-    public TeamFragModelClass(String name, String post, int photo, String memberDetails, String linkedIn){
-            Name=name;
-            Post=post;
-            Photo=photo;
-            MemberDetails=memberDetails;
-            LinkedIn=linkedIn;
+
+    public TeamFragModelClass(String name, String post, int photo, String memberDetails, String linkedIn, String branchYear){
+        Name=name;
+        Post=post;
+        Photo=photo;
+        MemberDetails=memberDetails;
+        LinkedIn=linkedIn;
+        BranchYear=branchYear;
     }
 
 
@@ -52,4 +55,8 @@ public class TeamFragModelClass {
     public void setMemberDetails(String memberDetails) { MemberDetails = memberDetails; }
 
     public String getMemberDetails() { return MemberDetails; }
+
+    public void setBranchYear(String branchYear) { BranchYear = branchYear; }
+
+    public String getBranchYear() { return BranchYear; }
 }

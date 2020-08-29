@@ -25,16 +25,17 @@ public class HKN_Team extends AppCompatActivity {
         setContentView(R.layout.activity_hkn_team);
 
         memberChapter=new ArrayList<>();
+
         memberChapter.add(new TeamFragModelClass("Himani Negi","President",R.drawable.himaninegi,
                 "Hi, This is me, Himani Negi.Currently I am a student developer in Google summer of code under Red Hen Lab organization. " +
-                "I am working under Image and audio clustering project. Previously I was research intern in IIIT-D where I worked in analysing the collusive behaviour in social networking site." +
-                "Creating a world with innovative ideas is something a part of my vision and I never look back to put efforts for it.",
-                "https://www.linkedin.com/in/himaninegi/"));
+                        "I am working under Image and audio clustering project. Previously I was research intern in IIIT-D where I worked in analysing the collusive behaviour in social networking site." +
+                        "Creating a world with innovative ideas is something a part of my vision and I never look back to put efforts for it.",
+                "https://www.linkedin.com/in/himaninegi/","CSE, 4th Year"));
 
 
         memberChapter.add(new TeamFragModelClass("Kshitij Sidana","Vice-President",R.drawable.kshitijsidana,
                 "Fueled by fascination. Driven by logic. Jack of all but master of some. Domain of work: Robotics and Computer Vision.",
-                "https://www.linkedin.com/in/kshitij-sidana/"));
+                "https://www.linkedin.com/in/kshitij-sidana/","IT, 4th Year"));
 
         HKNRecyclerview=findViewById(R.id.rvHKN);
         RecyclerViewAdapterCSTeam recyclerViewAdapter=new RecyclerViewAdapterCSTeam(this,memberChapter);

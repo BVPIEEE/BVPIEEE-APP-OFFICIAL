@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,6 +43,11 @@ public class RecyclerViewAdapterSigs extends RecyclerView.Adapter<RecyclerViewAd
         view= LayoutInflater.from(mContext).inflate(R.layout.coreteam_frag_content,parent,false);
         MyViewHolderSigs holder=new MyViewHolderSigs(view);
 
+        memberDialog=new Dialog(mContext);
+        memberDialog.setContentView(R.layout.dialog_team_member_info);
+        memberDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+
         holder.memberRvItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,11 +57,11 @@ public class RecyclerViewAdapterSigs extends RecyclerView.Adapter<RecyclerViewAd
                 TextView memberInfo=memberDialog.findViewById(R.id.member_info);
                 TextView closeDialog=memberDialog.findViewById(R.id.closedialog);
 
-                LinearLayout dialogLayout= memberDialog.findViewById(R.id.dialog_layout);
-
-                Random random = new Random();
-                int currentColor= Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256));
-                dialogLayout.setBackgroundColor(currentColor);
+//                LinearLayout dialogLayout= memberDialog.findViewById(R.id.dialog_layout);
+//
+//                Random random = new Random();
+//                int currentColor= Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256));
+//                dialogLayout.setBackgroundColor(currentColor);
 
                 memberimg.setImageResource(mData.get(holder.getAdapterPosition()).getPhoto());
                 memberName.setText(mData.get(holder.getAdapterPosition()).getName());
@@ -81,6 +87,7 @@ public class RecyclerViewAdapterSigs extends RecyclerView.Adapter<RecyclerViewAd
 //        holder.itemView.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.animation_recyclerview));
         holder.textView_name.setText(mData.get(position).getName());
         holder.textView_post.setText(mData.get(position).getPost());
+        holder.branchAndYear.setText(mData.get(position).getBranchYear());
 
         Uri url;
         url= Uri.parse(mData.get(position).getLinkedIn());
@@ -113,6 +120,7 @@ public class RecyclerViewAdapterSigs extends RecyclerView.Adapter<RecyclerViewAd
         private TextView textView_post;
         private ImageButton linkedIn;
         private LinearLayout memberRvItem;
+        private TextView branchAndYear;
 //        private ImageView imageView_photo;
 
 
@@ -123,6 +131,7 @@ public class RecyclerViewAdapterSigs extends RecyclerView.Adapter<RecyclerViewAd
             textView_name=(TextView) itemView.findViewById(R.id.tvnameCore);
             textView_post=(TextView) itemView.findViewById(R.id.corePost);
             linkedIn=itemView.findViewById(R.id.linkedin_img_btn);
+            branchAndYear=(TextView) itemView.findViewById(R.id.branchandyear);
 //            imageView_photo=(ImageView) itemView.findViewById(R.id.img);
 
         }

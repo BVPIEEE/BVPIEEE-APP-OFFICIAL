@@ -20,6 +20,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bvpieee.R;
 import com.bvpieee.models.TeamFragModelClass;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 import java.util.Random;
 
@@ -55,11 +57,12 @@ public class RecyclerViewAdapterCSTeam extends RecyclerView.Adapter<RecyclerView
                 TextView memberName=memberDialog.findViewById(R.id.MemberName);
                 TextView memberInfo=memberDialog.findViewById(R.id.member_info);
                 TextView closeDialog=memberDialog.findViewById(R.id.closedialog);
-                LinearLayout dialogLayout= memberDialog.findViewById(R.id.dialog_layout);
 
-                Random random = new Random();
-                int currentColor= Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256));
-                dialogLayout.setBackgroundColor(currentColor);
+//                LinearLayout dialogLayout= memberDialog.findViewById(R.id.dialog_layout);
+//
+//                Random random = new Random();
+//                int currentColor= Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256));
+//                dialogLayout.setBackgroundColor(currentColor);
 
                 memberimg.setImageResource(mData.get(holder.getAbsoluteAdapterPosition()).getPhoto());
                 memberName.setText(mData.get(holder.getAbsoluteAdapterPosition()).getName());
@@ -87,6 +90,7 @@ public class RecyclerViewAdapterCSTeam extends RecyclerView.Adapter<RecyclerView
 
         holder.name.setText(mData.get(position).getName());
         holder.post.setText(mData.get(position).getPost());
+        holder.branchAndYear.setText(mData.get(position).getBranchYear());
 //        holder.imageView_photo.setImageResource(mData.get(holder.getAdapterPosition()).getPhoto());
         Uri url;
         url= Uri.parse(mData.get(position).getLinkedIn());
@@ -117,6 +121,7 @@ public class RecyclerViewAdapterCSTeam extends RecyclerView.Adapter<RecyclerView
 //        private ImageView imageView_photo;
         private LinearLayout memberRvItem;
         private ImageButton linkedIn;
+        private TextView branchAndYear;
 
         public CSViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -124,6 +129,7 @@ public class RecyclerViewAdapterCSTeam extends RecyclerView.Adapter<RecyclerView
             name=itemView.findViewById(R.id.tvnameCore);
             post=itemView.findViewById(R.id.corePost);
             linkedIn=itemView.findViewById(R.id.linkedin_img_btn);
+            branchAndYear=(TextView) itemView.findViewById(R.id.branchandyear);
 //            imageView_photo=itemView.findViewById(R.id.img);
 
         }

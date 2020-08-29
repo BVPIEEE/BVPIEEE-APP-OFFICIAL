@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bvpieee.R;
@@ -56,11 +57,12 @@ public class RecyclerViewAdapterCoreTeam extends RecyclerView.Adapter<RecyclerVi
                 TextView memberName=memberDialog.findViewById(R.id.MemberName);
                 TextView memberInfo=memberDialog.findViewById(R.id.member_info);
                 TextView closeDialog=memberDialog.findViewById(R.id.closedialog);
-                LinearLayout dialogLayout= memberDialog.findViewById(R.id.dialog_layout);
 
-                Random random = new Random();
-                int currentColor= Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256));;
-                dialogLayout.setBackgroundColor(currentColor);
+//                LinearLayout dialogLayout= memberDialog.findViewById(R.id.dialog_layout);
+//
+//                Random random = new Random();
+//                int currentColor= Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256));;
+//                dialogLayout.setBackgroundColor(currentColor);
 
                 memberimg.setImageResource(mData.get(holder.getAdapterPosition()).getPhoto());
                 memberName.setText(mData.get(holder.getAdapterPosition()).getName());
@@ -90,10 +92,12 @@ public class RecyclerViewAdapterCoreTeam extends RecyclerView.Adapter<RecyclerVi
 
 //        Random random = new Random();
 //        int currentColor= Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256));
-//        holder.ui_element.setBackgroundColor(currentColor);
+
 
         holder.textView_name.setText(mData.get(position).getName());
         holder.textView_post.setText(mData.get(position).getPost());
+        holder.branchAndYear.setText(mData.get(position).getBranchYear());
+
         Uri url;
         url= Uri.parse(mData.get(position).getLinkedIn());
 
@@ -131,7 +135,7 @@ public class RecyclerViewAdapterCoreTeam extends RecyclerView.Adapter<RecyclerVi
 //        private ImageView imageView_photo;
         private LinearLayout memberRvItem;
         private ImageButton linkedIn;
-        private View ui_element;
+       private TextView branchAndYear;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -140,7 +144,7 @@ public class RecyclerViewAdapterCoreTeam extends RecyclerView.Adapter<RecyclerVi
             textView_name=(TextView) itemView.findViewById(R.id.tvnameCore);
             textView_post=(TextView) itemView.findViewById(R.id.corePost);
             linkedIn=(ImageButton) itemView.findViewById(R.id.linkedin_img_btn);
-            ui_element=itemView.findViewById(R.id.ui_element_view);
+            branchAndYear=(TextView) itemView.findViewById(R.id.branchandyear);
 
 //            imageView_photo=(ImageView) itemView.findViewById(R.id.img);
 

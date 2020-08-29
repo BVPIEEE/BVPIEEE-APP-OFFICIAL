@@ -20,6 +20,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bvpieee.R;
 import com.bvpieee.models.TeamFragModelClass;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 import java.util.Random;
 
@@ -54,11 +56,12 @@ public class RecyclerViewAdapterAuxillaryTeam extends RecyclerView.Adapter<Recyc
                 TextView memberName=(TextView) memberDialog.findViewById(R.id.MemberName);
                 TextView memberInfo=(TextView) memberDialog.findViewById(R.id.member_info);
                 TextView closeDialog=memberDialog.findViewById(R.id.closedialog);
-                LinearLayout dialogLayout= memberDialog.findViewById(R.id.dialog_layout);
 
-                Random random = new Random();
-                int currentColor= Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256));
-                dialogLayout.setBackgroundColor(currentColor);
+//                LinearLayout dialogLayout= memberDialog.findViewById(R.id.dialog_layout);
+//
+//                Random random = new Random();
+//                int currentColor= Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256));
+//                dialogLayout.setBackgroundColor(currentColor);
 
                 memberimg.setImageResource(mData.get(holder.getAdapterPosition()).getPhoto());
                 memberName.setText(mData.get(holder.getAdapterPosition()).getName());
@@ -86,6 +89,7 @@ public class RecyclerViewAdapterAuxillaryTeam extends RecyclerView.Adapter<Recyc
 
         holder.textView_name.setText(mData.get(position).getName());
         holder.textView_post.setText(mData.get(position).getPost());
+        holder.branchAndYear.setText(mData.get(position).getBranchYear());
 
         Uri url;
         url= Uri.parse(mData.get(position).getLinkedIn());
@@ -120,6 +124,7 @@ public class RecyclerViewAdapterAuxillaryTeam extends RecyclerView.Adapter<Recyc
 //        private ImageView imageView_photo;
         private LinearLayout memberRvItem;
         private ImageButton linkedIn;
+        private TextView branchAndYear;
 
         public MyViewHolderAuxy(@NonNull View itemView) {
             super(itemView);
@@ -127,6 +132,7 @@ public class RecyclerViewAdapterAuxillaryTeam extends RecyclerView.Adapter<Recyc
             textView_name=(TextView) itemView.findViewById(R.id.tvnameCore);
             textView_post=(TextView) itemView.findViewById(R.id.corePost);
             linkedIn=(ImageButton) itemView.findViewById(R.id.linkedin_img_btn);
+            branchAndYear=(TextView) itemView.findViewById(R.id.branchandyear);
 //            imageView_photo=(ImageView) itemView.findViewById(R.id.img);
         }
     }
