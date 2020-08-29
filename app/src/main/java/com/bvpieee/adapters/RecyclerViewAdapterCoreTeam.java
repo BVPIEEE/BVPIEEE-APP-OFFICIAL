@@ -144,7 +144,7 @@ public class RecyclerViewAdapterCoreTeam extends RecyclerView.Adapter<RecyclerVi
             textView_name=(TextView) itemView.findViewById(R.id.tvnameCore);
             textView_post=(TextView) itemView.findViewById(R.id.corePost);
             linkedIn=(ImageButton) itemView.findViewById(R.id.linkedin_img_btn);
-            branchAndYear=(TextView) itemView.findViewById(R.id.branchandyear);
+            branchAndYear=(TextView) itemView.findViewById(R.id.branchAndyear);
 
 //            imageView_photo=(ImageView) itemView.findViewById(R.id.img);
 

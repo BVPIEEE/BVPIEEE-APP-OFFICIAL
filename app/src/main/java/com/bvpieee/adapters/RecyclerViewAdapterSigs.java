@@ -131,7 +131,7 @@ public class RecyclerViewAdapterSigs extends RecyclerView.Adapter<RecyclerViewAd
             textView_name=(TextView) itemView.findViewById(R.id.tvnameCore);
             textView_post=(TextView) itemView.findViewById(R.id.corePost);
             linkedIn=itemView.findViewById(R.id.linkedin_img_btn);
-            branchAndYear=(TextView) itemView.findViewById(R.id.branchandyear);
+            branchAndYear=(TextView) itemView.findViewById(R.id.branchAndyear);
 //            imageView_photo=(ImageView) itemView.findViewById(R.id.img);
 
         }

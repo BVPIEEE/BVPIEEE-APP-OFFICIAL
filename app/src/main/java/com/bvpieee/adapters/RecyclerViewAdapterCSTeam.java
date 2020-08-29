@@ -129,7 +129,7 @@ public class RecyclerViewAdapterCSTeam extends RecyclerView.Adapter<RecyclerView
             name=itemView.findViewById(R.id.tvnameCore);
             post=itemView.findViewById(R.id.corePost);
             linkedIn=itemView.findViewById(R.id.linkedin_img_btn);
-            branchAndYear=(TextView) itemView.findViewById(R.id.branchandyear);
+            branchAndYear=(TextView) itemView.findViewById(R.id.branchAndyear);
 //            imageView_photo=itemView.findViewById(R.id.img);
 
         }

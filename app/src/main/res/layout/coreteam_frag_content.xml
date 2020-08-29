@@ -57,7 +57,7 @@
                 android:textColor="@color/black" />
 
             <TextView
-                android:id="@+id/branchandyear"
+                android:id="@+id/branchAndyear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="BRANCH AND YEAR"
