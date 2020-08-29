@@ -1,7 +1,7 @@
 package com.bvpieee.ui.home;
 
 import android.content.Context;
-import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,11 +12,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.bvpieee.Chapter;
-import com.bvpieee.EventWebView;
 import com.bvpieee.R;
 import com.bvpieee.adapters.CoverFlowAdapter;
 import com.bvpieee.adapters.SigAdapter;
@@ -120,9 +120,10 @@ public class HomeFragment extends Fragment {
         });
         registerButton.setOnClickListener(view -> {
             if (url != null) {
-                Intent intent = new Intent(context, EventWebView.class);
-                intent.putExtra("url", url);
-                startActivity(intent);
+                CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+                builder.setColorScheme(context.getColor(R.color.BottomNavBg));
+                CustomTabsIntent customTabsIntent = builder.build();
+                customTabsIntent.launchUrl(context, Uri.parse(url));
             }
         });
 

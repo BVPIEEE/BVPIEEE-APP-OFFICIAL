@@ -12,8 +12,7 @@
         android:supportsRtl="true"
         android:hardwareAccelerated="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DeveloperDetails"></activity>
-        <activity android:name=".EventWebView" />
+        <activity android:name=".DeveloperDetails"/>
         <activity android:name=".ui.teams.HKN_Team" />
         <activity android:name=".ui.teams.WIE_Team" />
         <activity android:name=".ui.teams.IAS_Team" />
