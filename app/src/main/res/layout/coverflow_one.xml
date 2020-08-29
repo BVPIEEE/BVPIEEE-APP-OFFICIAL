@@ -34,7 +34,7 @@
             android:textSize="10sp"
             android:padding="2dp"
             android:alpha="80"
-            android:background="@color/BottomNavItemColor"
+            android:background="#90B9FAF8"
             android:textColor="@color/BottomNavBg"
             android:fontFamily="sans-serif"/>
 

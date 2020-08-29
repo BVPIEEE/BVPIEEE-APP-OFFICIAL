@@ -21,6 +21,7 @@ import com.bvpieee.R;
 import com.bvpieee.adapters.CoverFlowAdapter;
 import com.bvpieee.adapters.SigAdapter;
 import com.bvpieee.models.EventInfo;
+import com.google.android.material.card.MaterialCardView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -46,35 +47,40 @@ public class HomeFragment extends Fragment {
     private Context context;
     FeatureCoverFlow coverFlow, coverFlow2;
     ChipNavigationBar bottomNavigationView;
+    MaterialCardView materialCardView;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference mDatabaseReference;
     ValueEventListener listener;
     EasyFlipView easyflipview;
-    TextView topic, topicBack, dateText, venue;
+    TextView topic, topicBack, dateText, venue, upcoming;
     String url;
     Button registerButton;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        if (getActivity() != null)
+        if (getActivity() != null) {
+            materialCardView = getActivity().findViewById(R.id.upcoming_event_button);
             bottomNavigationView = getActivity().findViewById(R.id.bottom_nav);
+        }
 
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         coverFlow = root.findViewById(R.id.chapterCoverflow);
         coverFlow2 = root.findViewById(R.id.sigsCoverflow);
-        easyflipview = root.findViewById(R.id.easyflip);
+//        easyflipview = root.findViewById(R.id.easyflip);
         topic = root.findViewById(R.id.topic);
         topicBack = root.findViewById(R.id.topicBack);
         dateText = root.findViewById(R.id.dateandtime);
         venue = root.findViewById(R.id.venue);
         registerButton = root.findViewById(R.id.quickRegister);
+//        upcoming = root.findViewById(R.id.upcomingHeading);
         return root;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
         //Chapters Coverflow
         initalizeCoverFlow();
         adapter = new CoverFlowAdapter(context, chapters);
@@ -88,44 +94,37 @@ public class HomeFragment extends Fragment {
         coverFlow2.setOnScrollPositionListener(this.onScrollListener());
 
 
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        mDatabaseReference = firebaseDatabase.getReference("Events");
-        mDatabaseReference.keepSynced(true);
-        mDatabaseReference.orderByChild("date").addListenerForSingleValueEvent(listener = new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                try {
-                    for (DataSnapshot postDataSnapshot : snapshot.getChildren()) {
-                        EventInfo event = postDataSnapshot.getValue(EventInfo.class);
-                        topic.setText(event.getName());
-                        topicBack.setText(event.getName());
-                        dateText.setText(date(event.getDate()));
-                        venue.setText(event.getVenue());
-                        url = event.getUrl();
-                        break;
-                    }
-                } catch (Exception e) {
-                    topic.setText("No Event");
-                    topicBack.setText("No Event");
-                    dateText.setText("");
-                    venue.setText("");
-                    Log.d("HomeFragment", "onDataChange: "+e.getMessage());
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-        registerButton.setOnClickListener(view -> {
-            if (url != null) {
-                CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
-                builder.setColorScheme(context.getColor(R.color.BottomNavBg));
-                CustomTabsIntent customTabsIntent = builder.build();
-                customTabsIntent.launchUrl(context, Uri.parse(url));
-            }
-        });
+//        firebaseDatabase = FirebaseDatabase.getInstance();
+//        mDatabaseReference = firebaseDatabase.getReference("Events");
+//        mDatabaseReference.keepSynced(true);
+//        mDatabaseReference.orderByChild("date").addListenerForSingleValueEvent(listener = new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                try {
+//                    for (DataSnapshot postDataSnapshot : snapshot.getChildren()) {
+//                        EventInfo event = postDataSnapshot.getValue(EventInfo.class);
+//                        topic.setText(event.getName());
+//                        topicBack.setText(event.getName());
+//                        dateText.setText(date(event.getDate()));
+//                        venue.setText(event.getVenue());
+//                        url = event.getUrl();
+//                        break;
+//                    }
+//                } catch (Exception e) {
+//                    topic.setText("No Event");
+//                    topicBack.setText("No Event");
+//                    dateText.setText("");
+//                    venue.setText("");
+//                    Log.d("HomeFragment", "onDataChange: "+e.getMessage());
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+//
 
     }
 
@@ -185,6 +184,7 @@ public class HomeFragment extends Fragment {
         super.onStart();
 //        bottomNavigationView.getMenu().findItem(R.id.navigation_home).setChecked(true);
         bottomNavigationView.setItemSelected(R.id.navigation_home, true);
+        materialCardView.setVisibility(View.VISIBLE);
     }
 
     @Override

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.bvpieee.R
 import com.bvpieee.adapters.EventsAdapter
 import com.bvpieee.models.EventInfo
+import com.google.android.material.card.MaterialCardView
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.ismaeldivita.chipnavigation.ChipNavigationBar
@@ -28,6 +29,7 @@ class EventsFragment : Fragment() {
     var teams: String? = null
     lateinit var mcontext: Context
     lateinit var bottomNavigationView: ChipNavigationBar
+    lateinit var materialCardView: MaterialCardView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +45,9 @@ class EventsFragment : Fragment() {
         container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_events, container, false)
-        if (activity != null) bottomNavigationView = requireActivity().findViewById(R.id.bottom_nav)
+        if (activity != null) {bottomNavigationView = requireActivity().findViewById(R.id.bottom_nav)
+        materialCardView = requireActivity().findViewById(R.id.upcoming_event_button)
+        materialCardView.visibility = View.GONE}
         return root
     }
 
