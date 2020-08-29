@@ -8,7 +8,7 @@
 
     <!-- TabLayout background color -->
     <solid
-        android:color="@color/colorPrimaryDark"/>
+        android:color="@color/BottomNavItemColor"/>
 
 
 </shape>

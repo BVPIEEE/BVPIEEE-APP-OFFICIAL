@@ -34,8 +34,8 @@
             android:textSize="10sp"
             android:padding="2dp"
             android:alpha="80"
-            android:background="#98DAFC"
-            android:textColor="@color/black"
+            android:background="@color/BottomNavItemColor"
+            android:textColor="@color/BottomNavBg"
             android:fontFamily="sans-serif"/>
 
     </LinearLayout>

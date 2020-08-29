@@ -5,112 +5,108 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.teams.TeamsFragment">
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/lottie_layer">
+    <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:id="@+id/lottie_layer">-->
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/team"
-            android:layout_width="match_parent"
-            android:layout_height="600dp"
-            android:layout_gravity="center"
-            android:layout_weight="4"
-            android:scaleType="centerCrop"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:lottie_autoPlay="true"
-            app:lottie_rawRes="@raw/teamwork" />
+    <!--        <com.airbnb.lottie.LottieAnimationView-->
+    <!--            android:id="@+id/team"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="600dp"-->
+    <!--            android:layout_gravity="center"-->
+    <!--            android:layout_weight="4"-->
+    <!--            android:scaleType="centerCrop"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent"-->
+    <!--            app:lottie_autoPlay="true"-->
+    <!--            app:lottie_rawRes="@raw/teamwork" />-->
 
-        <ImageView
-            android:layout_width="@dimen/bvpieeelogowidth"
-            android:layout_height="@dimen/Logo_HeightFor_Teams_Tab"
-            android:src="@drawable/bvpieee"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/team"
-            android:contentDescription="@string/lottieanimation" />
+    <!--        <ImageView-->
+    <!--            android:layout_width="@dimen/bvpieeelogowidth"-->
+    <!--            android:layout_height="@dimen/Logo_HeightFor_Teams_Tab"-->
+    <!--            android:src="@drawable/bvpieee"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toBottomOf="@+id/team"-->
+    <!--            android:contentDescription="@string/lottieanimation" />-->
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
 
 
     <LinearLayout
+        android:id="@+id/teams_linear"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:id="@+id/teams_linear">
+        android:orientation="vertical">
 
-<!--        <ImageView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="@dimen/Logo_HeightFor_Teams_Tab"-->
-<!--            android:src="@drawable/bvpieee"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:background="@color/colorPrimaryDark"/>-->
+        <!--        <ImageView-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="@dimen/Logo_HeightFor_Teams_Tab"-->
+        <!--            android:src="@drawable/bvpieee"-->
+        <!--            android:layout_gravity="center"-->
+        <!--            android:background="@color/colorPrimaryDark"/>-->
 
-<!--        <TextView-->
-<!--            android:layout_margin="20dp"-->
-<!--            android:id="@+id/text_notifications"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="8dp"-->
-<!--            android:layout_marginTop="8dp"-->
-<!--            android:layout_marginEnd="8dp"-->
-<!--            android:textAlignment="center"-->
-<!--            android:text="The Team"-->
-<!--            android:textSize="40sp"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent" />-->
+        <!--        <TextView-->
+        <!--            android:layout_margin="20dp"-->
+        <!--            android:id="@+id/text_notifications"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="8dp"-->
+        <!--            android:layout_marginTop="8dp"-->
+        <!--            android:layout_marginEnd="8dp"-->
+        <!--            android:textAlignment="center"-->
+        <!--            android:text="The Team"-->
+        <!--            android:textSize="40sp"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent" />-->
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@color/BottomNavItemColor"
             android:padding="10dp">
-<!--            <com.google.android.material.tabs.TabLayout-->
-<!--                android:id="@+id/tabLayoutTeams"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="100dp"-->
-<!--                app:tabTextColor="@color/white"-->
-<!--                android:padding="10dp"-->
-<!--                app:tabMode="scrollable"-->
-<!--                app:tabBackground="@drawable/tab_selector"-->
-<!--                app:tabRippleColor="@android:color/holo_orange_light"-->
-<!--                app:tabSelectedTextColor="@android:color/holo_orange_light"-->
-<!--                android:background="@drawable/tablayout_bgcolor">-->
+            <!--            <com.google.android.material.tabs.TabLayout-->
+            <!--                android:id="@+id/tabLayoutTeams"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="100dp"-->
+            <!--                app:tabTextColor="@color/white"-->
+            <!--                android:padding="10dp"-->
+            <!--                app:tabMode="scrollable"-->
+            <!--                app:tabBackground="@drawable/tab_selector"-->
+            <!--                app:tabRippleColor="@android:color/holo_orange_light"-->
+            <!--                app:tabSelectedTextColor="@android:color/holo_orange_light"-->
+            <!--                android:background="@drawable/tablayout_bgcolor">-->
 
-<!--            </com.google.android.material.tabs.TabLayout>-->
+            <!--            </com.google.android.material.tabs.TabLayout>-->
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabLayoutTeams"
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
-                android:background="@drawable/tablayout_bgcolor"
-                app:tabMode="scrollable"
-                app:tabBackground="@drawable/tab_selector"
-                app:tabSelectedTextColor="@color/colorPrimaryDark"
-                app:tabPaddingStart="16dp"
-                app:tabTextColor="@android:color/holo_orange_light"
-                android:layout_marginTop="5dp"
                 android:layout_marginStart="2dp"
                 android:layout_marginEnd="2dp"
-                app:tabPaddingEnd="16dp"
+                android:background="@drawable/tablayout_bgcolor"
+                app:tabBackground="@drawable/tab_selector"
                 app:tabIndicatorHeight="0dp"
-                app:tabRippleColor="@null"/>
+                app:tabMode="scrollable"
+                app:tabPaddingEnd="16dp"
+                app:tabPaddingStart="16dp"
+                app:tabRippleColor="@null"
+                app:tabSelectedTextColor="@color/white"
+                app:tabTextColor="@color/BottomNavBg" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/teamPager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        </androidx.viewpager.widget.ViewPager>
+            android:layout_height="match_parent"/>
 
     </LinearLayout>
-
-
 </RelativeLayout>

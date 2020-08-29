@@ -3,11 +3,11 @@ package com.bvpieee.adapters;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -20,6 +20,7 @@ import com.bvpieee.R;
 import com.bvpieee.models.TeamFragModelClass;
 
 import java.util.List;
+import java.util.Random;
 
 public class RecyclerViewAdapterSigs extends RecyclerView.Adapter<RecyclerViewAdapterSigs.MyViewHolderSigs> {
 
@@ -49,6 +50,13 @@ public class RecyclerViewAdapterSigs extends RecyclerView.Adapter<RecyclerViewAd
                 TextView memberName=memberDialog.findViewById(R.id.MemberName);
                 TextView memberInfo=memberDialog.findViewById(R.id.member_info);
                 TextView closeDialog=memberDialog.findViewById(R.id.closedialog);
+
+                LinearLayout dialogLayout= memberDialog.findViewById(R.id.dialog_layout);
+
+                Random random = new Random();
+                int currentColor= Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256));
+                dialogLayout.setBackgroundColor(currentColor);
+
                 memberimg.setImageResource(mData.get(holder.getAdapterPosition()).getPhoto());
                 memberName.setText(mData.get(holder.getAdapterPosition()).getName());
                 memberInfo.setText(mData.get(holder.getAdapterPosition()).getMemberDetails());
@@ -70,7 +78,7 @@ public class RecyclerViewAdapterSigs extends RecyclerView.Adapter<RecyclerViewAd
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolderSigs holder, int position) {
-        holder.itemView.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.animation_recyclerview));
+//        holder.itemView.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.animation_recyclerview));
         holder.textView_name.setText(mData.get(position).getName());
         holder.textView_post.setText(mData.get(position).getPost());
 
@@ -81,8 +89,13 @@ public class RecyclerViewAdapterSigs extends RecyclerView.Adapter<RecyclerViewAd
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Intent.ACTION_VIEW,url);
-                intent.setData(url);
-                mContext.startActivity(intent);
+                intent.setPackage("com.linkedin.android");
+                if (intent.getPackage()==null){
+                    intent.setData(url);
+                    mContext.startActivity(intent);
+                } else {
+                    mContext.startActivity(intent);
+                }
             }
         });
 

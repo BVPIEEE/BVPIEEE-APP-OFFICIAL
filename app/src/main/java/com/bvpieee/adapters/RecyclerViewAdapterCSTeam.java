@@ -9,7 +9,6 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -22,6 +21,7 @@ import com.bvpieee.R;
 import com.bvpieee.models.TeamFragModelClass;
 
 import java.util.List;
+import java.util.Random;
 
 public class RecyclerViewAdapterCSTeam extends RecyclerView.Adapter<RecyclerViewAdapterCSTeam.CSViewHolder> {
 
@@ -55,9 +55,15 @@ public class RecyclerViewAdapterCSTeam extends RecyclerView.Adapter<RecyclerView
                 TextView memberName=memberDialog.findViewById(R.id.MemberName);
                 TextView memberInfo=memberDialog.findViewById(R.id.member_info);
                 TextView closeDialog=memberDialog.findViewById(R.id.closedialog);
-                memberimg.setImageResource(mData.get(holder.getAdapterPosition()).getPhoto());
-                memberName.setText(mData.get(holder.getAdapterPosition()).getName());
-                memberInfo.setText(mData.get(holder.getAdapterPosition()).getMemberDetails());
+                LinearLayout dialogLayout= memberDialog.findViewById(R.id.dialog_layout);
+
+                Random random = new Random();
+                int currentColor= Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256));
+                dialogLayout.setBackgroundColor(currentColor);
+
+                memberimg.setImageResource(mData.get(holder.getAbsoluteAdapterPosition()).getPhoto());
+                memberName.setText(mData.get(holder.getAbsoluteAdapterPosition()).getName());
+                memberInfo.setText(mData.get(holder.getAbsoluteAdapterPosition()).getMemberDetails());
                 memberDialog.show();
 //                Toast.makeText(mContext,"Test Click" + String.valueOf(holder.getAdapterPosition()),Toast.LENGTH_SHORT).show();
 
@@ -76,7 +82,7 @@ public class RecyclerViewAdapterCSTeam extends RecyclerView.Adapter<RecyclerView
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewAdapterCSTeam.CSViewHolder holder, int position) {
-        holder.itemView.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.animation_recyclerview));
+//        holder.itemView.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.animation_recyclerview));
 
 
         holder.name.setText(mData.get(position).getName());
@@ -85,13 +91,16 @@ public class RecyclerViewAdapterCSTeam extends RecyclerView.Adapter<RecyclerView
         Uri url;
         url= Uri.parse(mData.get(position).getLinkedIn());
 
-        holder.linkedIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(Intent.ACTION_VIEW,url);
-                intent.setData(url);
-                mContext.startActivity(intent);
+        holder.linkedIn.setOnClickListener(view -> {
+            Intent intent;
+            try{
+                intent=new Intent(Intent.ACTION_VIEW,url);
+                intent.setPackage("com.linkedin.android");
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            }catch(Exception e){
+                intent=new Intent(Intent.ACTION_VIEW,url);
             }
+            mContext.startActivity(intent);
         });
 
     }

@@ -8,7 +8,7 @@
 
     <!-- drawable for unselected tab -->
     <item
-        android:drawable="@drawable/tablayout_bgcolor"
+        android:drawable="@color/BottomNavItemColor"
         android:state_selected="false"
         />
 

@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -44,7 +43,7 @@ public class DeveloperDetailAdapter extends RecyclerView.Adapter<DeveloperDetail
     @Override
     public void onBindViewHolder(@NonNull DeveloperDetailAdapter.DeveloperViewHolder holder, int position) {
 
-        holder.itemView.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.animation_recyclerview));
+//        holder.itemView.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.animation_recyclerview));
 
         holder.textView_developer_name.setText(mData.get(position).getDevelopeName());
         holder. textview_developer_post.setText(mData.get(position).getDeveloperDetails());
@@ -53,11 +52,13 @@ public class DeveloperDetailAdapter extends RecyclerView.Adapter<DeveloperDetail
         Uri linkedin_url;
         linkedin_url=Uri.parse(mData.get(position).getDeveloperLinkedin());
 
-        holder.linkedinDeveloper.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent= new Intent(Intent.ACTION_VIEW,linkedin_url);
+        holder.linkedinDeveloper.setOnClickListener(view -> {
+            Intent intent=new Intent(Intent.ACTION_VIEW,linkedin_url);
+            intent.setPackage("com.linkedin.android");
+            if (intent.getPackage()==null){
                 intent.setData(linkedin_url);
+                mContext.startActivity(intent);
+            } else {
                 mContext.startActivity(intent);
             }
         });
@@ -65,12 +66,14 @@ public class DeveloperDetailAdapter extends RecyclerView.Adapter<DeveloperDetail
         Uri email;
         email=Uri.parse(mData.get(position).getDeveloperEmail());
 
-        holder.gmailDeveloper.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                    Intent emailTheDeveloper=new Intent(Intent.ACTION_SENDTO,email);
-                    emailTheDeveloper.setPackage("com.google.android.gm");
-                    mContext.startActivity(Intent.createChooser(emailTheDeveloper,""));
+        holder.gmailDeveloper.setOnClickListener(view -> {
+            Intent emailTheDeveloper = new Intent(Intent.ACTION_SENDTO, email);
+            emailTheDeveloper.setPackage("com.google.android.gm");
+            if (emailTheDeveloper.getPackage() == null) {
+                emailTheDeveloper.setData(email);
+                mContext.startActivity(emailTheDeveloper);
+            } else {
+                mContext.startActivity(Intent.createChooser(emailTheDeveloper, "Email Us"));
             }
         });
     }

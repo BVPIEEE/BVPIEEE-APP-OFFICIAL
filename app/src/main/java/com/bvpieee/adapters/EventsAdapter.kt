@@ -3,7 +3,7 @@ package com.bvpieee.adapters
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.util.Log
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,68 +17,69 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bvpieee.R
 import com.bvpieee.models.EventInfo
 import com.bvpieee.ui.events.EventInfoPage
-import com.squareup.picasso.Picasso
+import java.text.ParseException
+import java.text.SimpleDateFormat
+import java.util.*
 
-
-//lateinit var homeActivityContextHolder: HomeActivity
-
-class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-    val tvEventTitle: TextView = v.findViewById(R.id.tvEventTitle)
-    val tvEventDate: TextView = v.findViewById(R.id.tvEventDate)
-    val tvEventImage: ImageView = v.findViewById(R.id.ivEventBannerCard)
-    val cvEvent: CardView = v.findViewById(R.id.cvEvent)
-}
-
-class EventsAdapter(val eventDataSet: ArrayList<EventInfo>, val context: Context?) : RecyclerView.Adapter<ViewHolder>() {
+class EventsAdapter(val eventDataSet: ArrayList<EventInfo>, val context: Context?) : RecyclerView.Adapter<EventsAdapter.ViewHolder>() {
 
     private val TAG = "EventsAdapter"
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        Log.d(TAG, ".onCreteViewHolder starts")
-        val view: View
-        view =
-            LayoutInflater.from(parent.context).inflate(R.layout.events_grid_layout, parent, false)
-        Log.d(TAG, ".onCreteViewHolder ends")
+        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.events_grid_layout, parent, false)
         return ViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.tvEventTitle.text = eventDataSet[position].name
+        holder.tvEventDate.text = eventDataSet[position].date?.let { date(it) }
+//        Picasso.get().load(eventDataSet[position].eventImage).networkPolicy(NetworkPolicy.OFFLINE).into(holder.tvEventImage)
+        holder.cvEvent.setOnClickListener {
+
+            val intent = Intent(it.context, EventInfoPage::class.java)
+            val bundle = Bundle().apply {
+                putString("EventTitle", eventDataSet[position].name)
+                putString("EventDate", eventDataSet[position].date)
+                putString("EventDesc", eventDataSet[position].description)
+                putString("EventOrg", eventDataSet[position].department)
+                putString("EventImage", eventDataSet[position].image)
+                putString("EventUrl", eventDataSet[position].url)
+                putInt("Position",position)
+            }
+            intent.putExtras(bundle)
+            val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                context as Activity,
+                Pair.create<View, String>(holder.tvEventTitle, "eventTitleTransition"),
+                Pair.create<View, String>(holder.tvEventDate, "eventDateTransition"),
+                Pair.create<View, String>(holder.tvEventImage, "eventBannerTransition")
+            )
+            startActivity(it.context, intent, options.toBundle())
+        }
+    }
+    private fun date(date: String): String {
+        val inputFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        val outputFormat = SimpleDateFormat("EEE, dd MMM yy", Locale.getDefault())
+        val datetext: Date
+        var str: String? = null
+        try {
+            datetext = inputFormat.parse(date)
+            str = outputFormat.format(datetext)
+        } catch (e: ParseException) {
+            e.printStackTrace()
+        }
+        return str.toString()
     }
 
     override fun getItemCount(): Int {
         return eventDataSet.size
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        Log.d(TAG, ".onBlindViewHolder starts")
-        holder.tvEventTitle.text = eventDataSet[position].eventTitle
-        holder.tvEventDate.text = eventDataSet[position].eventDate
-        Picasso.get().load(eventDataSet[position].eventImage).into(holder.tvEventImage)
-        holder.cvEvent.setOnClickListener {
-
-            val tvEventTitle: TextView = it.findViewById(R.id.tvEventTitle)
-            val tvEventDate: TextView = it.findViewById(R.id.tvEventDate)
-            val ivEventBanner: ImageView = it.findViewById(R.id.ivEventBannerCard)
-
-            val intent = Intent(it.context, EventInfoPage::class.java)
-            intent.putExtra("EventTitle", eventDataSet[position].eventTitle)
-            intent.putExtra("EventDate", eventDataSet[position].eventDate)
-            intent.putExtra("EventDesc", eventDataSet[position].eventDesc)
-            intent.putExtra("EventOrg", eventDataSet[position].eventDept)
-            intent.putExtra("EventImage", eventDataSet[position].eventImage)
-            intent.putExtra("EventUrl", eventDataSet[position].url)
-            intent.putExtra("Position",position)
-
-            val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
-                context as Activity,
-                Pair.create<View, String>(tvEventTitle, "eventTitleTransition"),
-                Pair.create<View, String>(tvEventDate, "eventDateTransition"),
-                Pair.create<View, String>(ivEventBanner, "eventBannerTransition")
-            )
-            startActivity(it.context, intent, options.toBundle())
-        }
-        Log.d(TAG, ".onBlindViewHolder ends")
+    class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
+        val tvEventTitle: TextView = v.findViewById(R.id.tvEventTitle)
+        val tvEventDate: TextView = v.findViewById(R.id.tvEventDate)
+        val tvEventImage: ImageView = v.findViewById(R.id.ivEventBannerCard)
+        val cvEvent: CardView = v.findViewById(R.id.cvEvent)
     }
 
-//    companion object {
-//        lateinit var homeActivityContextHolder: HomeActivity
-//    }
 
 }

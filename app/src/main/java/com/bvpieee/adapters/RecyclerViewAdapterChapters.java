@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -34,14 +33,12 @@ public class RecyclerViewAdapterChapters extends RecyclerView.Adapter<RecyclerVi
     public MyViewHolderForChapterTeams onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
         view= LayoutInflater.from(mContext).inflate(R.layout.chapter_frag_content,parent,false);
-        MyViewHolderForChapterTeams holder=new MyViewHolderForChapterTeams(view,monclickListener);
-
-        return holder;
+        return new MyViewHolderForChapterTeams(view,monclickListener);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolderForChapterTeams holder, int position) {
-        holder.itemView.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.animation_recyclerview));
+//        holder.itemView.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.animation_recyclerview));
 
         holder.textView_chapter_name.setText(mData.get(position).getChapterName());
         holder.textview_chaptwr_fullform.setText(mData.get(position).getChapterFullForm());
@@ -73,7 +70,7 @@ public class RecyclerViewAdapterChapters extends RecyclerView.Adapter<RecyclerVi
 
         @Override
         public void onClick(View view) {
-            onClickListener.onChapterClick(getAdapterPosition());
+            onClickListener.onChapterClick(getAbsoluteAdapterPosition());
         }
     }
 

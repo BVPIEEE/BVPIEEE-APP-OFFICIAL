@@ -1,239 +1,238 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/homeScrollView"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
     xmlns:coverflow="http://schemas.android.com/apk/res-auto"
-    xmlns:custom="http://schemas.android.com/apk/res-auto"
-    tools:context=".HomeActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/homeScrollView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ui.home.HomeFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/chaptersLayout">
-
-        <TextView
-            android:id="@+id/chaptersHeading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-            android:shadowColor="#10000000"
-            android:shadowDx="5"
-            android:shadowDy="5"
-            android:shadowRadius="5"
-            android:text="Chapters"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textColor="@color/tab_bg_color"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <View
-            android:id="@+id/divider"
-            android:layout_width="300dp"
-            android:layout_alignStart="@id/chaptersHeading"
-            android:layout_height="2dp"
-            android:layout_marginLeft="0.5dp"
-            android:layout_marginRight="0.5dp"
-            android:layout_marginTop="2dp"
-            android:backgroundTint="@color/colorAccent"
-            android:elevation="100dp"
-            android:layout_below="@id/chaptersHeading"
-            android:layout_marginBottom="5dp"
-            android:background="?android:attr/listDivider" />
-
         <androidx.cardview.widget.CardView
+            android:id="@+id/chaptersLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/divider"
-            app:cardCornerRadius="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
             android:layout_marginStart="10dp"
-            android:layout_marginBottom="10dp"
-            app:cardElevation="20dp"
-            android:elevation="20dp">
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:elevation="30dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="30dp">
 
-        <it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow
-            android:id="@+id/chapterCoverflow"
-            android:layout_width="match_parent"
-            android:nestedScrollingEnabled="true"
-            android:layout_height="200dp"
-            android:visibility="visible"
-            coverflow:coverHeight="100dp"
-            android:layout_below="@id/divider"
-            coverflow:coverWidth="150dp"
-            app:circlePathRadius="0.6"
-            coverflow:maxScaleFactor="1.5"
-            android:splitMotionEvents="true"
-            coverflow:reflectionGap="0px"
-            coverflow:rotationThreshold="1.0"
-            coverflow:scalingThreshold="1.0"
-            coverflow:spacing="0.6"
-            app:alignAnimationTime="800"
-            android:background="@color/black"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/chaptersHeading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:shadowColor="#10000000"
+                    android:shadowDx="5"
+                    android:shadowDy="5"
+                    android:shadowRadius="5"
+                    android:text="Chapters"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="300dp"
+                    android:layout_height="2dp"
+                    android:layout_below="@id/chaptersHeading"
+                    android:layout_alignStart="@id/chaptersHeading"
+                    android:layout_marginLeft="0.5dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="?android:attr/listDivider"
+                    android:backgroundTint="@color/colorAccent"
+                    android:elevation="100dp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/divider"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:elevation="20dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="20dp">
+
+                    <it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow
+                        android:id="@+id/chapterCoverflow"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_below="@id/divider"
+                        android:background="@color/white"
+                        android:nestedScrollingEnabled="true"
+                        android:splitMotionEvents="true"
+                        android:visibility="visible"
+                        app:alignAnimationTime="800"
+                        app:circlePathRadius="0.6"
+                        app:reflectionOpacity="0"
+                        coverflow:coverHeight="100dp"
+                        coverflow:coverWidth="150dp"
+                        coverflow:maxScaleFactor="1.5"
+                        coverflow:reflectionGap="0px"
+                        coverflow:rotationThreshold="1.0"
+                        coverflow:scalingThreshold="1.0"
+                        coverflow:spacing="0.6" />
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
 
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/chaptersLayout"
-        android:id="@+id/sigsLayout">
-
-        <TextView
-            android:id="@+id/sigsHeading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="0.5dp"
-            android:fontFamily="monospace"
-            android:text="SIGs"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textColor="@color/tab_bg_color"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <View
-            android:id="@+id/divider2"
-            android:layout_width="300dp"
-            android:layout_alignStart="@id/sigsHeading"
-            android:layout_height="2dp"
-            android:backgroundTint="@color/colorPrimaryDark"
-            android:elevation="20dp"
-            android:layout_marginRight="0.5dp"
-            android:layout_marginLeft="0.5dp"
-            android:layout_below="@id/sigsHeading"
-            android:layout_marginBottom="2dp"
-            android:background="?android:attr/listDivider" />
-
         <androidx.cardview.widget.CardView
+            android:id="@+id/sigsLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/divider2"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/chaptersLayout"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:elevation="30dp"
             app:cardCornerRadius="20dp"
-            android:layout_margin="10dp"
-            app:cardElevation="20dp"
-            android:elevation="20dp">
+            app:cardElevation="30dp">
 
-        <it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow
-            android:id="@+id/sigsCoverflow"
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/chaptersLayout">
+
+                <TextView
+                    android:id="@+id/sigsHeading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="0.5dp"
+                    android:fontFamily="monospace"
+                    android:text="SIGs"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="@color/tab_bg_color"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/divider2"
+                    android:layout_width="300dp"
+                    android:layout_height="2dp"
+                    android:layout_below="@id/sigsHeading"
+                    android:layout_alignStart="@id/sigsHeading"
+                    android:layout_marginLeft="0.5dp"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_marginBottom="2dp"
+                    android:background="?android:attr/listDivider"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:elevation="20dp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/divider2"
+                    android:layout_margin="10dp"
+                    android:elevation="20dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="20dp">
+
+                    <it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow
+                        android:id="@+id/sigsCoverflow"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_below="@id/divider2"
+                        android:background="@color/white"
+                        android:nestedScrollingEnabled="true"
+                        android:scrollbarFadeDuration="5000"
+                        android:splitMotionEvents="true"
+                        android:visibility="visible"
+                        app:alignAnimationTime="800"
+                        app:circlePathRadius="0.6"
+                        app:reflectionOpacity="0"
+                        coverflow:coverHeight="100dp"
+                        coverflow:coverWidth="150dp"
+                        coverflow:maxScaleFactor="1.5"
+                        coverflow:rotationThreshold="1.0"
+                        coverflow:scalingThreshold="1.0"
+                        coverflow:spacing="0.6" />
+                </androidx.cardview.widget.CardView>
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <RelativeLayout
+            android:id="@+id/upcomingEventLayout"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:nestedScrollingEnabled="true"
-            android:visibility="visible"
-            coverflow:coverHeight="100dp"
-            app:circlePathRadius="0.6"
-            android:layout_below="@id/divider2"
-            android:splitMotionEvents="true"
-            coverflow:coverWidth="150dp"
-            coverflow:maxScaleFactor="1.5"
-            coverflow:rotationThreshold="1.0"
-            coverflow:scalingThreshold="1.0"
-            coverflow:spacing="0.6"
-            android:scrollbarFadeDuration="5000"
-            app:alignAnimationTime="800"
-            android:background="@color/black"/>
-    </androidx.cardview.widget.CardView>
-
-<!--        <TextView-->
-<!--            android:id="@+id/sigsHeading"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="SIGs"-->
-<!--            android:layout_below="@id/sigsCoverflow"-->
-<!--            android:background="@drawable/gradient"-->
-<!--            android:textAlignment="center"-->
-<!--            android:layout_margin="0.5dp"-->
-<!--            android:textAllCaps="true"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:textSize="24sp" />-->
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/sigsLayout"
-        android:id="@+id/upcomingEventLayout">
-
-
-        <TextView
-            android:id="@+id/upcomingHeading"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="5dp"
-            android:elevation="100dp"
-            android:fontFamily="monospace"
-            android:text="UPCOMING EVENTS"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textColor="@color/tab_bg_color"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:layout_below="@id/sigsLayout">
 
-        <View
-            android:id="@+id/divider3"
-            android:layout_width="300dp"
-            android:layout_height="2dp"
-            android:backgroundTint="@color/colorAccent"
-            android:elevation="200dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_below="@id/upcomingHeading"
-            android:layout_marginBottom="5dp"
-            android:background="?android:attr/listDivider" />
+            <TextView
+                android:id="@+id/upcomingHeading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:elevation="100dp"
+                android:fontFamily="monospace"
+                android:text="UPCOMING EVENTS"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/tab_bg_color"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-<!--        <com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_below="@id/divider3"-->
-<!--            android:layout_marginRight="10dp"-->
-<!--            android:layout_marginLeft="10dp"-->
-<!--            android:layout_marginTop="2dp">-->
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="300dp"
+                android:layout_height="2dp"
+                android:layout_below="@id/upcomingHeading"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="?android:attr/listDivider"
+                android:backgroundTint="@color/colorAccent"
+                android:elevation="200dp" />
 
-        <com.wajahatkarim3.easyflipview.EasyFlipView
-            android:id="@+id/easyflip"
-            android:layout_width="match_parent"
-            android:layout_below="@id/divider3"
-            android:layout_height="wrap_content"
-            android:isScrollContainer="true"
-            app:flipDuration="400"
-            android:elevation="200dp"
-            app:flipEnabled="true"
-            app:flipFrom="front"
-            app:flipOnTouch="true"
-            app:flipType="vertical"
-            android:background="@android:color/transparent"
-            android:keepScreenOn="true">
+            <com.wajahatkarim3.easyflipview.EasyFlipView
+                android:id="@+id/easyflip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/divider3"
+                android:elevation="50dp"
+                android:isScrollContainer="true"
+                android:keepScreenOn="true"
+                app:flipDuration="400"
+                app:flipEnabled="true"
+                app:flipFrom="front"
+                app:flipOnTouch="true"
+                app:flipType="vertical">
 
-            <!-- Back Layout Goes Here -->
-            <include layout="@layout/flash_card_layout_back" />
+                <!-- Back Layout Goes Here -->
+                <include layout="@layout/flash_card_layout_back"
+                    android:id="@+id/back_layout"/>
 
-            <!-- Front Layout Goes Here -->
-            <include layout="@layout/flash_card_layout_front" />
+                <!-- Front Layout Goes Here -->
+                <include layout="@layout/flash_card_layout_front"
+                    android:id="@+id/front_layout"/>
 
-        </com.wajahatkarim3.easyflipview.EasyFlipView>
+            </com.wajahatkarim3.easyflipview.EasyFlipView>
 
-<!--        </com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper>-->
-
-    </RelativeLayout>
+        </RelativeLayout>
 
     </RelativeLayout>
 

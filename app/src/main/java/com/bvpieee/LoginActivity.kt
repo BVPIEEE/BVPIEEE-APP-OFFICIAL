@@ -28,12 +28,12 @@ class LoginActivity : AppCompatActivity() {
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
-        mGoogleSignInClient = GoogleSignIn.getClient(this,gso)
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
 
-        startActivityForResult(mGoogleSignInClient.signInIntent,RC_SIGN_IN)
+        startActivityForResult(mGoogleSignInClient.signInIntent, RC_SIGN_IN)
 
         googleSign.setOnClickListener{
-            startActivityForResult(mGoogleSignInClient.signInIntent,RC_SIGN_IN)
+            startActivityForResult(mGoogleSignInClient.signInIntent, RC_SIGN_IN)
         }
     }
 
@@ -47,14 +47,14 @@ class LoginActivity : AppCompatActivity() {
             try {
                 val account = task.getResult(ApiException::class.java)
                 firebaseAuthWithGoogle(account!!)
-            }catch (e:Exception){
+            }catch (e: Exception){
                 progressBar.visibility = View.INVISIBLE
                 pgb.visibility = View.INVISIBLE
             }
         }
     }
     private fun firebaseAuthWithGoogle(account: GoogleSignInAccount){
-        val credential = GoogleAuthProvider.getCredential(account.idToken,null)
+        val credential = GoogleAuthProvider.getCredential(account.idToken, null)
         firebaseAuth.signInWithCredential(credential)
             .addOnCompleteListener { task ->
                 if(task.isSuccessful){
@@ -65,7 +65,7 @@ class LoginActivity : AppCompatActivity() {
                     startActivity(Intent(this, HomeActivity::class.java))
                     finish()
                 }
-                else snackbar(findViewById(R.id.googleSign),"Authentication Failed"); progressBar.visibility = View.INVISIBLE
+                else snackbar(findViewById(R.id.googleSign), "Authentication Failed"); progressBar.visibility = View.INVISIBLE
             }
     }
 

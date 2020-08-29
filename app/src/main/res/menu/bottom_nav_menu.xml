@@ -1,19 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cnb_unselectedColor="#666666">
 
     <item
         android:id="@+id/navigation_events"
         android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/title_events" />
+        android:title="@string/title_events"
+        app:cnb_iconColor="@color/BottomNavItemColor"
+        app:cnb_iconTintMode="src_in"
+        app:cnb_textColor="@android:color/black" />
 
     <item
         android:id="@+id/navigation_home"
-        android:title=""
-        android:enabled="false"/>
+        android:title="Home"
+        android:icon="@drawable/ic_home_black_24dp"
+        app:cnb_iconColor="@color/BottomNavItemColor"
+        app:cnb_iconTintMode="src_in"
+        app:cnb_textColor="@android:color/black" />
 
     <item
         android:id="@+id/navigation_teams"
         android:icon="@drawable/ic_baseline_people_alt_24"
-        android:title="@string/title_team" />
+        android:title="@string/title_team"
+        app:cnb_iconColor="@color/BottomNavItemColor"
+        app:cnb_iconTintMode="src_in"
+        app:cnb_textColor="@android:color/black" />
 
 </menu>
