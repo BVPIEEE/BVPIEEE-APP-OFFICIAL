@@ -10,29 +10,33 @@ public class TeamFragModelClass {
     private String LinkedIn;
     private String BranchYear;
 
-    public TeamFragModelClass(){
+    public TeamFragModelClass() {
     }
 
 
-    public TeamFragModelClass(String name, String post, int photo, String memberDetails, String linkedIn, String branchYear){
-        Name=name;
-        Post=post;
-        Photo=photo;
-        MemberDetails=memberDetails;
-        LinkedIn=linkedIn;
-        BranchYear=branchYear;
+    public TeamFragModelClass(String name, String post, int photo, String memberDetails, String linkedIn, String branchYear) {
+        Name = name;
+        Post = post;
+        Photo = photo;
+        MemberDetails = memberDetails;
+        LinkedIn = linkedIn;
+        BranchYear = branchYear;
     }
 
 
-    public void setLinkedIn(String linkedIn) { LinkedIn = linkedIn; }
+    public void setLinkedIn(String linkedIn) {
+        LinkedIn = linkedIn;
+    }
 
-    public String getLinkedIn() { return LinkedIn; }
+    public String getLinkedIn() {
+        return LinkedIn;
+    }
 
     public String getName() {
         return Name;
     }
 
-    public String  getPost() {
+    public String getPost() {
         return Post;
     }
 
@@ -44,7 +48,7 @@ public class TeamFragModelClass {
         Name = name;
     }
 
-    public void setPost(String  post) {
+    public void setPost(String post) {
         Post = post;
     }
 
@@ -52,11 +56,19 @@ public class TeamFragModelClass {
         Photo = photo;
     }
 
-    public void setMemberDetails(String memberDetails) { MemberDetails = memberDetails; }
+    public void setMemberDetails(String memberDetails) {
+        MemberDetails = memberDetails;
+    }
 
-    public String getMemberDetails() { return MemberDetails; }
+    public String getMemberDetails() {
+        return MemberDetails;
+    }
 
-    public void setBranchYear(String branchYear) { BranchYear = branchYear; }
+    public void setBranchYear(String branchYear) {
+        BranchYear = branchYear;
+    }
 
-    public String getBranchYear() { return BranchYear; }
+    public String getBranchYear() {
+        return BranchYear;
+    }
 }

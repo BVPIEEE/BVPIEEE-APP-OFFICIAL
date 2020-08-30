@@ -8,9 +8,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bvpieee.Chapter;
+import com.bvpieee.models.Chapter;
 import com.bvpieee.ChapterActivity;
 import com.bvpieee.R;
 
@@ -72,7 +71,7 @@ public class CoverFlowAdapter extends BaseAdapter {
 
 //                Toast.makeText(activity, position+"cover", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(activity, ChapterActivity.class);
-                intent.putExtra(ChapterActivity.CHAPTER,position);
+                intent.putExtra(ChapterActivity.CHAPTER, position);
                 activity.startActivity(intent);
             }
         };

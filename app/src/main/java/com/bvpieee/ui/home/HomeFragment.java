@@ -14,7 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.bvpieee.Chapter;
+import com.bvpieee.models.Chapter;
 import com.bvpieee.R;
 import com.bvpieee.adapters.CoverFlowAdapter;
 import com.bvpieee.adapters.SigAdapter;
@@ -153,7 +153,6 @@ public class HomeFragment extends Fragment {
             }
         };
     }
-
 
 
     @Override

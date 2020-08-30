@@ -37,6 +37,7 @@ class EventInfoPage : AppCompatActivity() {
             }
         }
     }
+
     private fun date(date: String): String {
         val inputFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         val outputFormat = SimpleDateFormat("EEE, dd MMM yy", Locale.getDefault())

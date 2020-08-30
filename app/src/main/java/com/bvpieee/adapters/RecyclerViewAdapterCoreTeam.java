@@ -15,7 +15,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bvpieee.R;
@@ -24,12 +23,11 @@ import com.bvpieee.models.TeamFragModelClass;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
-import java.util.Random;
 
 public class RecyclerViewAdapterCoreTeam extends RecyclerView.Adapter<RecyclerViewAdapterCoreTeam.MyViewHolder> {
 
     Context mContext;
-    List<TeamFragModelClass>mData;
+    List<TeamFragModelClass> mData;
     Dialog memberDialog;
 
 
@@ -42,10 +40,10 @@ public class RecyclerViewAdapterCoreTeam extends RecyclerView.Adapter<RecyclerVi
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
-        view= LayoutInflater.from(mContext).inflate(R.layout.coreteam_frag_content,parent,false);
-        final MyViewHolder holder=new MyViewHolder(view);
+        view = LayoutInflater.from(mContext).inflate(R.layout.coreteam_frag_content, parent, false);
+        final MyViewHolder holder = new MyViewHolder(view);
 
-        memberDialog=new Dialog(mContext);
+        memberDialog = new Dialog(mContext);
         memberDialog.setContentView(R.layout.dialog_team_member_info);
         memberDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
@@ -53,10 +51,10 @@ public class RecyclerViewAdapterCoreTeam extends RecyclerView.Adapter<RecyclerVi
             @Override
             public void onClick(View view) {
 
-                ImageView memberimg= memberDialog.findViewById(R.id.imgMember);
-                TextView memberName=memberDialog.findViewById(R.id.MemberName);
-                TextView memberInfo=memberDialog.findViewById(R.id.member_info);
-                TextView closeDialog=memberDialog.findViewById(R.id.closedialog);
+                ImageView memberimg = memberDialog.findViewById(R.id.imgMember);
+                TextView memberName = memberDialog.findViewById(R.id.MemberName);
+                TextView memberInfo = memberDialog.findViewById(R.id.member_info);
+                TextView closeDialog = memberDialog.findViewById(R.id.closedialog);
 
 //                LinearLayout dialogLayout= memberDialog.findViewById(R.id.dialog_layout);
 //
@@ -82,7 +80,6 @@ public class RecyclerViewAdapterCoreTeam extends RecyclerView.Adapter<RecyclerVi
     }
 
 
-
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
@@ -99,15 +96,15 @@ public class RecyclerViewAdapterCoreTeam extends RecyclerView.Adapter<RecyclerVi
         holder.branchAndYear.setText(mData.get(position).getBranchYear());
 
         Uri url;
-        url= Uri.parse(mData.get(position).getLinkedIn());
+        url = Uri.parse(mData.get(position).getLinkedIn());
 
 
         holder.linkedIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(Intent.ACTION_VIEW,url);
+                Intent intent = new Intent(Intent.ACTION_VIEW, url);
                 intent.setPackage("com.linkedin.android");
-                if (intent.getPackage()==null){
+                if (intent.getPackage() == null) {
                     intent.setData(url);
                     mContext.startActivity(intent);
                 } else {
@@ -119,32 +116,29 @@ public class RecyclerViewAdapterCoreTeam extends RecyclerView.Adapter<RecyclerVi
     }
 
 
-
-
     @Override
     public int getItemCount() {
         return mData.size();
     }
 
 
-
-    public static class MyViewHolder extends RecyclerView.ViewHolder{
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         private TextView textView_name;
         private TextView textView_post;
-//        private ImageView imageView_photo;
+        //        private ImageView imageView_photo;
         private LinearLayout memberRvItem;
         private ImageButton linkedIn;
-       private TextView branchAndYear;
+        private TextView branchAndYear;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            memberRvItem=(LinearLayout) itemView.findViewById(R.id.memberItem);
-            textView_name=(TextView) itemView.findViewById(R.id.tvnameCore);
-            textView_post=(TextView) itemView.findViewById(R.id.corePost);
-            linkedIn=(ImageButton) itemView.findViewById(R.id.linkedin_img_btn);
-            branchAndYear=(TextView) itemView.findViewById(R.id.branchAndyear);
+            memberRvItem = (LinearLayout) itemView.findViewById(R.id.memberItem);
+            textView_name = (TextView) itemView.findViewById(R.id.tvnameCore);
+            textView_post = (TextView) itemView.findViewById(R.id.corePost);
+            linkedIn = (ImageButton) itemView.findViewById(R.id.linkedin_img_btn);
+            branchAndYear = (TextView) itemView.findViewById(R.id.branchAndyear);
 
 //            imageView_photo=(ImageView) itemView.findViewById(R.id.img);
 

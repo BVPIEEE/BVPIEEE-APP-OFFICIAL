@@ -1,15 +1,14 @@
 package com.bvpieee.ui.teams;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.bvpieee.R;
 import com.bvpieee.adapters.RecyclerViewAdapterCoreTeam;
@@ -54,34 +53,34 @@ public class CoreTemFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        memberCore= new ArrayList<>();
+        memberCore = new ArrayList<>();
 
-        memberCore.add(new TeamFragModelClass("Kshitij Sidana","Chairperson, BVPIEEE",R.drawable.kshitijsidana,
+        memberCore.add(new TeamFragModelClass("Kshitij Sidana", "Chairperson, BVPIEEE", R.drawable.kshitijsidana,
                 "Fueled by fascination. Driven by logic. Jack of all but master of some.\n Domain of work : Robotics and Computer Vision",
-                "https://www.linkedin.com/in/kshitij-sidana/","IT, 4th Year"));
+                "https://www.linkedin.com/in/kshitij-sidana/", "IT, 4th Year"));
 
 
-        memberCore.add(new TeamFragModelClass("Himani Negi","Vice Chairperson, BVPIEEE", R.drawable.himaninegi,
+        memberCore.add(new TeamFragModelClass("Himani Negi", "Vice Chairperson, BVPIEEE", R.drawable.himaninegi,
                 "Hi, This is me, Himani Negi. Currently I am a student developer " +
                         "in Google summer of code under redhenlab organization. I am working under Image and audio clustering project. Previosuly I was research intern in IIIT-D where I worked in analysing " +
                         "the collusive behaviour in social networking site.Creating a world with innovative ideas is something a part of my vision and I never look back to put efforts for it.",
-                "https://www.linkedin.com/in/himaninegi/","CSE, 4th Year"));
+                "https://www.linkedin.com/in/himaninegi/", "CSE, 4th Year"));
 
 
-        memberCore.add(new TeamFragModelClass("Chetanya","General Secretary, BVPIEEE",R.drawable.chetanya,
+        memberCore.add(new TeamFragModelClass("Chetanya", "General Secretary, BVPIEEE", R.drawable.chetanya,
                 "Lead,Guidance,Mentor without a title is my philosophy. " +
-                        "Blockchain Application Researcher","https://www.linkedin.com/in/chetanya-ved-23b8362a//","IT, 4th Year"));
+                        "Blockchain Application Researcher", "https://www.linkedin.com/in/chetanya-ved-23b8362a//", "IT, 4th Year"));
 
 
-        memberCore.add(new TeamFragModelClass("Sanjana Deswal","Chief Coordinator, BVPIEEE and IAS Chairperson",R.drawable.sanjanadeswal,
+        memberCore.add(new TeamFragModelClass("Sanjana Deswal", "Chief Coordinator, BVPIEEE and IAS Chairperson", R.drawable.sanjanadeswal,
                 "I am always curious to work and try something new." +
-                        "Firld of work: Non-Technical","https://www.linkedin.com/in/sanjana-deswal-4b390616a","IT, 4th Year"));
+                        "Firld of work: Non-Technical", "https://www.linkedin.com/in/sanjana-deswal-4b390616a", "IT, 4th Year"));
 
 
-        memberCore.add(new TeamFragModelClass("Aakriti Jain","Joint Secretary, BVPIEEE and WIE Vice Chairperon",R.drawable.aakritijain,
+        memberCore.add(new TeamFragModelClass("Aakriti Jain", "Joint Secretary, BVPIEEE and WIE Vice Chairperon", R.drawable.aakritijain,
                 "I am an enthusiastic learner, love to grab new opportunities and take lead from the front." +
                         "I manage the team and events. I've always been inclined towards the managerial stuff. I have started exploring the technical side too, with ML and web design.",
-                "https://www.linkedin.com/in/aakriti-jain-9618861a7","ECE, 3rd Year"));
+                "https://www.linkedin.com/in/aakriti-jain-9618861a7", "ECE, 3rd Year"));
 
 
     }
@@ -90,9 +89,9 @@ public class CoreTemFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view=inflater.inflate(R.layout.fragment_core_tem ,container,false);
-        myRecyclerView =(RecyclerView) view.findViewById(R.id.rvCore);
-        RecyclerViewAdapterCoreTeam recyclerViewAdapter=new RecyclerViewAdapterCoreTeam(getContext(),memberCore);
+        view = inflater.inflate(R.layout.fragment_core_tem, container, false);
+        myRecyclerView = (RecyclerView) view.findViewById(R.id.rvCore);
+        RecyclerViewAdapterCoreTeam recyclerViewAdapter = new RecyclerViewAdapterCoreTeam(getContext(), memberCore);
         myRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         myRecyclerView.setAdapter(recyclerViewAdapter);
         myRecyclerView.setItemViewCacheSize(20);

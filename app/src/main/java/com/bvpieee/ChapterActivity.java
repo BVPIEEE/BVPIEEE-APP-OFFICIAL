@@ -25,13 +25,13 @@ public class ChapterActivity extends AppCompatActivity {
         //Setup viewpager and tablayout
         SectionsPagerAdapter sectionsPagerAdapter;
         Intent intent = getIntent();
-        int chapno = intent.getIntExtra(CHAPTER,0);
+        int chapno = intent.getIntExtra(CHAPTER, 0);
         String coverflow = intent.getStringExtra(Coverflow);
         if (coverflow == null)
 
-            sectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(),this, "chapter");
+            sectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), this, "chapter");
         else
-            sectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(),this, "sig");
+            sectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), this, "sig");
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);

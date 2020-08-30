@@ -10,11 +10,11 @@ import java.util.List;
 
 public class SectionPageAdapterTeams extends FragmentPagerAdapter {
 
-    private List<Fragment> teamFraglist=new ArrayList<>();
-    private List<String> teamFragTitle= new ArrayList<>();
+    private List<Fragment> teamFraglist = new ArrayList<>();
+    private List<String> teamFragTitle = new ArrayList<>();
 
     public SectionPageAdapterTeams(@NonNull FragmentManager fm) {
-        super(fm,BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
     }
 
     @NonNull
@@ -28,11 +28,11 @@ public class SectionPageAdapterTeams extends FragmentPagerAdapter {
         return teamFraglist.size();
     }
 
-    public CharSequence getPageTitle(int position){
+    public CharSequence getPageTitle(int position) {
         return teamFragTitle.get(position);
     }
 
-    public void addFragment(Fragment fragment,String title){
+    public void addFragment(Fragment fragment, String title) {
         teamFraglist.add(fragment);
         teamFragTitle.add(title);
     }

@@ -6,8 +6,8 @@ public class Utils {
 
     private static FirebaseDatabase mDatabase;
 
-    public static FirebaseDatabase getDatabase(){
-        if(mDatabase == null){
+    public static FirebaseDatabase getDatabase() {
+        if (mDatabase == null) {
             mDatabase = FirebaseDatabase.getInstance();
             mDatabase.setPersistenceEnabled(true);
         }
