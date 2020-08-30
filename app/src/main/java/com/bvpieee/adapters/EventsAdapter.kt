@@ -21,12 +21,14 @@ import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 
-class EventsAdapter(val eventDataSet: ArrayList<EventInfo>, val context: Context?) : RecyclerView.Adapter<EventsAdapter.ViewHolder>() {
+class EventsAdapter(val eventDataSet: ArrayList<EventInfo>, val context: Context?) :
+    RecyclerView.Adapter<EventsAdapter.ViewHolder>() {
 
     private val TAG = "EventsAdapter"
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.events_grid_layout, parent, false)
+        val view: View =
+            LayoutInflater.from(parent.context).inflate(R.layout.events_grid_layout, parent, false)
         return ViewHolder(view)
     }
 
@@ -44,7 +46,7 @@ class EventsAdapter(val eventDataSet: ArrayList<EventInfo>, val context: Context
                 putString("EventOrg", eventDataSet[position].department)
                 putString("EventImage", eventDataSet[position].image)
                 putString("EventUrl", eventDataSet[position].url)
-                putInt("Position",position)
+                putInt("Position", position)
             }
             intent.putExtras(bundle)
             val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
@@ -56,6 +58,7 @@ class EventsAdapter(val eventDataSet: ArrayList<EventInfo>, val context: Context
             startActivity(it.context, intent, options.toBundle())
         }
     }
+
     private fun date(date: String): String {
         val inputFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         val outputFormat = SimpleDateFormat("EEE, dd MMM yy", Locale.getDefault())

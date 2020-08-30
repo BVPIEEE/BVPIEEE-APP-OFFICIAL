@@ -148,9 +148,10 @@ public class HomeActivity extends AppCompatActivity {
         });
 
     }
+
     public String date(String date) {
         SimpleDateFormat inputFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-        SimpleDateFormat outputFormat = new SimpleDateFormat("EEE, dd MMM yy",Locale.getDefault());
+        SimpleDateFormat outputFormat = new SimpleDateFormat("EEE, dd MMM yy", Locale.getDefault());
         Date datetext;
         String str = null;
 

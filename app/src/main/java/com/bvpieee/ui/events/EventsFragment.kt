@@ -45,9 +45,11 @@ class EventsFragment : Fragment() {
         container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_events, container, false)
-        if (activity != null) {bottomNavigationView = requireActivity().findViewById(R.id.bottom_nav)
-        materialCardView = requireActivity().findViewById(R.id.upcoming_event_button)
-        materialCardView.visibility = View.GONE}
+        if (activity != null) {
+            bottomNavigationView = requireActivity().findViewById(R.id.bottom_nav)
+            materialCardView = requireActivity().findViewById(R.id.upcoming_event_button)
+            materialCardView.visibility = View.GONE
+        }
         return root
     }
 

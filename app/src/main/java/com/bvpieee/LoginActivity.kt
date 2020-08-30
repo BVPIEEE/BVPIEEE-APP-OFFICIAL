@@ -24,7 +24,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        val gso =GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
@@ -32,45 +32,45 @@ class LoginActivity : AppCompatActivity() {
 
         startActivityForResult(mGoogleSignInClient.signInIntent, RC_SIGN_IN)
 
-        googleSign.setOnClickListener{
+        googleSign.setOnClickListener {
             startActivityForResult(mGoogleSignInClient.signInIntent, RC_SIGN_IN)
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == RC_SIGN_IN){
-            val task =GoogleSignIn.getSignedInAccountFromIntent(data)
-            pgb.visibility=View.VISIBLE
-            pgb.speed=2f
+        if (requestCode == RC_SIGN_IN) {
+            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+            pgb.visibility = View.VISIBLE
+            pgb.speed = 2f
             try {
                 val account = task.getResult(ApiException::class.java)
                 firebaseAuthWithGoogle(account!!)
-            }catch (e: Exception){
+            } catch (e: Exception) {
                 pgb.visibility = View.INVISIBLE
             }
         }
     }
-    private fun firebaseAuthWithGoogle(account: GoogleSignInAccount){
+
+    private fun firebaseAuthWithGoogle(account: GoogleSignInAccount) {
         val credential = GoogleAuthProvider.getCredential(account.idToken, null)
         firebaseAuth.signInWithCredential(credential)
             .addOnCompleteListener { task ->
-                if(task.isSuccessful){
+                if (task.isSuccessful) {
                     pgb.visibility = View.VISIBLE
 //                    pgb.speed=50f
                     SavedPreference.setEmail(this, account.email.toString())
                     SavedPreference.setUsername(this, account.displayName.toString())
                     startActivity(Intent(this, HomeActivity::class.java))
                     finish()
-                }
-                else snackbar(findViewById(R.id.googleSign), "Authentication Failed");
+                } else snackbar(findViewById(R.id.googleSign), "Authentication Failed");
                 pgb.visibility = View.INVISIBLE
             }
     }
 
     override fun onStart() {
         super.onStart()
-        if(GoogleSignIn.getLastSignedInAccount(this) != null){
+        if (GoogleSignIn.getLastSignedInAccount(this) != null) {
             startActivity(Intent(this, HomeActivity::class.java))
             finish()
         }

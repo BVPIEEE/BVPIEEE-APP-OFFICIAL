@@ -1,21 +1,20 @@
 package com.bvpieee.models;
 
-public class ChapterTeamFragModel  {
+public class ChapterTeamFragModel {
 
     private String ChapterName;
     private String ChapterFullForm;
-    private  int ChapPhoto;
+    private int ChapPhoto;
 
 
-    public ChapterTeamFragModel(){
+    public ChapterTeamFragModel() {
     }
 
 
-
-    public ChapterTeamFragModel(String chapname, String chapterfullform, int chapterphoto){
-        ChapterName=chapname;
-        ChapterFullForm=chapterfullform;
-        ChapPhoto=chapterphoto;
+    public ChapterTeamFragModel(String chapname, String chapterfullform, int chapterphoto) {
+        ChapterName = chapname;
+        ChapterFullForm = chapterfullform;
+        ChapPhoto = chapterphoto;
     }
 
     public int getChapPhoto() {
@@ -26,9 +25,13 @@ public class ChapterTeamFragModel  {
         return ChapterName;
     }
 
-    public void setChapterFullForm(String chapterFullForm) { ChapterFullForm = chapterFullForm; }
+    public void setChapterFullForm(String chapterFullForm) {
+        ChapterFullForm = chapterFullForm;
+    }
 
-    public String getChapterFullForm() { return ChapterFullForm; }
+    public String getChapterFullForm() {
+        return ChapterFullForm;
+    }
 
     public void setChapterName(String chapterName) {
         ChapterName = chapterName;

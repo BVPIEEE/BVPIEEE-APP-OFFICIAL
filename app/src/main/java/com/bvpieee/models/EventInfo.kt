@@ -2,7 +2,15 @@ package com.bvpieee.models
 
 import java.io.Serializable
 
-class EventInfo(val date: String? = null, val department: String? = null, val description: String? = null, val image: String? = null, val name: String? = null, val url: String? = null,val venue: String? = null) : Serializable {
+class EventInfo(
+    val date: String? = null,
+    val department: String? = null,
+    val description: String? = null,
+    val image: String? = null,
+    val name: String? = null,
+    val url: String? = null,
+    val venue: String? = null
+) : Serializable {
 
 //    override fun toString(): String {
 //        return """
