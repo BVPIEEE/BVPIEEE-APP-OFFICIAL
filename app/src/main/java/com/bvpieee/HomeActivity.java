@@ -23,6 +23,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.material.card.MaterialCardView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -180,6 +181,7 @@ public class HomeActivity extends AppCompatActivity {
             case R.id.logout:
                 // google logout code
                 mgoogleSigninClient.signOut().addOnCompleteListener(this, task -> {
+                    FirebaseAuth.getInstance().signOut();
                     startActivity(new Intent(HomeActivity.this, LoginActivity.class));
                     finish();
                 });

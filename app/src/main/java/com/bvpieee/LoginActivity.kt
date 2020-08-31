@@ -3,6 +3,7 @@ package com.bvpieee
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bvpieee.models.SavedPreference
 import com.bvpieee.utils.snackbar
@@ -19,21 +20,30 @@ class LoginActivity : AppCompatActivity() {
 
     lateinit var mGoogleSignInClient: GoogleSignInClient
     private var RC_SIGN_IN = 1
-    private val firebaseAuth = FirebaseAuth.getInstance()
+    lateinit var firebaseAuth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
-            .requestEmail()
-            .build()
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
+        if (GoogleSignIn.getLastSignedInAccount(this) != null) {
+            startActivity(
+                Intent(this, HomeActivity::class.java)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+            )
+            finish()
+        } else {
+            val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build()
+            mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
+            firebaseAuth = FirebaseAuth.getInstance()
 
-        startActivityForResult(mGoogleSignInClient.signInIntent, RC_SIGN_IN)
-
-        googleSign.setOnClickListener {
             startActivityForResult(mGoogleSignInClient.signInIntent, RC_SIGN_IN)
+
+            googleSign.setOnClickListener {
+                startActivityForResult(mGoogleSignInClient.signInIntent, RC_SIGN_IN)
+            }
         }
     }
 
@@ -48,6 +58,8 @@ class LoginActivity : AppCompatActivity() {
                 firebaseAuthWithGoogle(account!!)
             } catch (e: Exception) {
                 pgb.visibility = View.INVISIBLE
+                // Google Sign In failed, update UI appropriately
+                Toast.makeText(this, "Google sign in failed", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -58,7 +70,6 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     pgb.visibility = View.VISIBLE
-//                    pgb.speed=50f
                     SavedPreference.setEmail(this, account.email.toString())
                     SavedPreference.setUsername(this, account.displayName.toString())
                     startActivity(Intent(this, HomeActivity::class.java))
@@ -66,14 +77,6 @@ class LoginActivity : AppCompatActivity() {
                 } else snackbar(findViewById(R.id.googleSign), "Authentication Failed");
                 pgb.visibility = View.INVISIBLE
             }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        if (GoogleSignIn.getLastSignedInAccount(this) != null) {
-            startActivity(Intent(this, HomeActivity::class.java))
-            finish()
-        }
     }
 
 }
