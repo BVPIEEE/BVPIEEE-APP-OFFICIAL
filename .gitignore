@@ -13,3 +13,7 @@
 /captures
 .externalNativeBuild
 .cxx
+keystore/bvpieee.jks
+*.apk
+*.aab
+*.json

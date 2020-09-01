@@ -4,40 +4,60 @@ public class DeveloperDetailModel {
 
     private String DevelopeName;
     private String DeveloperDetails;
-    private  int DeveloperPhoto;
+    private int DeveloperPhoto;
     private String DeveloperLinkedin;
     private String DeveloperEmail;
 
 
-    public DeveloperDetailModel(){ }
-
-
-
-    public DeveloperDetailModel(String developeName, String developerDetails, int developerPhoto, String developerLinkedin, String developerEmail){
-        DevelopeName=developeName;
-        DeveloperDetails=developerDetails;
-        DeveloperPhoto=developerPhoto;
-        DeveloperLinkedin=developerLinkedin;
-        DeveloperEmail=developerEmail;
+    public DeveloperDetailModel() {
     }
 
-    public String getDevelopeName() { return DevelopeName; }
 
-    public int getDeveloperPhoto() { return DeveloperPhoto; }
+    public DeveloperDetailModel(String developeName, String developerDetails, int developerPhoto, String developerLinkedin, String developerEmail) {
+        DevelopeName = developeName;
+        DeveloperDetails = developerDetails;
+        DeveloperPhoto = developerPhoto;
+        DeveloperLinkedin = developerLinkedin;
+        DeveloperEmail = developerEmail;
+    }
 
-    public String getDeveloperDetails() { return DeveloperDetails; }
+    public String getDevelopeName() {
+        return DevelopeName;
+    }
 
-    public void setDeveloperPhoto(int developerPhoto) { DeveloperPhoto = developerPhoto; }
+    public int getDeveloperPhoto() {
+        return DeveloperPhoto;
+    }
 
-    public void setDeveloperDetails(String developerDetails) { DeveloperDetails = developerDetails; }
+    public String getDeveloperDetails() {
+        return DeveloperDetails;
+    }
 
-    public void setDevelopeName(String developeName) { DevelopeName = developeName; }
+    public void setDeveloperPhoto(int developerPhoto) {
+        DeveloperPhoto = developerPhoto;
+    }
 
-    public void setDeveloperEmail(String developerEmail) { DeveloperEmail = developerEmail; }
+    public void setDeveloperDetails(String developerDetails) {
+        DeveloperDetails = developerDetails;
+    }
 
-    public String getDeveloperEmail() { return DeveloperEmail; }
+    public void setDevelopeName(String developeName) {
+        DevelopeName = developeName;
+    }
 
-    public String getDeveloperLinkedin() { return DeveloperLinkedin; }
+    public void setDeveloperEmail(String developerEmail) {
+        DeveloperEmail = developerEmail;
+    }
 
-    public void setDeveloperLinkedin(String developerLinkedin) { DeveloperLinkedin = developerLinkedin; }
+    public String getDeveloperEmail() {
+        return DeveloperEmail;
+    }
+
+    public String getDeveloperLinkedin() {
+        return DeveloperLinkedin;
+    }
+
+    public void setDeveloperLinkedin(String developerLinkedin) {
+        DeveloperLinkedin = developerLinkedin;
+    }
 }

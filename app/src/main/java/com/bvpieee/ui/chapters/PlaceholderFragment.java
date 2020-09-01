@@ -195,9 +195,10 @@ public class PlaceholderFragment extends Fragment {
                     case 4:
                         intent = new Intent(context, HKN_Team.class);
                         break;
-                    default: intent = null;
+                    default:
+                        intent = null;
                 }
-                if(intent != null)
+                if (intent != null)
                     startActivity(intent);
             } else {
                 Bundle bundle = new Bundle();

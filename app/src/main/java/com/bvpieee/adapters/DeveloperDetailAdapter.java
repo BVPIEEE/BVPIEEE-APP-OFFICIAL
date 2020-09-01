@@ -35,8 +35,8 @@ public class DeveloperDetailAdapter extends RecyclerView.Adapter<DeveloperDetail
     @Override
     public DeveloperDetailAdapter.DeveloperViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
-        view= LayoutInflater.from(mContext).inflate(R.layout.developer_detail_card,parent,false);
-        DeveloperViewHolder holder=new DeveloperViewHolder(view);
+        view = LayoutInflater.from(mContext).inflate(R.layout.developer_detail_card, parent, false);
+        DeveloperViewHolder holder = new DeveloperViewHolder(view);
         return holder;
     }
 
@@ -46,25 +46,26 @@ public class DeveloperDetailAdapter extends RecyclerView.Adapter<DeveloperDetail
 //        holder.itemView.setAnimation(AnimationUtils.loadAnimation(mContext,R.anim.animation_recyclerview));
 
         holder.textView_developer_name.setText(mData.get(position).getDevelopeName());
-        holder. textview_developer_post.setText(mData.get(position).getDeveloperDetails());
+        holder.textview_developer_post.setText(mData.get(position).getDeveloperDetails());
         holder.imageView_developer_photo.setImageResource(mData.get(position).getDeveloperPhoto());
 
-        Uri linkedin_url;
-        linkedin_url=Uri.parse(mData.get(position).getDeveloperLinkedin());
+        Uri url;
+        url = Uri.parse(mData.get(position).getDeveloperLinkedin());
 
         holder.linkedinDeveloper.setOnClickListener(view -> {
-            Intent intent=new Intent(Intent.ACTION_VIEW,linkedin_url);
+            Intent intent = new Intent(Intent.ACTION_VIEW, url);
             intent.setPackage("com.linkedin.android");
-            if (intent.getPackage()==null){
-                intent.setData(linkedin_url);
+            try{
+                intent.setData(url);
                 mContext.startActivity(intent);
-            } else {
-                mContext.startActivity(intent);
+            }
+            catch (Exception e) {
+                mContext.startActivity(new Intent(Intent.ACTION_VIEW, url));
             }
         });
 
         Uri email;
-        email=Uri.parse(mData.get(position).getDeveloperEmail());
+        email = Uri.parse(mData.get(position).getDeveloperEmail());
 
         holder.gmailDeveloper.setOnClickListener(view -> {
             Intent emailTheDeveloper = new Intent(Intent.ACTION_SENDTO, email);
@@ -95,12 +96,12 @@ public class DeveloperDetailAdapter extends RecyclerView.Adapter<DeveloperDetail
         public DeveloperViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            textView_developer_name=itemView.findViewById(R.id.tvdeveloper_name);
-            textview_developer_post=itemView.findViewById(R.id.tvdeveloper_post);
-            imageView_developer_photo=itemView.findViewById(R.id.developer_image);
-            linkedinDeveloper=itemView.findViewById(R.id.linkein_developer);
-            gmailDeveloper=itemView.findViewById(R.id.gmail_developer);
-            memberItem=itemView.findViewById(R.id.developers);
+            textView_developer_name = itemView.findViewById(R.id.tvdeveloper_name);
+            textview_developer_post = itemView.findViewById(R.id.tvdeveloper_post);
+            imageView_developer_photo = itemView.findViewById(R.id.developer_image);
+            linkedinDeveloper = itemView.findViewById(R.id.linkein_developer);
+            gmailDeveloper = itemView.findViewById(R.id.gmail_developer);
+            memberItem = itemView.findViewById(R.id.developers);
         }
     }
 }

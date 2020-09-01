@@ -21,7 +21,6 @@ import com.bvpieee.R;
 import com.bvpieee.models.TeamFragModelClass;
 
 import java.util.List;
-import java.util.Random;
 
 public class RecyclerViewAdapterCSTeam extends RecyclerView.Adapter<RecyclerViewAdapterCSTeam.CSViewHolder> {
 
@@ -30,7 +29,7 @@ public class RecyclerViewAdapterCSTeam extends RecyclerView.Adapter<RecyclerView
     Dialog memberDialog;
 
 
-    public RecyclerViewAdapterCSTeam(Context mContext, List<TeamFragModelClass> mData){
+    public RecyclerViewAdapterCSTeam(Context mContext, List<TeamFragModelClass> mData) {
         this.mContext = mContext;
         this.mData = mData;
     }
@@ -40,10 +39,10 @@ public class RecyclerViewAdapterCSTeam extends RecyclerView.Adapter<RecyclerView
     @Override
     public CSViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
-        view= LayoutInflater.from(mContext).inflate(R.layout.coreteam_frag_content,parent,false);
-        final CSViewHolder holder=new CSViewHolder(view);
+        view = LayoutInflater.from(mContext).inflate(R.layout.coreteam_frag_content, parent, false);
+        final CSViewHolder holder = new CSViewHolder(view);
 
-        memberDialog=new Dialog(mContext);
+        memberDialog = new Dialog(mContext);
         memberDialog.setContentView(R.layout.dialog_team_member_info);
         memberDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
@@ -51,15 +50,16 @@ public class RecyclerViewAdapterCSTeam extends RecyclerView.Adapter<RecyclerView
             @Override
             public void onClick(View view) {
 
-                ImageView memberimg= memberDialog.findViewById(R.id.imgMember);
-                TextView memberName=memberDialog.findViewById(R.id.MemberName);
-                TextView memberInfo=memberDialog.findViewById(R.id.member_info);
-                TextView closeDialog=memberDialog.findViewById(R.id.closedialog);
-                LinearLayout dialogLayout= memberDialog.findViewById(R.id.dialog_layout);
+                ImageView memberimg = memberDialog.findViewById(R.id.imgMember);
+                TextView memberName = memberDialog.findViewById(R.id.MemberName);
+                TextView memberInfo = memberDialog.findViewById(R.id.member_info);
+                TextView closeDialog = memberDialog.findViewById(R.id.closedialog);
 
-                Random random = new Random();
-                int currentColor= Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256));
-                dialogLayout.setBackgroundColor(currentColor);
+//                LinearLayout dialogLayout= memberDialog.findViewById(R.id.dialog_layout);
+//
+//                Random random = new Random();
+//                int currentColor= Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256));
+//                dialogLayout.setBackgroundColor(currentColor);
 
                 memberimg.setImageResource(mData.get(holder.getAbsoluteAdapterPosition()).getPhoto());
                 memberName.setText(mData.get(holder.getAbsoluteAdapterPosition()).getName());
@@ -87,20 +87,21 @@ public class RecyclerViewAdapterCSTeam extends RecyclerView.Adapter<RecyclerView
 
         holder.name.setText(mData.get(position).getName());
         holder.post.setText(mData.get(position).getPost());
+        holder.branchAndYear.setText(mData.get(position).getBranchYear());
 //        holder.imageView_photo.setImageResource(mData.get(holder.getAdapterPosition()).getPhoto());
         Uri url;
-        url= Uri.parse(mData.get(position).getLinkedIn());
+        url = Uri.parse(mData.get(position).getLinkedIn());
 
         holder.linkedIn.setOnClickListener(view -> {
-            Intent intent;
+            Intent intent = new Intent(Intent.ACTION_VIEW, url);
+            intent.setPackage("com.linkedin.android");
             try{
-                intent=new Intent(Intent.ACTION_VIEW,url);
-                intent.setPackage("com.linkedin.android");
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            }catch(Exception e){
-                intent=new Intent(Intent.ACTION_VIEW,url);
+                intent.setData(url);
+                mContext.startActivity(intent);
             }
-            mContext.startActivity(intent);
+            catch (Exception e) {
+                mContext.startActivity(new Intent(Intent.ACTION_VIEW, url));
+            }
         });
 
     }
@@ -110,25 +111,26 @@ public class RecyclerViewAdapterCSTeam extends RecyclerView.Adapter<RecyclerView
         return mData.size();
     }
 
-    public static class CSViewHolder extends RecyclerView.ViewHolder{
+    public static class CSViewHolder extends RecyclerView.ViewHolder {
 
         private TextView name;
         private TextView post;
-//        private ImageView imageView_photo;
+        //        private ImageView imageView_photo;
         private LinearLayout memberRvItem;
         private ImageButton linkedIn;
+        private TextView branchAndYear;
 
         public CSViewHolder(@NonNull View itemView) {
             super(itemView);
-            memberRvItem=(LinearLayout) itemView.findViewById(R.id.memberItem);
-            name=itemView.findViewById(R.id.tvnameCore);
-            post=itemView.findViewById(R.id.corePost);
-            linkedIn=itemView.findViewById(R.id.linkedin_img_btn);
+            memberRvItem = (LinearLayout) itemView.findViewById(R.id.memberItem);
+            name = itemView.findViewById(R.id.tvnameCore);
+            post = itemView.findViewById(R.id.corePost);
+            linkedIn = itemView.findViewById(R.id.linkedin_img_btn);
+            branchAndYear = (TextView) itemView.findViewById(R.id.branchAndyear);
 //            imageView_photo=itemView.findViewById(R.id.img);
 
         }
     }
-
 
 
 }

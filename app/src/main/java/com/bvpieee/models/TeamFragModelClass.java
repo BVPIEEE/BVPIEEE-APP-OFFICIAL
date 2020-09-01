@@ -8,28 +8,35 @@ public class TeamFragModelClass {
     private int Photo;
     private String MemberDetails;
     private String LinkedIn;
+    private String BranchYear;
 
-    public TeamFragModelClass(){
-    }
-
-    public TeamFragModelClass(String name, String post, int photo, String memberDetails, String linkedIn){
-            Name=name;
-            Post=post;
-            Photo=photo;
-            MemberDetails=memberDetails;
-            LinkedIn=linkedIn;
+    public TeamFragModelClass() {
     }
 
 
-    public void setLinkedIn(String linkedIn) { LinkedIn = linkedIn; }
+    public TeamFragModelClass(String name, String post, int photo, String memberDetails, String linkedIn, String branchYear) {
+        Name = name;
+        Post = post;
+        Photo = photo;
+        MemberDetails = memberDetails;
+        LinkedIn = linkedIn;
+        BranchYear = branchYear;
+    }
 
-    public String getLinkedIn() { return LinkedIn; }
+
+    public void setLinkedIn(String linkedIn) {
+        LinkedIn = linkedIn;
+    }
+
+    public String getLinkedIn() {
+        return LinkedIn;
+    }
 
     public String getName() {
         return Name;
     }
 
-    public String  getPost() {
+    public String getPost() {
         return Post;
     }
 
@@ -41,7 +48,7 @@ public class TeamFragModelClass {
         Name = name;
     }
 
-    public void setPost(String  post) {
+    public void setPost(String post) {
         Post = post;
     }
 
@@ -49,7 +56,19 @@ public class TeamFragModelClass {
         Photo = photo;
     }
 
-    public void setMemberDetails(String memberDetails) { MemberDetails = memberDetails; }
+    public void setMemberDetails(String memberDetails) {
+        MemberDetails = memberDetails;
+    }
 
-    public String getMemberDetails() { return MemberDetails; }
+    public String getMemberDetails() {
+        return MemberDetails;
+    }
+
+    public void setBranchYear(String branchYear) {
+        BranchYear = branchYear;
+    }
+
+    public String getBranchYear() {
+        return BranchYear;
+    }
 }

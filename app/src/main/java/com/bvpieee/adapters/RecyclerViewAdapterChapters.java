@@ -22,7 +22,7 @@ public class RecyclerViewAdapterChapters extends RecyclerView.Adapter<RecyclerVi
     List<ChapterTeamFragModel> mData;
     private onChapterClickListener monclickListener;
 
-    public RecyclerViewAdapterChapters(Context mContext, List<ChapterTeamFragModel> mData,onChapterClickListener onClickListener) {
+    public RecyclerViewAdapterChapters(Context mContext, List<ChapterTeamFragModel> mData, onChapterClickListener onClickListener) {
         this.mContext = mContext;
         this.mData = mData;
         this.monclickListener = onClickListener;
@@ -32,8 +32,8 @@ public class RecyclerViewAdapterChapters extends RecyclerView.Adapter<RecyclerVi
     @Override
     public MyViewHolderForChapterTeams onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
-        view= LayoutInflater.from(mContext).inflate(R.layout.chapter_frag_content,parent,false);
-        return new MyViewHolderForChapterTeams(view,monclickListener);
+        view = LayoutInflater.from(mContext).inflate(R.layout.chapter_frag_content, parent, false);
+        return new MyViewHolderForChapterTeams(view, monclickListener);
     }
 
     @Override
@@ -57,13 +57,14 @@ public class RecyclerViewAdapterChapters extends RecyclerView.Adapter<RecyclerVi
         private ImageView imageView_chapter_photo;
         private LinearLayout memberItem;
         onChapterClickListener onClickListener;
+
         public MyViewHolderForChapterTeams(@NonNull View itemView, onChapterClickListener onClickListener) {
             super(itemView);
-            textView_chapter_name=itemView.findViewById(R.id.tvChapName);
-            textview_chaptwr_fullform=itemView.findViewById(R.id.tvChapNameFullForm);
-            imageView_chapter_photo=itemView.findViewById(R.id.imgChapter);
-            memberItem=itemView.findViewById(R.id.chapterCard);
-            this.onClickListener=onClickListener;
+            textView_chapter_name = itemView.findViewById(R.id.tvChapName);
+            textview_chaptwr_fullform = itemView.findViewById(R.id.tvChapNameFullForm);
+            imageView_chapter_photo = itemView.findViewById(R.id.imgChapter);
+            memberItem = itemView.findViewById(R.id.chapterCard);
+            this.onClickListener = onClickListener;
             itemView.setOnClickListener(this);
 
         }

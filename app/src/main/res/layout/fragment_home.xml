@@ -5,26 +5,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/homeScrollView"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/chaptersLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:elevation="30dp"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="30dp">
-
+        android:layout_height="match_parent"
+        android:padding="10dp">
 
             <RelativeLayout
+                android:id="@+id/chaptersLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -56,20 +46,8 @@
                     android:layout_marginRight="0.5dp"
                     android:layout_marginBottom="5dp"
                     android:background="?android:attr/listDivider"
-                    android:backgroundTint="@color/colorAccent"
+                    android:backgroundTint="@color/colorPrimaryDark"
                     android:elevation="100dp" />
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/divider"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:elevation="20dp"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="20dp">
 
                     <it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow
                         android:id="@+id/chapterCoverflow"
@@ -90,24 +68,10 @@
                         coverflow:rotationThreshold="1.0"
                         coverflow:scalingThreshold="1.0"
                         coverflow:spacing="0.6" />
-                </androidx.cardview.widget.CardView>
             </RelativeLayout>
-        </androidx.cardview.widget.CardView>
-
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/sigsLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/chaptersLayout"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:elevation="30dp"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="30dp">
 
             <RelativeLayout
+                android:id="@+id/sigsLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/chaptersLayout">
@@ -119,11 +83,10 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="0.5dp"
-                    android:fontFamily="monospace"
                     android:text="SIGs"
                     android:textAlignment="center"
                     android:textAllCaps="true"
-                    android:textColor="@color/tab_bg_color"
+                    android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -139,15 +102,6 @@
                     android:background="?android:attr/listDivider"
                     android:backgroundTint="@color/colorPrimaryDark"
                     android:elevation="20dp" />
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/divider2"
-                    android:layout_margin="10dp"
-                    android:elevation="20dp"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="20dp">
 
                     <it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow
                         android:id="@+id/sigsCoverflow"
@@ -168,71 +122,8 @@
                         coverflow:rotationThreshold="1.0"
                         coverflow:scalingThreshold="1.0"
                         coverflow:spacing="0.6" />
-                </androidx.cardview.widget.CardView>
 
             </RelativeLayout>
-        </androidx.cardview.widget.CardView>
-
-        <RelativeLayout
-            android:id="@+id/upcomingEventLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/sigsLayout">
-
-            <TextView
-                android:id="@+id/upcomingHeading"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="5dp"
-                android:elevation="100dp"
-                android:fontFamily="monospace"
-                android:text="UPCOMING EVENTS"
-                android:textAlignment="center"
-                android:textAllCaps="true"
-                android:textColor="@color/tab_bg_color"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <View
-                android:id="@+id/divider3"
-                android:layout_width="300dp"
-                android:layout_height="2dp"
-                android:layout_below="@id/upcomingHeading"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="5dp"
-                android:background="?android:attr/listDivider"
-                android:backgroundTint="@color/colorAccent"
-                android:elevation="200dp" />
-
-            <com.wajahatkarim3.easyflipview.EasyFlipView
-                android:id="@+id/easyflip"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/divider3"
-                android:elevation="50dp"
-                android:isScrollContainer="true"
-                android:keepScreenOn="true"
-                app:flipDuration="400"
-                app:flipEnabled="true"
-                app:flipFrom="front"
-                app:flipOnTouch="true"
-                app:flipType="vertical">
-
-                <!-- Back Layout Goes Here -->
-                <include layout="@layout/flash_card_layout_back"
-                    android:id="@+id/back_layout"/>
-
-                <!-- Front Layout Goes Here -->
-                <include layout="@layout/flash_card_layout_front"
-                    android:id="@+id/front_layout"/>
-
-            </com.wajahatkarim3.easyflipview.EasyFlipView>
-
-        </RelativeLayout>
 
     </RelativeLayout>
 

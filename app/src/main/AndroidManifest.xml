@@ -31,7 +31,7 @@
         <activity
             android:name=".LoginActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme1" />
+            android:theme="@style/SplashTheme" />
         <activity
             android:name=".SplashScreen"
             android:screenOrientation="portrait"

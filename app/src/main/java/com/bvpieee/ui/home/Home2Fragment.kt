@@ -1,7 +1,6 @@
 package com.bvpieee.ui.home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,8 +8,8 @@ import android.widget.TextView
 import androidx.dynamicanimation.animation.DynamicAnimation
 import androidx.dynamicanimation.animation.SpringAnimation
 import androidx.dynamicanimation.animation.SpringForce
+import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
-import com.bvpieee.HomeActivity
 import com.bvpieee.R
 import com.bvpieee.adapters.ChapterPagerAdapter
 import com.saeed.infiniteflow.lib.FinitePagerContainer
@@ -31,14 +30,14 @@ class Home2Fragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view =  inflater.inflate(R.layout.fragment_home2, container, false)
+        val view = inflater.inflate(R.layout.fragment_home2, container, false)
 
         val pagerContainer = view.findViewById<FinitePagerContainer>(R.id.pager_container)
         val text = view.findViewById<FinitePagerContainer>(R.id.title_text_view) as TextView
         val view_pager = view.findViewById<FinitePagerContainer>(R.id.view_pager) as ViewPager2
         text.text = titles[0]
 //        title_text_view.text = titles[0]
-    // Set Your Adapter with viewPager adapter
+        // Set Your Adapter with viewPager adapter
         pagerContainer.getViewPager().adapter = recyclerPagerAdapter
         pagerContainer.getViewPager().offscreenPageLimit = 4
         pagerContainer.setSimpleSlider(

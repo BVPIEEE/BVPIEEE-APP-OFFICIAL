@@ -53,75 +53,76 @@ public class AuxillaryTeamFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        memberAuxy= new ArrayList<>();
+        memberAuxy = new ArrayList<>();
 
-        memberAuxy.add(new TeamFragModelClass("Sajal Jain","Head- App Development",R.drawable.sajaljain,
+        memberAuxy.add(new TeamFragModelClass("Sajal Jain", "Head- App Development", R.drawable.sajaljain,
                 "I am a highly motivated individual with a passion for constantly developing skills and growing professionally. " +
-                "I thrive for creativity, innovation and aesthetics.\nCo-Founder: College Connect\n Domain of work: Android Mobile Application Development, UI/UX Designing",
-                "https://www.linkedin.com/in/sajal-jain-1a4163177"));
+                        "I thrive for creativity, innovation and aesthetics.\nCo-Founder: College Connect\n Domain of work: Android Mobile Application Development, UI/UX Designing",
+                "https://www.linkedin.com/in/sajal-jain-1a4163177", "ECE, 3th Year"));
 
 
-        memberAuxy.add(new TeamFragModelClass("Harshit Gaur","Head - Publicity/ Corporate and Media Affairs",R.drawable.harshitgaur,
+        memberAuxy.add(new TeamFragModelClass("Harshit Gaur", "Head - Publicity/ Corporate and Media Affairs", R.drawable.harshitgaur,
                 "Beleives in innovation at its core. Dreamer and aspiring engineer." +
-                "Field of work : Deep Learning, App development and AR/VR","https://www.linkedin.com/in/harshitgaur2"));
+                        "Field of work : Deep Learning, App development and AR/VR", "https://www.linkedin.com/in/harshitgaur2", "CSE, 3rd Year"));
 
-        memberAuxy.add(new TeamFragModelClass("Tanya Mahajan","Head - Human Recources", R.drawable.tanyamahajan,
-                "I like to do coding,and is fine of series and listening music.","https://www.linkedin.com/in/tanya-mahajan-a19a81182"));
+        memberAuxy.add(new TeamFragModelClass("Tanya Mahajan", "Head - Human Recources", R.drawable.tanyamahajan,
+                "I like to do coding,and is fine of series and listening music.", "https://www.linkedin.com/in/tanya-mahajan-a19a81182", "ECE, 3rd Year"));
 
-        memberAuxy.add(new TeamFragModelClass("Naman Aggarwal","Head - Public Relations, Head - Sponsorship",R.drawable.namanaggarwal,
+        memberAuxy.add(new TeamFragModelClass("Naman Aggarwal", "Head - Public Relations, Head - Sponsorship", R.drawable.namanaggarwal,
                 "An avid Tech geek and startup enthusiast. " +
-                "Securing sponsorships and maintaining good public relations is my domain fo work","https://www.linkedin.com/in/naman-aggarwal-83b285188/"));
+                        "Securing sponsorships and maintaining good public relations is my domain fo work", "https://www.linkedin.com/in/naman-aggarwal-83b285188/", "CSE, 2nd Year"));
 
-        memberAuxy.add(new TeamFragModelClass("Umang Seth","Head - Event Management",R.drawable.umangseth,
+        memberAuxy.add(new TeamFragModelClass("Umang Seth", "Head - Event Management", R.drawable.umangseth,
                 "I am Robotics enthusiast. Also interested in Aerospace." +
-                "Field of work : Robotics and AI","https://www.linkedin.com/in/umang-seth-9457911a7"));
+                        "Field of work : Robotics and AI", "https://www.linkedin.com/in/umang-seth-9457911a7", "ECE, 2nd Year"));
 
-        memberAuxy.add(new TeamFragModelClass("Pranav Grover","Head - Event Management",R.drawable.pranavgrover,
+        memberAuxy.add(new TeamFragModelClass("Pranav Grover", "Head - Event Management", R.drawable.pranavgrover,
                 "I can do work as well as get work done by people. I believe in maintaining good relations with each and everyone." +
-                "I am good at managing events.","https://www.linkedin.com/in/pranav-grover-4349061a8"));
+                        "I am good at managing events.", "https://www.linkedin.com/in/pranav-grover-4349061a8", "EEE, 2nd Year"));
 
-        memberAuxy.add(new TeamFragModelClass("Amol Puri","Head - Publications and Documentation",R.drawable.amolpuri,
+        memberAuxy.add(new TeamFragModelClass("Amol Puri", "Head - Publications and Documentation", R.drawable.amolpuri,
                 "Wants to learn new things, expand network and gain experience." +
-                "I work as publications and documentation head and currently am working on C++.","https://www.linkedin.com/profile/view"));
+                        "I work as publications and documentation head and currently am working on C++.", "https://www.linkedin.com/profile/view", "ECE, 2nd Year"));
 
-        memberAuxy.add(new TeamFragModelClass("Bhavya Wahie","Head - Creativity, Head - Sponsorship",R.drawable.bvpieee,
-                "Marketing Enthusiast. Video editing is my domain of work.","https://www.linkedin.com/"));
-        memberAuxy.add(new TeamFragModelClass("Shreyas Gupta","Head - Creativity",R.drawable.bvpieee,"","https://www.linkedin.com/"));
+        memberAuxy.add(new TeamFragModelClass("Bhavya Wahie", "Head - Creativity, Head - Sponsorship", R.drawable.bvpieee,
+                "No Info Available", "https://www.linkedin.com/", "No Info Available"));
 
-        memberAuxy.add(new TeamFragModelClass("Ankit Goel","Head - Sponsorship",R.drawable.ankitgoel,
+        memberAuxy.add(new TeamFragModelClass("Shreyas Gupta", "Head - Creativity", R.drawable.bvpieee, "No Info Available", "https://www.linkedin.com/",
+                "No Info Available"));
+
+        memberAuxy.add(new TeamFragModelClass("Ankit Goel", "Head - Sponsorship", R.drawable.ankitgoel,
                 "Hard-working and open for learning new things Getting sponsors for events is my domain of work.",
-                "https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin"));
+                "https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin", "ECE, 2nd Year"));
 
-        memberAuxy.add(new TeamFragModelClass("Anuvrat","Head - Infrastructure and Logistics",R.drawable.bvpieee,
-                "My responsiblity is to make arrangement for various events taking place in the society","https://www.linkedin.com"));
+        memberAuxy.add(new TeamFragModelClass("Anuvrat", "Head - Infrastructure and Logistics", R.drawable.bvpieee,
+                "No Info Available", "https://www.linkedin.com", "No Info Available"));
 
-        memberAuxy.add(new TeamFragModelClass("Amit Kumar","Head - Infrastructure and Logistics",R.drawable.amitkumar,
+        memberAuxy.add(new TeamFragModelClass("Amit Kumar", "Head - Infrastructure and Logistics", R.drawable.amitkumar,
                 "I like to keep a positive attitude I enjoy facing challenges." +
-                "Field of work : Power system, power electronics and embedded systems.","https://www.linkedin.com/in/amit-kumar-4758a41a7"));
+                        "Field of work : Power system, power electronics and embedded systems.", "https://www.linkedin.com/in/amit-kumar-4758a41a7", "EEE, 3rd Year"));
 
-        memberAuxy.add(new TeamFragModelClass("Shivam Sharma","Student Representative",R.drawable.shivamsharma,
+        memberAuxy.add(new TeamFragModelClass("Shivam Sharma", "Student Representative", R.drawable.shivamsharma,
                 "Those who can imagine anything, can create the impossible."
-        + "Trying to find the answer -Can Machines Think?","https://www.linkedin.com/in/shivamjain9990339112"));
+                        + "Trying to find the answer -Can Machines Think?", "https://www.linkedin.com/in/shivamjain9990339112", "CSE, 2nd Year"));
 
-        memberAuxy.add(new TeamFragModelClass("Amisha Malik","Student Representative",R.drawable.amishamalik,
+        memberAuxy.add(new TeamFragModelClass("Amisha Malik", "Student Representative", R.drawable.amishamalik,
                 "I'm enthusiastic about coding and learning new technologies!"
-        + "My work involves making sure that student members are fully aware of the major IEEE projects and events and are actively involved in them, leading growth.",
-                "https://www.linkedin.com/in/amisha-malik-7b7852166"));
-
+                        + "My work involves making sure that student members are fully aware of the major IEEE projects and events and are actively involved in them, leading growth.",
+                "https://www.linkedin.com/in/amisha-malik-7b7852166", "CSE, 2nd Year"));
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view=inflater.inflate(R.layout.fragment_auxillary_team ,container,false);
-        myRecyclerView =(RecyclerView) view.findViewById(R.id.rvAuxy);
-        RecyclerViewAdapterAuxillaryTeam recyclerViewAdapter=new RecyclerViewAdapterAuxillaryTeam(getContext(),memberAuxy);
+        view = inflater.inflate(R.layout.fragment_auxillary_team, container, false);
+        myRecyclerView = (RecyclerView) view.findViewById(R.id.rvAuxy);
+        RecyclerViewAdapterAuxillaryTeam recyclerViewAdapter = new RecyclerViewAdapterAuxillaryTeam(getContext(), memberAuxy);
         myRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         myRecyclerView.setAdapter(recyclerViewAdapter);
         myRecyclerView.setItemViewCacheSize(20);
         myRecyclerView.setDrawingCacheEnabled(true);
         myRecyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
-            return view;
+        return view;
     }
 }

@@ -8,8 +8,6 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.bvpieee.ui.chapters.SectionsPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -17,8 +15,6 @@ public class ChapterActivity extends AppCompatActivity {
 
     public static final String CHAPTER = "ChapterNumber";
     public static final String Coverflow = "CoverFlow";
-    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-    DatabaseReference mDatabaseReference;
     ArrayList<String> list = null;
 
     @Override
@@ -29,13 +25,13 @@ public class ChapterActivity extends AppCompatActivity {
         //Setup viewpager and tablayout
         SectionsPagerAdapter sectionsPagerAdapter;
         Intent intent = getIntent();
-        int chapno = intent.getIntExtra(CHAPTER,0);
+        int chapno = intent.getIntExtra(CHAPTER, 0);
         String coverflow = intent.getStringExtra(Coverflow);
         if (coverflow == null)
 
-            sectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(),this, "chapter");
+            sectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), this, "chapter");
         else
-            sectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(),this, "sig");
+            sectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), this, "sig");
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);

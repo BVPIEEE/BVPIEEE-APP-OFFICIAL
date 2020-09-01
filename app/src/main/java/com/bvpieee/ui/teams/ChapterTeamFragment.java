@@ -2,14 +2,13 @@ package com.bvpieee.ui.teams;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.bvpieee.R;
 import com.bvpieee.adapters.RecyclerViewAdapterChapters;
@@ -23,7 +22,7 @@ import java.util.List;
  * Use the {@link ChapterTeamFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ChapterTeamFragment extends Fragment  implements RecyclerViewAdapterChapters.onChapterClickListener{
+public class ChapterTeamFragment extends Fragment implements RecyclerViewAdapterChapters.onChapterClickListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -56,16 +55,16 @@ public class ChapterTeamFragment extends Fragment  implements RecyclerViewAdapte
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ChapterName= new ArrayList<>();
-        ChapterName.add(new ChapterTeamFragModel("BVPIEEE RAS","Robotics and Automation Society (RAS)",R.drawable.raspp));
+        ChapterName = new ArrayList<>();
+        ChapterName.add(new ChapterTeamFragModel("BVPIEEE RAS", "Robotics and Automation Society (RAS)", R.drawable.raspp));
 
-        ChapterName.add(new ChapterTeamFragModel("BVPIEEE CS","Computer Society (CS)",R.drawable.cspp));
+        ChapterName.add(new ChapterTeamFragModel("BVPIEEE CS", "Computer Society (CS)", R.drawable.cspp));
 
-        ChapterName.add(new ChapterTeamFragModel("BVPIEEE IAS","Industry and Application Society (IAS)",R.drawable.iaspp));
+        ChapterName.add(new ChapterTeamFragModel("BVPIEEE IAS", "Industry and Application Society (IAS)", R.drawable.iaspp));
 
-        ChapterName.add(new ChapterTeamFragModel("BVPIEEE WIE","Women In Engineering (WIE)",R.drawable.wiepp));
+        ChapterName.add(new ChapterTeamFragModel("BVPIEEE WIE", "Women In Engineering (WIE)", R.drawable.wiepp));
 
-        ChapterName.add(new ChapterTeamFragModel("BVPIEEE HKN","HKN Lambda ETA Chapter",R.drawable.hknpp));
+        ChapterName.add(new ChapterTeamFragModel("BVPIEEE HKN", "HKN Lambda ETA Chapter", R.drawable.hknpp));
 
     }
 
@@ -73,9 +72,9 @@ public class ChapterTeamFragment extends Fragment  implements RecyclerViewAdapte
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view=inflater.inflate(R.layout.fragment_chapter2 ,container,false);
-        myRecyclerView =(RecyclerView) view.findViewById(R.id.rvChaptername);
-        RecyclerViewAdapterChapters recyclerViewAdapter=new RecyclerViewAdapterChapters(getContext(),ChapterName,this);
+        view = inflater.inflate(R.layout.fragment_chapter2, container, false);
+        myRecyclerView = (RecyclerView) view.findViewById(R.id.rvChaptername);
+        RecyclerViewAdapterChapters recyclerViewAdapter = new RecyclerViewAdapterChapters(getContext(), ChapterName, this);
         myRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         myRecyclerView.setAdapter(recyclerViewAdapter);
         return view;
@@ -84,24 +83,20 @@ public class ChapterTeamFragment extends Fragment  implements RecyclerViewAdapte
 
     @Override
     public void onChapterClick(int position) {
-        if (position==0) {
+        if (position == 0) {
             Intent intentRAS = new Intent(ChapterTeamFragment.this.getActivity(), RAS_Team.class);
             startActivity(intentRAS);
-        }
-        else if (position==1){
-            Intent intentCS = new Intent(ChapterTeamFragment.this.getActivity(),CS_Team.class);
+        } else if (position == 1) {
+            Intent intentCS = new Intent(ChapterTeamFragment.this.getActivity(), CS_Team.class);
             startActivity(intentCS);
-        }
-        else if (position==2){
-            Intent intentIAS= new Intent(ChapterTeamFragment.this.getActivity(),IAS_Team.class);
+        } else if (position == 2) {
+            Intent intentIAS = new Intent(ChapterTeamFragment.this.getActivity(), IAS_Team.class);
             startActivity(intentIAS);
-        }
-        else if(position==3){
-            Intent intentWIE= new Intent(ChapterTeamFragment.this.getActivity(),WIE_Team.class);
+        } else if (position == 3) {
+            Intent intentWIE = new Intent(ChapterTeamFragment.this.getActivity(), WIE_Team.class);
             startActivity(intentWIE);
-        }
-        else{
-            Intent intentHKN= new Intent(ChapterTeamFragment.this.getActivity(),HKN_Team.class);
+        } else {
+            Intent intentHKN = new Intent(ChapterTeamFragment.this.getActivity(), HKN_Team.class);
             startActivity(intentHKN);
         }
     }
