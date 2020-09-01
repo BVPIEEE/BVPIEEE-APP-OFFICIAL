@@ -44,7 +44,8 @@ class EventsAdapter(val eventDataSet: ArrayList<EventInfo>, val context: Context
                 putString("EventOrg", eventDataSet[position].department)
                 putString("EventImage", eventDataSet[position].image)
                 putString("EventUrl", eventDataSet[position].url)
-                putInt("Position",position)
+                putString("EventYtVideoLink", eventDataSet[position].videoLink)
+                putInt("Position", position)
             }
             intent.putExtras(bundle)
             val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
