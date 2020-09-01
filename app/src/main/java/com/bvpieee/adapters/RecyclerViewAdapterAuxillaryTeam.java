@@ -60,18 +60,13 @@ public class RecyclerViewAdapterAuxillaryTeam extends RecyclerView.Adapter<Recyc
 //                int currentColor= Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256));
 //                dialogLayout.setBackgroundColor(currentColor);
 
-                memberimg.setImageResource(mData.get(holder.getAdapterPosition()).getPhoto());
-                memberName.setText(mData.get(holder.getAdapterPosition()).getName());
-                memberInfo.setText(mData.get(holder.getAdapterPosition()).getMemberDetails());
+                memberimg.setImageResource(mData.get(holder.getAbsoluteAdapterPosition()).getPhoto());
+                memberName.setText(mData.get(holder.getAbsoluteAdapterPosition()).getName());
+                memberInfo.setText(mData.get(holder.getAbsoluteAdapterPosition()).getMemberDetails());
                 memberDialog.show();
 
 
-                closeDialog.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        memberDialog.dismiss();
-                    }
-                });
+                closeDialog.setOnClickListener(view1 -> memberDialog.dismiss());
 
             }
         });
@@ -91,17 +86,15 @@ public class RecyclerViewAdapterAuxillaryTeam extends RecyclerView.Adapter<Recyc
         Uri url;
         url = Uri.parse(mData.get(position).getLinkedIn());
 
-        holder.linkedIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, url);
-                intent.setPackage("com.linkedin.android");
-                if (intent.getPackage() == null) {
-                    intent.setData(url);
-                    mContext.startActivity(intent);
-                } else {
-                    mContext.startActivity(intent);
-                }
+        holder.linkedIn.setOnClickListener(view -> {
+            Intent intent = new Intent(Intent.ACTION_VIEW, url);
+            intent.setPackage("com.linkedin.android");
+            try{
+                intent.setData(url);
+                mContext.startActivity(intent);
+            }
+            catch (Exception e) {
+                mContext.startActivity(new Intent(Intent.ACTION_VIEW, url));
             }
         });
 

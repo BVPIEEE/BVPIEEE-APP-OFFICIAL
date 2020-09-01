@@ -93,15 +93,15 @@ public class RecyclerViewAdapterCSTeam extends RecyclerView.Adapter<RecyclerView
         url = Uri.parse(mData.get(position).getLinkedIn());
 
         holder.linkedIn.setOnClickListener(view -> {
-            Intent intent;
-            try {
-                intent = new Intent(Intent.ACTION_VIEW, url);
-                intent.setPackage("com.linkedin.android");
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            } catch (Exception e) {
-                intent = new Intent(Intent.ACTION_VIEW, url);
+            Intent intent = new Intent(Intent.ACTION_VIEW, url);
+            intent.setPackage("com.linkedin.android");
+            try{
+                intent.setData(url);
+                mContext.startActivity(intent);
             }
-            mContext.startActivity(intent);
+            catch (Exception e) {
+                mContext.startActivity(new Intent(Intent.ACTION_VIEW, url));
+            }
         });
 
     }

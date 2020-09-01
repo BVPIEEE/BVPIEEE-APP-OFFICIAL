@@ -49,17 +49,18 @@ public class DeveloperDetailAdapter extends RecyclerView.Adapter<DeveloperDetail
         holder.textview_developer_post.setText(mData.get(position).getDeveloperDetails());
         holder.imageView_developer_photo.setImageResource(mData.get(position).getDeveloperPhoto());
 
-        Uri linkedin_url;
-        linkedin_url = Uri.parse(mData.get(position).getDeveloperLinkedin());
+        Uri url;
+        url = Uri.parse(mData.get(position).getDeveloperLinkedin());
 
         holder.linkedinDeveloper.setOnClickListener(view -> {
-            Intent intent = new Intent(Intent.ACTION_VIEW, linkedin_url);
+            Intent intent = new Intent(Intent.ACTION_VIEW, url);
             intent.setPackage("com.linkedin.android");
-            if (intent.getPackage() == null) {
-                intent.setData(linkedin_url);
+            try{
+                intent.setData(url);
                 mContext.startActivity(intent);
-            } else {
-                mContext.startActivity(intent);
+            }
+            catch (Exception e) {
+                mContext.startActivity(new Intent(Intent.ACTION_VIEW, url));
             }
         });
 
