@@ -12,8 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:scaleType="centerCrop"
-        android:transitionName="eventBannerTransition"
         android:src="@mipmap/event_banner_sample"
+        android:transitionName="eventBannerTransition"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout_EventDescription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,15 +28,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
+
         <TextView
+            android:id="@+id/organizer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/organizer"
             android:layout_marginTop="16dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:paddingBottom="16dp"
-            android:text="EVENT ORGANIZER"/>
+            android:text="EVENT ORGANIZER" />
 
         <TextView
             android:id="@+id/tvEventDescription"
@@ -47,27 +48,34 @@
             android:paddingRight="16dp"
             android:paddingBottom="16dp"
             android:text="@string/dummyText" />
+
         <android.widget.Button
+            android:id="@+id/registerEventButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="REGISTER"
-            android:id="@+id/registerEventButton"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="8dp"
+            android:text="REGISTER" />
+
+        <com.google.android.youtube.player.YouTubePlayerView
+            android:id="@+id/YouTubePlayerWidget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
     </LinearLayout>
-        <!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:id="@+id/eventsRecycler"/>-->
+    <!--        <androidx.recyclerview.widget.RecyclerView-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:id="@+id/eventsRecycler"/>-->
 
-        <!--        <Button-->
-        <!--            android:id="@+id/btnMarkGoing"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginLeft="32dp"-->
-        <!--            android:layout_marginRight="32dp"-->
-        <!--            android:layout_marginBottom="16dp"-->
-        <!--            android:text="@string/btnMarkGoing" />-->
-
+    <!--        <Button-->
+    <!--            android:id="@+id/btnMarkGoing"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginLeft="32dp"-->
+    <!--            android:layout_marginRight="32dp"-->
+    <!--            android:layout_marginBottom="16dp"-->
+    <!--            android:text="@string/btnMarkGoing" />-->
 
 
     <LinearLayout

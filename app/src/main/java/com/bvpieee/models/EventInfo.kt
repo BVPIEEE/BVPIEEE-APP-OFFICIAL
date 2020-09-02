@@ -9,7 +9,9 @@ class EventInfo(
     val image: String? = null,
     val name: String? = null,
     val url: String? = null,
-    val venue: String? = null
+    val venue: String? = null,
+    val videoLink: String? = null
+
 ) : Serializable {
 
 //    override fun toString(): String {
