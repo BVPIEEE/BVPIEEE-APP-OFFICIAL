@@ -58,7 +58,7 @@ public class AuxillaryTeamFragment extends Fragment {
         memberAuxy.add(new TeamFragModelClass("Sajal Jain", "Head- App Development", R.drawable.sajaljain,
                 "I am a highly motivated individual with a passion for constantly developing skills and growing professionally. " +
                         "I thrive for creativity, innovation and aesthetics.\nCo-Founder: College Connect\n Domain of work: Android Mobile Application Development, UI/UX Designing",
-                "https://www.linkedin.com/in/sajal-jain-1a4163177", "ECE, 3th Year"));
+                "https://www.linkedin.com/in/sajal-jain-1a4163177", "ECE, 3rd Year"));
 
 
         memberAuxy.add(new TeamFragModelClass("Harshit Gaur", "Head - Publicity/ Corporate and Media Affairs", R.drawable.harshitgaur,
