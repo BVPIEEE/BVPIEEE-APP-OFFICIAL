@@ -1,16 +1,21 @@
 package com.bvpieee.ui.events
 
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.browser.customtabs.CustomTabsIntent
 import com.bvpieee.R
-import com.bvpieee.utils.toast
+import com.bvpieee.utils.ImageHandler
 import com.google.android.youtube.player.YouTubeBaseActivity
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
 import com.google.android.youtube.player.YouTubePlayerView
+import com.squareup.picasso.NetworkPolicy
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_event_info.*
 import java.text.ParseException
@@ -28,6 +33,7 @@ class EventInfoPage : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_event_info)
         val bundle = intent.extras
+        val ytPlayerView = findViewById<YouTubePlayerView>(R.id.YouTubePlayerWidget)
 
         // Retrieving values from bundle
         tvEventPageTitle.text = bundle?.getString("EventTitle")
@@ -36,9 +42,25 @@ class EventInfoPage : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener
         YOUTUBE_VIDEO_LINK = bundle?.getString("EventYtVideoLink")
         organizer.text = bundle?.getString("EventOrg")
         Picasso.get().load(bundle?.getString("EventImage")).into(ivEventBanner)
+        Handler(Looper.getMainLooper()).postDelayed({
+            if (bit != null) {
+                ivEventBanner.setImageBitmap(bit)
+            } else
+                ImageHandler().getSharedInstance(applicationContext)
+                    ?.load(bundle?.getString("EventImage"))?.networkPolicy(NetworkPolicy.OFFLINE)
+                    ?.into(ivEventBanner)
+        },200)
+
         position = intent.getIntExtra("Position", 0)
-        toast(position.toString())
         val url = bundle?.getString("EventUrl")
+        if (position == 1 || position == 3) {
+            registerEventButton.visibility = View.GONE
+            Handler(Looper.myLooper()!!).postDelayed(
+                {
+                    ytPlayerView.initialize(getString(R.string.YOUTUBE_API_KEY), this)
+                }, 500
+            )
+        }
         registerEventButton.setOnClickListener {
             if (url != null) {
                 val builder = CustomTabsIntent.Builder()
@@ -47,10 +69,12 @@ class EventInfoPage : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener
                 customTabsIntent.launchUrl(this, Uri.parse(url))
             }
         }
+        if (position == 2) {
+            ytPlayerView.visibility = View.GONE
+        }
 
         // YouTube Player
-        val ytPlayerView = findViewById<YouTubePlayerView>(R.id.YouTubePlayerWidget)
-        ytPlayerView.initialize(getString(R.string.YOUTUBE_API_KEY), this)
+
     }
 
     private fun date(date: String): String {
@@ -101,5 +125,10 @@ class EventInfoPage : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener
         Log.d(TAG, "getYouTubeVideoId: youTubeVideoId: ${youTubeVideoId[1]}")
         return youTubeVideoId[1]
     }
+
+    companion object {
+        var bit: Bitmap? = null
+    }
+
 
 }

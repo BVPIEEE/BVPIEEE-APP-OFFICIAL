@@ -7,10 +7,11 @@ class EventInfo(
     val department: String? = null,
     val description: String? = null,
     val image: String? = null,
+    val live: Boolean = false,
     val name: String? = null,
     val url: String? = null,
     val venue: String? = null,
-    val videoLink: String? = null
+    val videoLink: String? = null,
 
 ) : Serializable {
 
