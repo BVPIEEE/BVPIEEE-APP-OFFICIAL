@@ -47,6 +47,7 @@ class EventsAdapter(val eventDataSet: ArrayList<EventInfo>, val context: Context
             override fun onBitmapLoaded(bitmap: Bitmap?, from: Picasso.LoadedFrom?) {
                 holder.tvEventImage.setImageBitmap(bitmap)
                 holder.shimmer.stopShimmer()
+                EventInfoPage.bit = bitmap
             }
 
             override fun onBitmapFailed(e: Exception?, errorDrawable: Drawable?) {

@@ -1,5 +1,6 @@
 package com.bvpieee.ui.events
 
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
@@ -14,6 +15,7 @@ import com.google.android.youtube.player.YouTubeBaseActivity
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
 import com.google.android.youtube.player.YouTubePlayerView
+import com.squareup.picasso.NetworkPolicy
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_event_info.*
 import java.text.ParseException
@@ -40,8 +42,15 @@ class EventInfoPage : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener
         YOUTUBE_VIDEO_LINK = bundle?.getString("EventYtVideoLink")
         organizer.text = bundle?.getString("EventOrg")
         Picasso.get().load(bundle?.getString("EventImage")).into(ivEventBanner)
-        ImageHandler().getSharedInstance(applicationContext)
-            ?.load(bundle?.getString("EventImage"))?.into(ivEventBanner)
+        Handler(Looper.getMainLooper()).postDelayed({
+            if (bit != null) {
+                ivEventBanner.setImageBitmap(bit)
+            } else
+                ImageHandler().getSharedInstance(applicationContext)
+                    ?.load(bundle?.getString("EventImage"))?.networkPolicy(NetworkPolicy.OFFLINE)
+                    ?.into(ivEventBanner)
+        },200)
+
         position = intent.getIntExtra("Position", 0)
         val url = bundle?.getString("EventUrl")
         if (position == 1 || position == 3) {
@@ -115,6 +124,10 @@ class EventInfoPage : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener
         val youTubeVideoId = youTubeVideoLink.split("=")
         Log.d(TAG, "getYouTubeVideoId: youTubeVideoId: ${youTubeVideoId[1]}")
         return youTubeVideoId[1]
+    }
+
+    companion object {
+        var bit: Bitmap? = null
     }
 
 
